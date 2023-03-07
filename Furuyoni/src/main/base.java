@@ -20,8 +20,8 @@ class SelectMake {
 	HashMap<Integer, String[]> godMap = new HashMap<Integer, String[]>() {
 		private static final long serialVersionUID = 1L;
 	{
-		put(1,yurina);
-		put(2,saine);
+		put(1, yurina);
+		put(2, saine);
 		put(3, himika);
 		put(4, tokoyo);
 	}};
@@ -43,7 +43,7 @@ class SelectMake {
 			System.out.println("0. 뒤로가기");
 			System.out.println(Line);
 			
-			select = sc.nextInt();
+			select = Integer.parseInt(sc.nextLine());
 			if (select == duo[0]) {
 				System.out.println(" 같은 값을 선택할 수 없습니다.");
 				continue;
@@ -104,7 +104,7 @@ public class base {
 			System.out.println("2. 앵화결투");
 			System.out.println("0. 종료");
 			System.out.println(Line);
-			selectNum = sc.nextInt();
+			selectNum = Integer.parseInt(sc.nextLine());
 			
 			switch(selectNum) {
 				case 0 : LoopOff = false;
