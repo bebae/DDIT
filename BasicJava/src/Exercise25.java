@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Exercise25_정범진 {
+public class Exercise25 {
 	
 	public static void main(String[] args) {
 		

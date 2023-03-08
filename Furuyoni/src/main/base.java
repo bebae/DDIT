@@ -3,6 +3,8 @@ package main;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import javax.naming.LinkLoopException;
+
 
 class SelectMake {
 	Scanner sc = new Scanner(System.in);
@@ -70,6 +72,8 @@ class SelectMake {
 	}
 	void makeDack() {
 		String[] godName = {};
+		String[] makeDeak = {};
+		boolean loop = true;
 		
 		System.out.println(Line);
 		System.out.println(" 안전구축을 시작합니다.");
@@ -84,6 +88,26 @@ class SelectMake {
 				if(i<1) System.out.println((j+1)+". "+godName[j]);
 				else System.out.println((j+12)+". "+godName[j]);
 			}
+		}
+		
+		System.out.println(Line);
+		System.out.println("카드 선택(통상패 7장, 비장패 3장)");
+		while (loop) {
+			int i = 0;
+			int selectNum = 0;
+			
+			selectNum = Integer.parseInt(sc.next());
+			if(selectNum > 0 && selectNum < 23) {
+				
+				godName = (selectNum > 11) ? godMap.get(duo[0]) : godMap.get(duo[1]);
+				
+				makeDeak[i] = godName[selectNum%12];
+				
+				i++;
+			} else {
+					
+			}
+			
 		}
 	}
 }
@@ -118,7 +142,7 @@ public class base {
 		}
 	}
 }
-
+	
 
 
 

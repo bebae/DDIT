@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
-public class Exercise24_정범진 {
+public class Exercise24 {
+	
 	public static void main(String[] args) {
 		
 		double radius=0, height=0, area=0, volume=0;
@@ -14,7 +15,7 @@ public class Exercise24_정범진 {
 		height = Double.parseDouble(sc.nextLine());
 		
 		area = radius*radius*Math.PI;
-//		area = Math.pow(radius, 2);
+//		area = Math.pow(radius, 2)*Math.PI;
 		volume = area*height;
 		
 		System.out.printf("원기둥 밑변의 넓이는 %.14fcm², 원기둥의 부피는 %.13fcm³이다.", area, volume);

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Exercise21_정범진 {
+public class Exercise21 {
 
 	public static void main(String[] args) {
 		
@@ -14,7 +14,7 @@ public class Exercise21_정범진 {
 		height = Double.parseDouble(sc.nextLine());
 		
 		area = width*height;
-		perimeter = width*2+height*2;
+		perimeter = (width+height)*2;
 		
 		System.out.printf("직사각형의 넓이: %.2f\n", area);
 		System.out.printf("직사각형의 둘레: %.2f\n", perimeter);
