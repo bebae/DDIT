@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class quest{
+class chapter03{
 	Scanner sc = new Scanner(System.in);
 	void page130N11() {
 		System.out.print("아이디: ");
@@ -74,15 +74,13 @@ public class Test {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
-		quest quest = new quest();
-		
-		quest.page128N4();
-		quest.page129N6();
-		quest.page129N8();
-		quest.page129N9();
-		quest.page130N10();
-		
+		chapter03 ch03 = new chapter03();	
+				
+		for (int i = 1; i < 11; i++) {
+			for (int j = 0; j < i; j++) {
+				System.out.print(i+" "+j+" / ");
+			}
+			System.out.println();
+		}
 	}
-
 }
