@@ -1,4 +1,7 @@
+import java.util.Random;
 import java.util.Scanner;
+
+import javax.naming.ldap.Rdn;
 
 class chapter03{
 	Scanner sc = new Scanner(System.in);
@@ -45,12 +48,10 @@ class chapter03{
 		double area = (lengthBottom+lengthTop)*height/2.0;
 		System.out.println(area);
 	}
-	
 	void page129N6() {
 		int value = 365;
 		System.out.println(value / 100 * 100);
 	}
-	
 	void page128N4() {
 		int pencils = 534;
 		int students = 30;
@@ -70,17 +71,123 @@ class chapter03{
 	}
 }
 
-public class Test {
-
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		chapter03 ch03 = new chapter03();	
-				
-		for (int i = 1; i < 11; i++) {
+class chapter04{
+	Random rd = new Random();
+	Scanner sc = new Scanner(System.in);
+	void page161N7() {
+		boolean run = true;
+		int balance = 0;
+		
+		while (run) {
+			System.out.println("-----------------------------------");
+			System.out.println(" 1.예금 | 2.출금 | 3.잔고 | 4.종료");
+			System.out.println("-----------------------------------");
+			System.out.print("선택> ");
+			int select = Integer.parseInt(sc.nextLine());
+			switch (select) {
+			case 1 :
+				System.out.print("예금액>");
+				balance += Integer.parseInt(sc.nextLine());
+				break;
+			case 2 :
+				System.out.print("출금액>");
+				balance -= Integer.parseInt(sc.nextLine());
+				break;
+			case 3 :
+				System.out.print("잔고>");
+				System.out.println(balance);
+				break;
+			default :
+				run = false;
+			}
+		}
+		System.out.println("프로그램 종료");
+	}
+	void page161N6_2() {
+		System.out.print("입력 :");
+		int N = sc.nextInt()*2;
+		
+		for (int i = 1; i < N; i+=2) {
+			for (int j = N-1; j > i; j-=2) {
+				System.out.print(" ");
+			}
 			for (int j = 0; j < i; j++) {
-				System.out.print(i+" "+j+" / ");
+				System.out.print("*");
 			}
 			System.out.println();
 		}
+	}
+	void page161N6_1() {
+		System.out.print("입력 :");
+		int N = sc.nextInt();
+		
+		for (int i = 1; i <= N; i++) {
+			for (int j = N; j > i; j--) {
+				System.out.print(" ");
+			}
+			for (int j = 0; j < i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	void page161N6() {
+		System.out.print("입력 :");
+		int N = sc.nextInt();
+		
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				if(i+j > N-2){
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		}
+	}
+	void page161N5() {
+		System.out.print("입력 :");
+		int N = sc.nextInt();
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < i+1; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	void page161N4() {
+		for (int i = 0; i <= 10; i++) {
+			for (int j = 0; j <= 10; j++) {
+				if (60 == 4*i+5*j) {
+					System.out.println("("+i+", "+j+")");
+				}
+			}
+		}
+	}
+	void page161N3() {
+		int x=0, y=0;
+		while (x+y != 5) {
+			x = rd.nextInt(6)+1;
+			y = rd.nextInt(6)+1;
+			
+			System.out.println("("+x+", "+y+")");
+		}
+	}
+	void page160N2() {
+		int sum=0;
+		for (int i = 0; i <= 100 && i%3 == 0; i++) {
+			sum += i;
+		}
+		System.out.println(sum);
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		chapter03 ch03 = new chapter03();	
+		chapter04 ch04 = new chapter04();
+		
+		ch04.page161N6_2();
 	}
 }
