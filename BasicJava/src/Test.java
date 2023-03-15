@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -188,6 +190,7 @@ public class Test {
 		chapter03 ch03 = new chapter03();	
 		chapter04 ch04 = new chapter04();
 		
-		ch04.page161N6();
+//		ch04.page161N6();
+		
 	}
 }

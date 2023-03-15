@@ -13,32 +13,14 @@ public class Exercise44 {
 		
 		String game = "";
 		
-		if ("가위".equals(cheolsu)) {
-			if ("가위".equals(younghee)) {
-				game = "무승부";
-			} else if ("바위".equals(younghee)) {
-				game = "영희 승리";
-			} else if ("보".equals(younghee)) {
-				game = "철수 승리";
-			}
-		} else
-		if ("바위".equals(cheolsu)) {
-			if ("가위".equals(younghee)) {
-				game = "철수 승리";
-			} else if ("바위".equals(younghee)) {
-				game = "무승부";
-			} else if ("보".equals(younghee)) {
-				game = "영희 승리";
-			}
-		} else
-		if ("보".equals(cheolsu)) {
-			if ("가위".equals(younghee)) {
-				game = "영희 승리";
-			} else if ("바위".equals(younghee)) {
-				game = "철수 승리";
-			} else if ("보".equals(younghee)) {
-				game = "무승부";
-			}
+		if(cheolsu.equals(younghee)) {
+			game = "무승부";
+		} else if ("가위".equals(cheolsu) && "보".equals(younghee) 
+				|| "바위".equals(cheolsu) && "가위".equals(younghee) 
+				|| "보".equals(cheolsu) && "바위".equals(younghee)) {
+			game = "철수 승리";
+		} else {
+			game = "영희 승리";
 		}
 		System.out.println("결과: "+game+"!");
 	}

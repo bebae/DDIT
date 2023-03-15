@@ -15,19 +15,8 @@ public class Exercise41 {
 		System.out.print("삼각형의 세번째 변의 길이를 입력하세요: ");
 		int num3 = Integer.parseInt(sc.nextLine());
 		
-		if (num1 > max) {
-			max = num1;
-			twoSum = num2+num3;
-		}
-		if (num2 > max) {
-			max = num2;
-			twoSum = num1+num3;
-		}
-		if (num3 > max) {
-			max = num3;
-			twoSum = num1+num2;
-		}
-		if (twoSum > max) {
+		if (num1 < num2+num3 && num2 < num1+num3 && num3 < num1+num2) {
+//		if (num1 >= num2+num3 || num2 >= num1+num3 || num3 >= num1+num2) {
 			possible = true;
 		} else {
 			possible = false;
