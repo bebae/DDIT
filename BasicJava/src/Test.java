@@ -1,9 +1,5 @@
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
-
-import javax.naming.ldap.Rdn;
 
 class chapter04{
 	Random rd = new Random();
