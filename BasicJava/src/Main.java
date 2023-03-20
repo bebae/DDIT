@@ -1,18 +1,25 @@
 import java.io.*;
+import java.util.*;
 
 public class Main {
 
-	public static void main(String[] args)  throws IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		String word[] = {"c=","c-","dz=","d-","lj","nj","s=","z="};
-		String str = br.readLine();
+		boolean run = true;
+		String text = "";
+		
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		while (st.hasMoreTokens()) {
+			bw.write(st.nextToken()+"\n");
 
-		for(String search : word)
-            while(str.contains(search))
-            	str = str.replaceFirst(search,"1");
-
-        System.out.println(String.valueOf(str.length()));
+			bw.flush();
+		}
+		
+		
+        
 	}
 }
 

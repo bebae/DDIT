@@ -1,5 +1,4 @@
-import java.util.Iterator;
-import java.util.Scanner;
+import java.io.*;
 
 public class strSave0310 {
 	/* 
@@ -9,12 +8,12 @@ public class strSave0310 {
 	 * 그 문자에 대응하는 count에 +1 아니라면 새로운 count 추가하여 +1
 	 * 최고값 count 문자를 출력하고 만약 최고값 count가 2개 이상이라면 ? 출력
 	 */
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 
 		//	문자열을 입력받고 대문자로 변환
-		String str= sc.nextLine().toUpperCase();
+		String str= br.readLine().toUpperCase();
 		
 		//	문자열 count을 저장할 Int배열 생성
 		int[] arrInt = new int [str.length()]; 
@@ -22,7 +21,7 @@ public class strSave0310 {
 		int max = 0;			// 문자열 count 중 가장 많은 수
 		char strMax = ' ';		// 가장 많이 나온 문자
 		int duplication = 0;	// 중복체크
-		arrInt[0] = 1;
+		arrInt[0] = 1;			// 문자열의 첫번째 문자는 1로 지정
 
 /*
 		//	for문 용 i
@@ -89,9 +88,9 @@ public class strSave0310 {
 			System.out.print(arrInt[j]+" ");
 		}
 		System.out.println();
-		
 		System.out.println("max : "+max+" / strMax : "+strMax+" / 최대중복값 : "+ duplication);
 		System.out.println(duplication > 1 ? "?" : strMax);
+		br.close();
 	}
 }
 

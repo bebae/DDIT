@@ -1,10 +1,99 @@
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
+
+class chapter05 {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	void p201N6() throws IOException {
+		boolean run = true;
+		int[] scores = null;
+		
+		while (run) {
+			bw.write("--------------------------------------------------------\n");		
+			bw.write(" 1.학생수 | 2.점수입력 | 3.점수리스트 | 4.분석 | 5.종료\n");
+			bw.write("--------------------------------------------------------\n");
+			bw.write("선택> ");
+			bw.flush();
+			int selectNo = Integer.parseInt(br.readLine());
+			
+			switch (selectNo) {
+			case 1:
+				bw.write("학생수> ");
+				bw.flush();
+				scores = new int[Integer.parseInt(br.readLine())];
+				break;
+			case 2:
+				for (int i = 0; i < scores.length; i++) {
+					bw.write("scores["+i+"]> ");
+					bw.flush();
+					scores[i] = Integer.parseInt(br.readLine());
+				}
+				break;
+			case 3:
+				for (int i = 0; i < scores.length; i++) {
+					bw.write("scores["+i+"]> "+scores[i]+"\n");
+				}
+				break;
+			case 4:
+				int sum=0, max=0;
+				double avg=0.0;
+				for (int i : scores) {
+					sum += i;
+					if (max < i) {
+						max = i;
+					}
+				}
+				avg = (double)(sum)/(double)(scores.length);
+				bw.write("최고 점수: "+max+"\n");
+				bw.write(String.format("평균 점수: %.4f", avg));
+				break;
+			case 5:
+				run = false;
+				bw.write("프로그램 종료");
+				break;
+			default:
+				break;
+			}
+			bw.flush();
+		}
+		br.close();
+		bw.close();
+	}
+	void p201N5() throws IOException {
+		int[][] array = {{95,86},{83,92,96},{78,83,93,87,88}};
+		int sum = 0;
+		double avg = 0.0;
+		
+		for (int[] is : array) {
+			for (int is2 : is) {
+				sum += is2;
+				avg++;
+			}
+		}
+		avg = (double)sum/(double)avg;
+		
+		bw.write("sum: "+sum+"\n");
+		bw.write(String.format("avg: %.2f", avg));
+		bw.flush();
+	}
+	void p200N4() throws IOException {
+		int max = 0;
+		int[] array = {1,5,3,8,2};
+		
+		for (int i : array) {
+			if (max < i) {
+				max = i;
+			}
+		}
+		bw.write("max: "+max);
+		bw.flush();
+	}
+}
 
 class chapter04{
 	Random rd = new Random();
 	Scanner sc = new Scanner(System.in);
-	void page161N7() {
+	void p161N7() {
 		boolean run = true;
 		int balance = 0;
 		
@@ -33,7 +122,7 @@ class chapter04{
 		}
 		System.out.println("프로그램 종료");
 	}
-	void page161N6_2() {
+	void p161N6_2() {
 		System.out.print("입력 :");
 		int N = sc.nextInt()*2;
 		
@@ -47,7 +136,7 @@ class chapter04{
 			System.out.println();
 		}
 	}
-	void page161N6_1() {
+	void p161N6_1() {
 		System.out.print("입력 :");
 		int N = sc.nextInt();
 		
@@ -61,7 +150,7 @@ class chapter04{
 			System.out.println();
 		}
 	}
-	void page161N6() {
+	void p161N6() {
 		System.out.print("입력 :");
 		int N = sc.nextInt();
 		
@@ -76,7 +165,7 @@ class chapter04{
 			System.out.println();
 		}
 	}
-	void page161N5() {
+	void p161N5() {
 		System.out.print("입력 :");
 		int N = sc.nextInt();
 		for (int i = 0; i < N; i++) {
@@ -86,7 +175,7 @@ class chapter04{
 			System.out.println();
 		}
 	}
-	void page161N4() {
+	void p161N4() {
 		for (int i = 0; i <= 10; i++) {
 			for (int j = 0; j <= 10; j++) {
 				if (60 == 4*i+5*j) {
@@ -95,7 +184,7 @@ class chapter04{
 			}
 		}
 	}
-	void page161N3() {
+	void p161N3() {
 		int x=0, y=0;
 		while (x+y != 5) {
 			x = rd.nextInt(6)+1;
@@ -104,7 +193,7 @@ class chapter04{
 			System.out.println("("+x+", "+y+")");
 		}
 	}
-	void page160N2() {
+	void p160N2() {
 		int sum=0;
 		for (int i = 0; i <= 100 && i%3 == 0; i++) {
 			sum += i;
@@ -115,7 +204,7 @@ class chapter04{
 
 class chapter03{
 	Scanner sc = new Scanner(System.in);
-	void page130N11() {
+	void p130N11() {
 		System.out.print("아이디: ");
 		String name = sc.nextLine();
 		
@@ -133,7 +222,7 @@ class chapter03{
 			System.out.println("로그인 실패:아이디 존재하지 않음");
 		}
 	}
-	void page130N10() {
+	void p130N10() {
 		int var1 = 10;
 		int var2 = 3;
 		int var3 = 14;
@@ -142,7 +231,7 @@ class chapter03{
 		
 		System.out.println("원의 넓이:"+var4);
 	}
-	void page129N9() {
+	void p129N9() {
 		double num1 = 0, num2 = 0;
 		num1 = Math.round((Math.random()*10)*100)/100.0;
 		System.out.println("첫 번째 수: "+num1);
@@ -151,18 +240,18 @@ class chapter03{
 		System.out.println("-------------------");
 		System.out.println("결과:"+(!(num2==0)?Math.round(num1/num2*100)/100.0:"무한대"));
 	}
-	void page129N8() {
+	void p129N8() {
 		int lengthTop = 5;
 		int lengthBottom = 10;
 		int height = 7;
 		double area = (lengthBottom+lengthTop)*height/2.0;
 		System.out.println(area);
 	}
-	void page129N6() {
+	void p129N6() {
 		int value = 365;
 		System.out.println(value / 100 * 100);
 	}
-	void page128N4() {
+	void p128N4() {
 		int pencils = 534;
 		int students = 30;
 		
@@ -174,7 +263,7 @@ class chapter03{
 		int pencilsLeft = pencils%30;
 		System.out.println(pencilsLeft);
 	}
-	void page126() {
+	void p126() {
 		int score = (int) (Math.random()*50+50);
 		char grade = score > 90 ? 'A' : score > 80 ? 'B' : score > 70 ? 'C' : score > 60 ? 'D' : 'F';
 		System.out.println(score+"점 "+grade+"등급");
@@ -182,11 +271,13 @@ class chapter03{
 }
 
 public class Test {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		chapter03 ch03 = new chapter03();	
 		chapter04 ch04 = new chapter04();
+		chapter05 ch05 = new chapter05();
 		
-//		ch04.page161N6();
+//		ch04.p161N6();
+		ch05.p201N6();
 		
 	}
 }
