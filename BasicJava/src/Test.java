@@ -1,5 +1,57 @@
 import java.util.*;
+
 import java.io.*;
+
+class chapter06 {
+	public class Board{
+		String title;
+		String content;
+		String writer;
+		String date;
+		int hitcount;
+		
+		public Board(String title, String content) {
+			this(title, content, "로그인한 회원 아이디", "현재 컴퓨터 날짜", 0);
+		}
+		public Board(String title, String content, String writer) {
+			this(title, content, writer, "현재 컴퓨터 날짜", 0);
+		}
+		public Board(String title, String content, String writer, String date) {
+			this(title, content, writer, date, 0);
+		}
+		public Board(String title, String content, String writer, String date, int hitcount) {
+			this.title = title;
+			this.content = content;
+			this.writer = writer;
+			this.date = date;
+			this.hitcount = hitcount;
+		}
+	}
+	static class MemberService {
+		
+		boolean login(String id, String password) {
+			if ("hong".equals(id) && "12345".equals(password)) {
+				return true;
+			} else {	
+				return false;
+			}
+		}
+		
+		String logout(String id) {
+			return "로그아웃 되었습니다.";
+		}
+		
+		void memserviceexample () {
+			if(login("hong", "12345")) {
+				System.out.println("로그인 성공");
+				logout("hong");
+			} else {
+				System.out.println("로그인 실패");
+			}
+		}
+	}
+
+}
 
 class chapter05 {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -275,9 +327,27 @@ public class Test {
 		chapter03 ch03 = new chapter03();	
 		chapter04 ch04 = new chapter04();
 		chapter05 ch05 = new chapter05();
+		chapter06 ch06 = new chapter06();
+		chapter06.MemberService member = new chapter06.MemberService();
 		
+		member.memserviceexample();
+		
+//		ch03.p126();
 //		ch04.p161N6();
-		ch05.p201N6();
+//		ch05.p201N6();
 		
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

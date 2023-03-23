@@ -7,5 +7,8 @@ public class FishBread {
 	double size;
 	String content;
 	
+	FishBread(){
+		
+	}
 	
 }
