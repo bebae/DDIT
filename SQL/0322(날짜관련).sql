@@ -71,8 +71,8 @@ SELECT TO_NUMBER('￦3,200','L999,999') FROM DUAL;
 
 SELECT MEM_ID 회원ID, SUBSTR(MEM_ID, 1, 1) 조합회원ID,
         SUBSTR(MEM_ID, 2, 4) "ID 2~4", TO_CHAR(SUBSTR(MEM_ID,2) + 10, '000') "ID 2~4+10",
-        LPAD(SUBSTR(MEM_ID,2) +10, 3, '0') "3자리 설정 부족하면 0",
-        SUBSTR(1000+TO_NUMBER(SUBSTR(MEM_ID,2))+10,2) "1000+ID 2~ 숫자 +10 값 2~",
+        LPAD(SUBSTR(MEM_ID,2) +10, 3, '0') "3자리설정 부족하면 0",
+        SUBSTR(1000+TO_NUMBER(SUBSTR(MEM_ID,2))+10,2) "1000+(ID 2~ 숫자 +10) 값 2~",
         REPLACE(SUBSTR(MEM_ID,2)+10,'11','011') "문자열 치환 11->011"
         FROM MEMBER WHERE MEM_NAME = '이쁜이';
 
