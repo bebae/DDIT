@@ -138,3 +138,12 @@ SELECT JOB, MAX(SAL) 최고액, MIN(SAL)최저액, SUM(SAL)총액, ROUND(AVG(SAL))평균
 
 
 
+
+
+
+
+
+
+
+
+

@@ -1,9 +1,9 @@
 package Exercise.class06;
 
 public class NewCar {
-	double speed;
-	String color;
-	final static double MAX_SPEED = killoToMile(200);
+	private double speed;
+	private String color;
+	private final static double MAX_SPEED = killoToMile(200);
 	
 	public NewCar() {
 	}
@@ -25,28 +25,21 @@ public class NewCar {
 	}
 	public boolean speedUp(double speed) {
 		speed = killoToMile(speed);
-		if (this.speed + speed > 0) {
-			if (this.speed + speed <= MAX_SPEED) {
-				this.speed += speed;
+		if (this.speed + speed > 0 && this.speed+speed <= MAX_SPEED) {
+			this.speed += speed;
 				return true;
-			} else {
-				this.speed = 0;
-				return false;
-			}
-		} else {
-			this.speed = 0;
-			return false;
-		}
+			} 
+		return false;
 	}
 	public static double getMaxSpeed() {
-		return MAX_SPEED;
+		return mileToKilo(MAX_SPEED);
 	}
-	private static double killoToMile(double speed) {
-		speed = speed * 0.62137;
-		return speed;
+	private static double killoToMile(double distance) {
+		distance /= 1.6;
+		return distance;
 	}
-	private static double mileToKilo(double speed) {
-		speed = speed / 0.62137;
-		return speed;
+	private static double mileToKilo(double distance) {
+		distance *= 1.6;
+		return distance;
 	}
 }

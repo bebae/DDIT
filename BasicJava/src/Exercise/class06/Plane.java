@@ -1,10 +1,10 @@
 package Exercise.class06;
 
 public class Plane {
-	String manufacturer;
-	String model;
-	int maxNumberOfPassengers;
-	static int numberOfPlanes;
+	private String manufacturer;
+	private String model;
+	private int maxNumberOfPassengers;
+	private static int numberOfPlanes;
 	
 	public Plane() {
 		numberOfPlanes++;
@@ -19,10 +19,10 @@ public class Plane {
 		numberOfPlanes++;
 	}
 	
-	public String getManufacture() {
+	public String getManufacturer() {
 		return this.manufacturer;
 	}
-	public void setManufacture(String manufacturer) {
+	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
 	public String getModel() {
@@ -35,9 +35,7 @@ public class Plane {
 		return this.maxNumberOfPassengers;
 	}
 	public void setMaxNumberOfPassengers(int maxNumberOfPassengers) {
-		if (maxNumberOfPassengers < 0) {
-			this.maxNumberOfPassengers = 0;
-		} else {
+		if (maxNumberOfPassengers > 0) {
 			this.maxNumberOfPassengers = maxNumberOfPassengers;
 		}
 	}

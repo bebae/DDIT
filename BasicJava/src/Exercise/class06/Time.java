@@ -1,30 +1,20 @@
 package Exercise.class06;
 
 public class Time {
-	int hour;
-	int minute;
-	int second;
+	private int hour;
+	private int minute;
+	private int second;
 	
-	public Time() {
-		hour = 0;
-		minute = 0;
-		second = 0;
-	}
+	public Time() {}
 	public Time(int hour, int minute, int second) {
-		if (hour >= 0 && hour <= 23) {
+		if (hour > 0 && hour < 24) {
 			this.hour = hour;
-		} else {
-			this.hour = 0;
 		}
-		if (minute >= 0 && minute <= 59) {
+		if (minute > 0 && minute < 60) {
 			this.minute = minute;
-		} else {
-			this.minute = 0;
 		}
-		if (second >= 0 && second <= 59) {
+		if (second > 0 && second < 60) {
 			this.second = second;
-		} else {
-			this.second = 0;
 		}
 	}
 	

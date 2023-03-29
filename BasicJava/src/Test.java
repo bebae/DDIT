@@ -2,6 +2,8 @@ import java.util.*;
 
 import java.io.*;
 
+
+
 class chapter06 {
 	public class Board{
 		String title;

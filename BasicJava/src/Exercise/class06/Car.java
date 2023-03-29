@@ -1,9 +1,9 @@
 package Exercise.class06;
 
 public class Car {
-	double speed;
-	String color;
-	final static double MAX_SPEED=200;
+	private double speed;
+	private String color;
+	private final static double MAX_SPEED = 200;
 	
 	public Car() {
 	}
@@ -24,18 +24,11 @@ public class Car {
 		this.color = color;
 	}
 	public boolean speedUp(double speed) {
-		if (this.speed + speed > 0) {
+		if (this.speed + speed > 0 && this.speed+speed <= MAX_SPEED) {
 			this.speed += speed;
-			if (this.speed > MAX_SPEED) {
-				this.speed = 0;
-				return false;
-			} else {
 				return true;
-			}
-		} else {
-			this.speed = 0;
-			return false;
-		}
+			} 
+		return false;
 	}
 	public static double getMaxSpeed() {
 		return MAX_SPEED;

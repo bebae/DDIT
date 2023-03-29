@@ -1,26 +1,21 @@
 package Exercise.class06;
 
 public class Circle {
-	double radius;
-	double x;
-	double y;
+	private double radius;
+	private double x;
+	private double y;
 	
 	public Circle(){}
 	
 	double getArea() {
-		double area = 0.0;
-		
-		area = radius*radius*Math.PI;
-		
+		double area = radius*radius*Math.PI;
 		return area;
 	}
 	double getRadius() {
 		return radius;
 	}
 	void setRadius(double radius) {
-		if (radius < 0) {
-			this.radius = 0;
-		} else {
+		if (radius > 0) {
 			this.radius = radius;
 		}
 	}
