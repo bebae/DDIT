@@ -13,7 +13,7 @@ public class Triangle extends Shape {
 	}
 	@Override
 	public double area() {
-		return side * side * (Math.sqrt(3)/4);
+		return side * side * (Math.sqrt(3)/4.0);
 	}
 
 	@Override

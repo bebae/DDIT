@@ -1,9 +1,11 @@
+package chapterMy;
+
 public class Hello {
 	/** 이 메소드는 메인 메소드 입니다. 
 	 * 	@param args 프로그램 실행 시 넣어줄 데이터
 	 */
 	public static void main(String[] args) {
-		System.out.println("Hello, Java");
+		System.out.println("chapterMy.Hello, Java");
 		
 	}
 	

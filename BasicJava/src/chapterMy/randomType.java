@@ -1,3 +1,5 @@
+package chapterMy;
+
 import java.io.*;
 import java.util.*;
 
@@ -118,7 +120,7 @@ public class randomType {
 	void numberArr() throws IOException {
 		int num = 5;
 		for (int i = 0; i < num; i++) {
-			bw.write((random.nextInt(10))+"");
+			bw.write(String.valueOf(random.nextInt(10)));
 		}
 		bw.flush();
 	}

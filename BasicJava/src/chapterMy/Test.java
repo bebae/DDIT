@@ -1,5 +1,6 @@
-import java.util.*;
+package chapterMy;
 
+import java.util.*;
 import java.io.*;
 
 
@@ -42,7 +43,7 @@ class chapter06 {
 		String logout(String id) {
 			return "로그아웃 되었습니다.";
 		}
-		
+
 		void memserviceexample () {
 			if(login("hong", "12345")) {
 				System.out.println("로그인 성공");

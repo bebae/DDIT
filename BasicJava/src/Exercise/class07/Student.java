@@ -18,7 +18,7 @@ public class Student extends Human {
 
 	@Override
 	public String toString() {
-		return String.format("이름: %s, 나이: %s, 전공: %s", getName(), getAge(), major);
+		return String.format(super.toString(),", 전공: %s", major);
 	}
 	
 	

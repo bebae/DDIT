@@ -207,22 +207,66 @@ SELECT DISTINCT E2.EMPNO 사원번호, E2.ENAME 사원명
         FROM EMPP E1, EMPP E2
         WHERE E1.DEPTNO = E2.DEPTNO AND E1.ENAME LIKE '%김%';
 
+-- 54. 부서위치가 DALLAS인 사원의 이름과 부서번호 및 담당업무를 표시하시오.
+SELECT EMPP.ENAME 사원명, EMPP.DEPTNO 부서번호, EMPP.JOB 담당업무
+        FROM EMPP, DEPT
+        WHERE EMPP.DEPTNO = DEPT.DEPTNO AND DEPT.LOC = '대전'
+        ORDER BY DEPT.DEPTNO;
+
+-- 55. KING에게 보고하는 사원의 이름과 급여를 표시하시오.
+SELECT E2.ENAME 사원이름, E2.SAL 급여
+        FROM EMPP E1, EMPP E2
+        WHERE E1.EMPNO = E2.MGR AND E1.ENAME LIKE '%지완';
+
+-- 56. RESEARCH 부서의 사원에 대한 부서번호, 사원이름 및 담당 업무를 표시하시오.
+SELECT D.DEPTNO 부서번호, E.ENAME 사원이름, E.JOB 담당업무
+        FROM EMPP E, DEPT D
+        WHERE D.DEPTNO = E.deptno AND D.DNAME = '개발부'
+        ORDER BY JOB;
+
+-- 57. 평균 월급보다 많은 급여를 받고 이름에 M이 포함된 사원과 
+-- 같은 부서에서 근무하는 사원의 사원 번호, 이름, 급여를 표시하시오.
+SELECT EMPNO 사원번호, ENAME 이름, SAL 급여
+        FROM EMPP
+        WHERE SAL > (SELECT AVG(SAL) FROM EMPP) AND ENAME LIKE '%민%';
+
+-- 58. 평균급여가 가장 적은 업무를 찾으시오.
+SELECT ASD 업무 
+        FROM (SELECT JOB ASD 
+            FROM EMPP 
+            GROUP BY JOB 
+            ORDER BY AVG(SAL) ASC) 
+        WHERE ROWNUM<=2;
+
+-- 59. 담당업무가 프로그래머 인 사원이 소속된 부서와 동일한 부서의 사원을 표시하시오.
+SELECT DISTINCT E1.ENAME 사원명, e1.deptno 소속부서
+        FROM EMPP E1, (SELECT DEPTNO FROM EMPP WHERE JOB='프로그래머') E2
+        WHERE E1.DEPTNO = E2.DEPTNO;
 
 
+SELECT PROD_LGU
+     , PROD_BUYER
+     , COUNT(*)
+     , SUM(PROD_COST)
+FROM   PROD
+GROUP  BY ROLLUP (PROD_LGU, PROD_BUYER);
+
+SELECT CASE '나' WHEN '철호' THEN '아니다'
+                      WHEN '너'    THEN '아니다'
+                      WHEN '나'    THEN '맞다'
+                      ELSE '모르겠다'
+        END RESULT
+        FROM DUAL;
+
+ SELECT MEM_ID "회원ID", MEM_NAME "회원명"
+    FROM   MEMBER  
+    WHERE  REGEXP_LIKE(MEM_NAME, '^김(성|형)');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+ SELECT REGEXP_SUBSTR('Java Flex Oracle', '[^ ]+') 
+      FROM DUAL;
+ SELECT REGEXP_SUBSTR('Java Flex Oracle', '[^ ]+', 1, 3)
+      FROM DUAL;
 
 
 

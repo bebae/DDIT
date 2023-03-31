@@ -14,16 +14,16 @@ public class BankAccount {
 		balance += amount;
 	}
 	public boolean withdraw(int amount) {
-		if (balance - amount < 0) {
-			return false;
-		} else {
+		if (balance >= amount) {
 			balance -= amount;
 			return true;
 		}
+		return false;
+	
 		
 	}
 	public boolean transfer(int amount, BankAccount otherAccount) {
-		if (balance >= amount) {
+		if (withdraw(amount)) {
 			balance -= amount;
 			otherAccount.balance += amount;
 			return true;

@@ -13,14 +13,14 @@ public class Bank2{
 		this.customers[numberOfCustomers++] = customer;
 	}
 
-	public Customer2[] getCustomers() {
-		return customers;
-	}
-
 	public int getNumberOfCustomers() {
 		return numberOfCustomers;
 	}
 	
+	public Customer2[] getCustomers() {
+		return customers;
+	}
+
 	public Customer2 getCustomer(int index) {
 		return this.customers[index];
 	}

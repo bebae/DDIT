@@ -12,11 +12,13 @@ public class CheckingAccount extends BankAccount2 {
 	}
 	
 	public boolean withdraw(int amount) {
-		if (balance < amount) {
+		if (amount > balance) {
 			protectedBy.balance -= amount-balance;
 			balance = 0;
+		} else {
+			balance -= amount;
 		}
-		return false;
+		return true;
 	}
 	
 }

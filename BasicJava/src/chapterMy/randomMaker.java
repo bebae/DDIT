@@ -1,3 +1,5 @@
+package chapterMy;
+
 import java.io.*;
 
 
@@ -16,23 +18,23 @@ public class randomMaker {
 		for (int i = 0; i < Integer.parseInt(num); i++) {
 			//random.numberArr();	// 무작위 랜덤 숫자 배열
 
-			bw.write(String.format("\'"));
+			bw.write("'");
 			bw.flush();
 			random.stringArr();
 			
-			bw.write(String.format("\', \'"));
+			bw.write("', '");
 			bw.flush();
 			
 			random.name();
 			
-			bw.write(String.format("\', \'"));
+			bw.write("', '");
 			bw.flush();
 			
 			random.telNum();
 			
 //			random.carNum();
 			
-			bw.write(String.format("\'"));
+			bw.write("'");
 			bw.newLine();
 			bw.flush();
 		}
