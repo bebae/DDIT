@@ -1,57 +1,57 @@
 
-DROP TABLE EMPOLYER;                     -- Å×ÀÌºí »èÁ¦
+DROP TABLE EMPOLYER;                     -- í…Œì´ë¸” ì‚­ì œ
 
-CREATE TABLE EMPOLYER(                  -- Å×ÀÌºí »ý¼º
-    EMPNO CHAR(6) NOT NULL,            -- ºÎ¼­ ¹øÈ£
-    ENAME  VARCHAR2(20) NOT NULL,  -- ÀÌ¸§
-    DEPT     VARCHAR2(16) NOT NULL,  -- ºÎ¼­¸í
-    TEL       VARCHAR2(14),                  -- ÀüÈ­¹øÈ£
-    SALARY NUMBER(10),                      -- ±Þ¿©
-    CONSTRAINT PK_EMPNO PRIMARY KEY (EMPNO)      -- ÇÁ¶óÀÌ¸Ó¸® Å° »ý¼º
+CREATE TABLE EMPOLYER(                  -- í…Œì´ë¸” ìƒì„±
+    EMPNO CHAR(6) NOT NULL,            -- ë¶€ì„œ ë²ˆí˜¸
+    ENAME  VARCHAR2(20) NOT NULL,  -- ì´ë¦„
+    DEPT     VARCHAR2(16) NOT NULL,  -- ë¶€ì„œëª…
+    TEL       VARCHAR2(14),                  -- ì „í™”ë²ˆí˜¸
+    SALARY NUMBER(10),                      -- ê¸‰ì—¬
+    CONSTRAINT PK_EMPNO PRIMARY KEY (EMPNO)      -- í”„ë¼ì´ë¨¸ë¦¬ í‚¤ ìƒì„±
 );
-ALTER TABLE EMPOLYER ADD (ADDRESS VARCHAR2 (50) NOT NULL);  -- ÇÊµå »ý¼º
-ALTER TABLE EMPOLYER MODIFY(DEPT VARCHAR2(30));                     -- ÇÊµå ¼Ó¼º º¯°æ
+ALTER TABLE EMPOLYER ADD (ADDRESS VARCHAR2 (50) NOT NULL);  -- í•„ë“œ ìƒì„±
+ALTER TABLE EMPOLYER MODIFY(DEPT VARCHAR2(30));                     -- í•„ë“œ ì†ì„± ë³€ê²½
 
-CREATE TABLE EMPOLYER(                  -- Å×ÀÌºí »ý¼º
-    EMPNO CHAR(6) NOT NULL,            -- ºÎ¼­ ¹øÈ£
-    ENAME  VARCHAR2(20) NOT NULL,  -- ÀÌ¸§
-    ADDRESS VARCHAR2 (50) NOT NULL, -- ÁÖ¼Ò
-    DEPT     VARCHAR2(16) NOT NULL,  -- ºÎ¼­¸í
-    TEL       VARCHAR2(14),                  -- ÀüÈ­¹øÈ£
-    SALARY NUMBER(10),                      -- ±Þ¿©
-    CONSTRAINT PK_EMPNO PRIMARY KEY (EMPNO)      -- ÇÁ¶óÀÌ¸Ó¸® Å° »ý¼º
+CREATE TABLE EMPOLYER(                  -- í…Œì´ë¸” ìƒì„±
+    EMPNO CHAR(6) NOT NULL,            -- ë¶€ì„œ ë²ˆí˜¸
+    ENAME  VARCHAR2(20) NOT NULL,  -- ì´ë¦„
+    ADDRESS VARCHAR2 (50) NOT NULL, -- ì£¼ì†Œ
+    DEPT     VARCHAR2(16) NOT NULL,  -- ë¶€ì„œëª…
+    TEL       VARCHAR2(14),                  -- ì „í™”ë²ˆí˜¸
+    SALARY NUMBER(10),                      -- ê¸‰ì—¬
+    CONSTRAINT PK_EMPNO PRIMARY KEY (EMPNO)      -- í”„ë¼ì´ë¨¸ë¦¬ í‚¤ ìƒì„±
 );
 
 
 INSERT INTO EMPOLYER(EMPNO, ENAME, DEPT, TEL, SALARY, ADDRESS)
-    VALUES('100','±è±âÈÆ','¿µ¾÷ºÎ','010-8422-8117',300,'´ëÀü±¤¿ª½Ã ¼­±¸ µÐ»ê·Î31¹ø±æ 31');
+    VALUES('100','ê¹€ê¸°í›ˆ','ì˜ì—…ë¶€','010-8422-8117',300,'ëŒ€ì „ê´‘ì—­ì‹œ ì„œêµ¬ ë‘”ì‚°ë¡œ31ë²ˆê¸¸ 31');
 INSERT INTO EMPOLYER(EMPNO,ENAME,DEPT,TEL,SALARY,ADDRESS)
-        VALUES('101','È«¼º¹ü','±âÈ¹ºÎ','010-7562-3217',350,'´ëÀü±¤¿ª½Ã ¼­±¸ °è·æ·Î29¹ø±æ 50');
+        VALUES('101','í™ì„±ë²”','ê¸°íšë¶€','010-7562-3217',350,'ëŒ€ì „ê´‘ì—­ì‹œ ì„œêµ¬ ê³„ë£¡ë¡œ29ë²ˆê¸¸ 50');
  INSERT INTO EMPOLYER(EMPNO,ENAME,DEPT,TEL,SALARY,ADDRESS)
-        VALUES('102','ÀÌ¸¸¼ö','±âÈ¹ºÎ','010-5562-6677',500,'´ëÀü±¤¿ª½Ã Áß±¸ ´ë»ç·Î30¹ø±æ 10');
+        VALUES('102','ì´ë§Œìˆ˜','ê¸°íšë¶€','010-5562-6677',500,'ëŒ€ì „ê´‘ì—­ì‹œ ì¤‘êµ¬ ëŒ€ì‚¬ë¡œ30ë²ˆê¸¸ 10');
  INSERT INTO EMPOLYER(EMPNO,ENAME,DEPT,TEL,SALARY,ADDRESS)
-        VALUES('103','°­³ª¹Ì','¿µ¾÷ºÎ','010-4442-5614',350,'´ëÀü±¤¿ª½Ã Áß±¸ ¼±È­·Î10¹ø±æ 30');
+        VALUES('103','ê°•ë‚˜ë¯¸','ì˜ì—…ë¶€','010-4442-5614',350,'ëŒ€ì „ê´‘ì—­ì‹œ ì¤‘êµ¬ ì„ í™”ë¡œ10ë²ˆê¸¸ 30');
  INSERT INTO EMPOLYER(EMPNO,ENAME,DEPT,TEL,SALARY,ADDRESS)
-        VALUES('109','¹Îº´Ã¶','ÃÑ¹«ºÎ','010-2542-8211',250,'´ëÀü±¤¿ª½Ã µ¿±¸ »ê³»·Î1205¹ø±æ 24');
+        VALUES('109','ë¯¼ë³‘ì² ','ì´ë¬´ë¶€','010-2542-8211',250,'ëŒ€ì „ê´‘ì—­ì‹œ ë™êµ¬ ì‚°ë‚´ë¡œ1205ë²ˆê¸¸ 24');
 
 INSERT INTO EMPOLYER(EMPNO,ENAME,DEPT,TEL,SALARY,ADDRESS)
-        VALUES('110','Á¤¹üÁø','°³¹ßºÎ','010-9303-1907',250,'´ëÀü±¤¿ª½Ã ¼­±¸ µ¿¼­´ë·Î1014¹ø±æ 25');
+        VALUES('110','ì •ë²”ì§„','ê°œë°œë¶€','010-9303-1907',250,'ëŒ€ì „ê´‘ì—­ì‹œ ì„œêµ¬ ë™ì„œëŒ€ë¡œ1014ë²ˆê¸¸ 25');
 
-SELECT * FROM EMPOLYER;             -- µ¥ÀÌÅÍ Á¶È¸
+SELECT * FROM EMPOLYER;             -- ë°ì´í„° ì¡°íšŒ
 
--- °£´ÜÇÑ SQL ¹®Àå Å×½ºÆ® ÇÏ±â
--- »ç¿ø¹øÈ£°¡ 110ÀÎ »ç¿ø Á¶È¸
+-- ê°„ë‹¨í•œ SQL ë¬¸ìž¥ í…ŒìŠ¤íŠ¸ í•˜ê¸°
+-- ì‚¬ì›ë²ˆí˜¸ê°€ 110ì¸ ì‚¬ì› ì¡°íšŒ
 SELECT * FROM EMPOLYER WHERE EMPNO='110';
--- ±Þ¿©°¡ 250¸¸¿øÀÎ »ç¿ø Á¶È¸
+-- ê¸‰ì—¬ê°€ 250ë§Œì›ì¸ ì‚¬ì› ì¡°íšŒ
 SELECT * FROM EMPOLYER WHERE SALARY=250;
--- ÇöÀç »ç¿ø¼ö Á¶È¸
-SELECT COUNT(*) ÃÑ»ç¿ø¼ö FROM EMPOLYER;
--- ±Þ¿©°¡ 300¸¸¿ø ÀÌ»óÀÎ »ç¿ø Á¶È¸
+-- í˜„ìž¬ ì‚¬ì›ìˆ˜ ì¡°íšŒ
+SELECT COUNT(*) ì´ì‚¬ì›ìˆ˜ FROM EMPOLYER;
+-- ê¸‰ì—¬ê°€ 300ë§Œì› ì´ìƒì¸ ì‚¬ì› ì¡°íšŒ
 SELECT * FROM EMPOLYER WHERE SALARY>=300;
 
 
 
--- Å×ÀÌºí ¹× µ¥ÀÌÅÍ »ý¼º SQL Developer
+-- í…Œì´ë¸” ë° ë°ì´í„° ìƒì„± SQL Developer
 DROP TABLE EMP;
 
 CREATE TABLE EMP(
@@ -67,15 +67,15 @@ CREATE TABLE EMP(
 );
 
  INSERT INTO EMP(EMPID,SUNG,DEPT,HIRE_DATE,BIRTHDAY, ADDRESS, JOB, SALARY)
-        VALUES('1006','Àå½Â¼ö','°³¹ßºÎ',SYSDATE,'1985.10.12','´ëÀü ¼­±¸ ³»µ¿ 345', 'ERPÇÁ·Î±×·¥', 350);
+        VALUES('1006','ìž¥ìŠ¹ìˆ˜','ê°œë°œë¶€',SYSDATE,'1985.10.12','ëŒ€ì „ ì„œêµ¬ ë‚´ë™ 345', 'ERPí”„ë¡œê·¸ëž¨', 350);
    INSERT INTO EMP(EMPID,SUNG,DEPT,HIRE_DATE,BIRTHDAY, ADDRESS, JOB, SALARY)
-        VALUES('1002','°ûÈñÁØ','¿µ¾÷ºÎ',SYSDATE,'1985.10.12','¾È¾ç ¿ëºÀµ¿', 'Æ¯¼ö¿µ¾÷', 400);
+        VALUES('1002','ê³½í¬ì¤€','ì˜ì—…ë¶€',SYSDATE,'1985.10.12','ì•ˆì–‘ ìš©ë´‰ë™', 'íŠ¹ìˆ˜ì˜ì—…', 400);
    INSERT INTO EMP(EMPID,SUNG,DEPT,HIRE_DATE,BIRTHDAY, ADDRESS, JOB, SALARY)
-        VALUES('1003','±èµ¿ÁØ','»ý»êºÎ',SYSDATE,'1985.10.12','ºÎ»ê ´ëÇÏµ¿', 'Ç°Áú°ü¸®', 300);
+        VALUES('1003','ê¹€ë™ì¤€','ìƒì‚°ë¶€',SYSDATE,'1985.10.12','ë¶€ì‚° ëŒ€í•˜ë™', 'í’ˆì§ˆê´€ë¦¬', 300);
    INSERT INTO EMP(EMPID,SUNG,DEPT,HIRE_DATE,BIRTHDAY, ADDRESS, JOB, SALARY)
-        VALUES('1004','¼ºÀç±Ô','ÀÎ»çºÎ',SYSDATE,'1985.10.12','´ë±¸ ´Þ¼ºµ¿', '±Þ¿©°ü¸®', 450);
+        VALUES('1004','ì„±ìž¬ê·œ','ì¸ì‚¬ë¶€',SYSDATE,'1985.10.12','ëŒ€êµ¬ ë‹¬ì„±ë™', 'ê¸‰ì—¬ê´€ë¦¬', 450);
    INSERT INTO EMP(EMPID,SUNG,DEPT,HIRE_DATE,BIRTHDAY, ADDRESS, JOB, SALARY)
-        VALUES('1005','¹Ú¼º¹ü','±¸¸ÅºÎ',SYSDATE,'1985.10.12','´ëÀü ¿ä·ùµ¿', '¼öÀÔÀÚÀç', 320);
+        VALUES('1005','ë°•ì„±ë²”','êµ¬ë§¤ë¶€',SYSDATE,'1985.10.12','ëŒ€ì „ ìš”ë¥˜ë™', 'ìˆ˜ìž…ìžìž¬', 320);
 
 SELECT * FROM EMP;
 
@@ -88,12 +88,12 @@ SELECT * FROM view_emp1;
 SELECT * FROM view_emp2;
 SELECT * FROM view_emp3;
 
--- VIEW¿¡¼­ °£´ÜÇÑ SQL ¹®Àå Å×½ºÆ® ÇÏ±â
--- VIEW_EMP1¿¡¼­ °í¿ëÀÏÀÌ 2000³â ÀÌÈÄÀÌ°í ±Þ¿©°¡ 350¸¸¿ø ÀÌ»óÀÎ »ç¿ø Á¶È¸
+-- VIEWì—ì„œ ê°„ë‹¨í•œ SQL ë¬¸ìž¥ í…ŒìŠ¤íŠ¸ í•˜ê¸°
+-- VIEW_EMP1ì—ì„œ ê³ ìš©ì¼ì´ 2000ë…„ ì´í›„ì´ê³  ê¸‰ì—¬ê°€ 350ë§Œì› ì´ìƒì¸ ì‚¬ì› ì¡°íšŒ
 SELECT * FROM VIEW_EMP1 WHERE SUBSTR(HIRE_DATE, 1, 4) > '2000' AND SALARY>=350;
--- VIEW_EMP2¿¡¼­ ¾÷¹«(JOB)°¡ Æ¯¼ö¿µ¾÷ÀÎ »ç¿ø Á¶È¸
-SELECT * FROM VIEW_EMP2 WHERE JOB = 'Æ¯¼ö¿µ¾÷';
--- VIEW_EMP3¿¡¼­ »ýÀÏÀÌ 1986³âµµÀÎ »ç¿ø Á¶È¸
+-- VIEW_EMP2ì—ì„œ ì—…ë¬´(JOB)ê°€ íŠ¹ìˆ˜ì˜ì—…ì¸ ì‚¬ì› ì¡°íšŒ
+SELECT * FROM VIEW_EMP2 WHERE JOB = 'íŠ¹ìˆ˜ì˜ì—…';
+-- VIEW_EMP3ì—ì„œ ìƒì¼ì´ 1986ë…„ë„ì¸ ì‚¬ì› ì¡°íšŒ
 SELECT * FROM VIEW_EMP3 WHERE SUBSTR(BIRTHDAY, 1, 4) = '1985';
 
 

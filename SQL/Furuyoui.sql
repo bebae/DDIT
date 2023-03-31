@@ -1,12 +1,12 @@
--- ÈÄ·ç¿ä´Ï
+-- í›„ë£¨ìš”ë‹ˆ
 
 DROP TABLE goddess;
 
 
--- Ä«µå ÀÌ¸§ ¸®½ºÆ®
+-- ì¹´ë“œ ì´ë¦„ ë¦¬ìŠ¤íŠ¸
 CREATE TABLE goddess (
-    godno       NUMBER(2) NOT NULL,          -- ¹øÈ£
-    godname     CHAR(9) NOT NULL,            -- ÀÌ¸§
+    godno       NUMBER(2) NOT NULL,          -- ë²ˆí˜¸
+    godname     CHAR(9) NOT NULL,            -- ì´ë¦„
     o_n_1          VARCHAR2(50) NOT NULL,   -- NO.1
     o_n_2          VARCHAR2(50) NOT NULL,   -- NO.2
     o_n_3          VARCHAR2(50) NOT NULL,   -- NO.3
@@ -18,7 +18,7 @@ CREATE TABLE goddess (
     o_s_2          VARCHAR2(50) NOT NULL,   -- NO. S2
     o_s_3          VARCHAR2(50) NOT NULL,   -- NO. S3
     o_s_4          VARCHAR2(50) NOT NULL,   -- NO. S4
-    CONSTRAINT pk_godno PRIMARY KEY(godno)      -- ÇÁ¶óÀÌ¸Ó¸® Å° »ý¼º
+    CONSTRAINT pk_godno PRIMARY KEY(godno)      -- í”„ë¼ì´ë¨¸ë¦¬ í‚¤ ìƒì„±
 );
 
 INSERT INTO goddess (godno,godname,o_n_1,o_n_2,o_n_3,o_n_4,o_n_5,o_n_6,o_n_7,
@@ -27,32 +27,32 @@ INSERT INTO goddess (godno,godname,o_n_1,o_n_2,o_n_3,o_n_4,o_n_5,o_n_6,o_n_7,
 
 INSERT INTO goddess (godno,godname,o_n_1,o_n_2,o_n_3,o_n_4,o_n_5,o_n_6,o_n_7,
         o_s_1,o_s_2,o_s_3,o_s_4) 
-        VALUES('01','À¯¸®³ª','Âü','ÀÏ¼¶','ÀÚ·çÄ¡±â','°ÅÇÕ','±â¹é','¾Ðµµ','±â¿°¸¸Àå',
-        '´Þ ±×¸²ÀÚ ¶³¾îÁö´Ï','ÇØ¾È¿¡ ÆÄ¶ûÀÏ¸ç','ÂÊ¹è¿¡ ½¬³ë´Ï','¾Æ¸¶³× À¯¸®³ªÀÇ Àú·Â');
+        VALUES('01','ìœ ë¦¬ë‚˜','ì°¸','ì¼ì„¬','ìžë£¨ì¹˜ê¸°','ê±°í•©','ê¸°ë°±','ì••ë„','ê¸°ì—¼ë§Œìž¥',
+        'ë‹¬ ê·¸ë¦¼ìž ë–¨ì–´ì§€ë‹ˆ','í•´ì•ˆì— íŒŒëž‘ì¼ë©°','ìª½ë°°ì— ì‰¬ë…¸ë‹ˆ','ì•„ë§ˆë„¤ ìœ ë¦¬ë‚˜ì˜ ì €ë ¥');
 INSERT INTO goddess (godno,godname,o_n_1,o_n_2,o_n_3,o_n_4,o_n_5,o_n_6,o_n_7,
         o_s_1,o_s_2,o_s_3,o_s_4) 
-        VALUES('02','»çÀÌ³×','ÆÈ¹æ ÈÖµÎ¸£±â','ÈÄ·Áº£±â','¹«°ÔÃß','°£ÆÄ','±Ç¿ª','ÃæÀ½Á¤','¹«À½º®',
-        'À²µ¿È£±Ø','Çâ¸í°øÁø','À½¹«¼âºù','È÷»ç¸Þ »çÀÌ³×ÀÇ ÃÖÈÄÀÇ Á¾±Ø');        
+        VALUES('02','ì‚¬ì´ë„¤','íŒ”ë°© íœ˜ë‘ë¥´ê¸°','í›„ë ¤ë² ê¸°','ë¬´ê²Œì¶”','ê°„íŒŒ','ê¶Œì—­','ì¶©ìŒì •','ë¬´ìŒë²½',
+        'ìœ¨ë™í˜¸ê·¹','í–¥ëª…ê³µì§„','ìŒë¬´ì‡„ë¹™','ížˆì‚¬ë©” ì‚¬ì´ë„¤ì˜ ìµœí›„ì˜ ì¢…ê·¹');        
 INSERT INTO goddess (godno,godname,o_n_1,o_n_2,o_n_3,o_n_4,o_n_5,o_n_6,o_n_7,
         o_s_1,o_s_2,o_s_3,o_s_4)  
-        VALUES('03','È÷¹ÌÄ«','½¸','·¡ÇÇµå ÆÄÀÌ¾î','¸Å±×³Ñ Ä³³í','Ç® ¹ö½ºÆ®','¹é½ºÅÜ','¹éµå·¡ÇÁÆ®','½º¸ðÅ©',
-        '·¹µå ºÒ¸´','Å©¸²½¼ Á¦·Î','½ºÄ®·¿ ÀÌ¸ÅÁø','¹ö¹Ð¸®¿Â ÇÊµå');
+        VALUES('03','ížˆë¯¸ì¹´','ìŠ›','ëž˜í”¼ë“œ íŒŒì´ì–´','ë§¤ê·¸ë„˜ ìºë…¼','í’€ ë²„ìŠ¤íŠ¸','ë°±ìŠ¤í…','ë°±ë“œëž˜í”„íŠ¸','ìŠ¤ëª¨í¬',
+        'ë ˆë“œ ë¶ˆë¦¿','í¬ë¦¼ìŠ¨ ì œë¡œ','ìŠ¤ì¹¼ë › ì´ë§¤ì§„','ë²„ë°€ë¦¬ì˜¨ í•„ë“œ');
 INSERT INTO goddess (godno,godname,o_n_1,o_n_2,o_n_3,o_n_4,o_n_5,o_n_6,o_n_7,
         o_s_1,o_s_2,o_s_3,o_s_4)  
-        VALUES('04','ÅäÄÚ¿ä','ºø¾î³»¸®±â','¿ì¾ÆÇÑ Å¸°Ý','³¯¶Ù´Â Åä³¢','½ÃÀÇ Ãã','ºÎÃ¤ µÚÁý±â','¹Ù¶÷ÀÇ ¹«´ë','¸¼À½ÀÇ ¹«´ë',
-        '¿µ¿øÀÇ ²É','Ãµ³âÀÇ »õ','¹«±ÃÀÇ ¹Ù¶÷','»ó¼¼ÀÇ ´Þ');
+        VALUES('04','í† ì½”ìš”','ë¹—ì–´ë‚´ë¦¬ê¸°','ìš°ì•„í•œ íƒ€ê²©','ë‚ ë›°ëŠ” í† ë¼','ì‹œì˜ ì¶¤','ë¶€ì±„ ë’¤ì§‘ê¸°','ë°”ëžŒì˜ ë¬´ëŒ€','ë§‘ìŒì˜ ë¬´ëŒ€',
+        'ì˜ì›ì˜ ê½ƒ','ì²œë…„ì˜ ìƒˆ','ë¬´ê¶ì˜ ë°”ëžŒ','ìƒì„¸ì˜ ë‹¬');
 
 
--- Ä«µå »ó¼¼
+-- ì¹´ë“œ ìƒì„¸
 CREATE TABLE card (
-    GODNO       NUMBER(2) NOT NULL,  -- ¿©½Å¹øÈ£
-    MAINTAG    CHAR(10) NOT NULL,     -- Ä«µå ¸ÞÀÎ ºÐ·ù
-    SUBTAG      CHAR(10),                     -- Ä«µå ¼­ºê ºÐ·ù   
-    SHIELDATTACK CHAR(1),                  -- °ø°Ý Ä«µåÀÏ¶§ ¿À¶ó °ø°Ý·Â
-    LIFEATTACK CHAR(1),                       -- °ø°Ý Ä«µåÀÏ¶§ ¶óÀÌÇÁ °ø°Ý·Â
-    BUFFNUM   NUMBER(1),                  -- ºÎ¿© Ä«µåÀÏ¶§ ³³
-    COST         NUMBER(1),                   -- ºñÀåÆÐÀÏ¶§ ºñ¿ë °ª
-    EFFECT       VARCHAR2(50)              -- Ä«µå È¿°ú ÅØ½ºÆ®
+    GODNO       NUMBER(2) NOT NULL,  -- ì—¬ì‹ ë²ˆí˜¸
+    MAINTAG    CHAR(10) NOT NULL,     -- ì¹´ë“œ ë©”ì¸ ë¶„ë¥˜
+    SUBTAG      CHAR(10),                     -- ì¹´ë“œ ì„œë¸Œ ë¶„ë¥˜   
+    SHIELDATTACK CHAR(1),                  -- ê³µê²© ì¹´ë“œì¼ë•Œ ì˜¤ë¼ ê³µê²©ë ¥
+    LIFEATTACK CHAR(1),                       -- ê³µê²© ì¹´ë“œì¼ë•Œ ë¼ì´í”„ ê³µê²©ë ¥
+    BUFFNUM   NUMBER(1),                  -- ë¶€ì—¬ ì¹´ë“œì¼ë•Œ ë‚©
+    COST         NUMBER(1),                   -- ë¹„ìž¥íŒ¨ì¼ë•Œ ë¹„ìš© ê°’
+    EFFECT       VARCHAR2(50)              -- ì¹´ë“œ íš¨ê³¼ í…ìŠ¤íŠ¸
 );
 
 

@@ -1,7 +1,7 @@
 package chapter08.j0331;
 
 public class DaoExample {
-    public static void dbWork(DataAccessObject dao){
+    public static void dbWork(DataAccessObject dao) {
         dao.select();
         dao.insert();
         dao.update();

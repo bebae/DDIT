@@ -1,4 +1,4 @@
--- ÀÚµ¿Â÷ ±âº»Å×ÀÌºí ¸¸µé±â
+-- ìžë™ì°¨ ê¸°ë³¸í…Œì´ë¸” ë§Œë“¤ê¸°
 
 DROP TABLE motor;
 
@@ -12,29 +12,29 @@ CREATE TABLE motor (
 );
 
 INSERT INTO motor(memberno, name, model, yymm, add1) 
-VALUES('A00010001', '±è°æÀÚ', '¼Ò³ªÅ¸', 1990, '¼­¿ï½Ã');
+VALUES('A00010001', 'ê¹€ê²½ìž', 'ì†Œë‚˜íƒ€', 1990, 'ì„œìš¸ì‹œ');
 INSERT INTO motor(memberno, name, model, yymm, add1) 
-VALUES('A00010002', 'ÀÌÁ¾»ï', '¾Æ¹ÝÅ×', 1995, 'Á¦ÁÖ½Ã');
+VALUES('A00010002', 'ì´ì¢…ì‚¼', 'ì•„ë°˜í…Œ', 1995, 'ì œì£¼ì‹œ');
 INSERT INTO motor(memberno, name, model, yymm, add1) 
-VALUES('A00010003', '±èÀå¹Ì', 'EF¼Ò³ªÅ¸', 1999, 'ÀÎÃµ½Ã');
+VALUES('A00010003', 'ê¹€ìž¥ë¯¸', 'EFì†Œë‚˜íƒ€', 1999, 'ì¸ì²œì‹œ');
 INSERT INTO motor(memberno, name, model, yymm, add1) 
-VALUES('A00010004', 'ÃÖÃ¢È£', '¿¡Äí½º', 2000, '°­¸ª½Ã');
+VALUES('A00010004', 'ìµœì°½í˜¸', 'ì—ì¿ ìŠ¤', 2000, 'ê°•ë¦‰ì‹œ');
 INSERT INTO motor(memberno, name, model, yymm, add1) 
-VALUES('A00010005', 'ÀÌÃáÈ­', '¼Ò³ªÅ¸¥±', 1998, 'Á¦ÁÖ½Ã');
+VALUES('A00010005', 'ì´ì¶˜í™”', 'ì†Œë‚˜íƒ€â…¡', 1998, 'ì œì£¼ì‹œ');
 INSERT INTO motor(memberno, name, model, yymm, add1) 
-VALUES('A00010006', 'ÀüÃ»È­', '´ÙÀÌ³Ê½ºÆ¼', 1997, '¼­¿ï½Ã');
+VALUES('A00010006', 'ì „ì²­í™”', 'ë‹¤ì´ë„ˆìŠ¤í‹°', 1997, 'ì„œìš¸ì‹œ');
 INSERT INTO motor(memberno, name, model, yymm, add1) 
-VALUES('A00010007', '±æ±âÅÂ', '¿¢¼¿', 1992, '¼­¿ï½Ã');
+VALUES('A00010007', 'ê¸¸ê¸°íƒœ', 'ì—‘ì…€', 1992, 'ì„œìš¸ì‹œ');
 INSERT INTO motor(memberno, name, model, yymm, add1) 
-VALUES('A00010008', 'ÀåÁØÈ­', '¿¢¼¾Æ®', 1997, '¼ö¿ø½Ã');
+VALUES('A00010008', 'ìž¥ì¤€í™”', 'ì—‘ì„¼íŠ¸', 1997, 'ìˆ˜ì›ì‹œ');
 INSERT INTO motor(memberno, name, model, yymm, add1) 
-VALUES('A00010009', '±è¹ÌÈñ', '±×·£Á®X', 1994, 'ÀÎÃµ½Ã');
+VALUES('A00010009', 'ê¹€ë¯¸í¬', 'ê·¸ëžœì ¸X', 1994, 'ì¸ì²œì‹œ');
 INSERT INTO motor(memberno, name, model, yymm, add1) 
-VALUES('A00010010', 'ÀÌÀçÃ¢', '¾ÆÅä½º', 1998, '´ë±¸½Ã');
+VALUES('A00010010', 'ì´ìž¬ì°½', 'ì•„í† ìŠ¤', 1998, 'ëŒ€êµ¬ì‹œ');
 
 SELECT * FROM motor WHERE yymm <1999;
 
-UPDATE motor SET add1 = '¼­¿ï½Ã' WHERE add1 = 'ÀÎÃµ±¤¿ª½Ã';
+UPDATE motor SET add1 = 'ì„œìš¸ì‹œ' WHERE add1 = 'ì¸ì²œê´‘ì—­ì‹œ';
 
 
 

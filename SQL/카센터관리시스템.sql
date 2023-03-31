@@ -1,110 +1,110 @@
 
 INSERT INTO car() VALUES();
 
--- °í°´
+-- ê³ ê°
 INSERT INTO customer(cst_no, cst_name, cst_address, cst_telno) 
-    VALUES('A001', '±è¹Î¼ö', '´ëÀü½Ã Áß±¸ °è·æ·Î 1001-10','010-3125-3721');
+    VALUES('A001', 'ê¹€ë¯¼ìˆ˜', 'ëŒ€ì „ì‹œ ì¤‘êµ¬ ê³„ë£¡ë¡œ 1001-10','010-3125-3721');
 INSERT INTO customer(cst_no, cst_name, cst_address, cst_telno) 
-    VALUES('A002', '°­¸¸´ö', '´ëÀü½Ã ¼­±¸ °è·æ·Î 615','010-5785-6268');
+    VALUES('A002', 'ê°•ë§Œë•', 'ëŒ€ì „ì‹œ ì„œêµ¬ ê³„ë£¡ë¡œ 615','010-5785-6268');
 INSERT INTO customer(cst_no, cst_name, cst_address, cst_telno) 
-    VALUES('A003', 'ÀÌÇý¹Î', '´ëÀü½Ã Áß±¸ ´ëÁ¾·Î 480','010-1815-3137');
+    VALUES('A003', 'ì´í˜œë¯¼', 'ëŒ€ì „ì‹œ ì¤‘êµ¬ ëŒ€ì¢…ë¡œ 480','010-1815-3137');
 INSERT INTO customer(cst_no, cst_name, cst_address, cst_telno) 
-    VALUES('A004', '¹ÚÇÑ±â', '´ëÀü½Ã µ¿±¸ µ¿¼­´ë·Î 1503','010-9912-0284');
+    VALUES('A004', 'ë°•í•œê¸°', 'ëŒ€ì „ì‹œ ë™êµ¬ ë™ì„œëŒ€ë¡œ 1503','010-9912-0284');
 INSERT INTO customer(cst_no, cst_name, cst_address, cst_telno) 
-    VALUES('A005', 'ÃÖÀÌ¸²', '´ëÀü½Ã µ¿±¸ °¡¾ç³²·Î 23','010-1017-3387');
+    VALUES('A005', 'ìµœì´ë¦¼', 'ëŒ€ì „ì‹œ ë™êµ¬ ê°€ì–‘ë‚¨ë¡œ 23','010-1017-3387');
 INSERT INTO customer(cst_no, cst_name, cst_address, cst_telno) 
-    VALUES('A006', '½Å¼º°æ', '´ëÀü½Ã ´ë´ö±¸ Áß¸®·Î 184', '010-2991-9920');
+    VALUES('A006', 'ì‹ ì„±ê²½', 'ëŒ€ì „ì‹œ ëŒ€ë•êµ¬ ì¤‘ë¦¬ë¡œ 184', '010-2991-9920');
 INSERT INTO customer(cst_no, cst_name, cst_address, cst_telno) 
-    VALUES('A007', '°øºÐ´ö', '´ëÀü½Ã ¼­±¸ °è¹é·Î 1192', '010-5877-6831');
+    VALUES('A007', 'ê³µë¶„ë•', 'ëŒ€ì „ì‹œ ì„œêµ¬ ê³„ë°±ë¡œ 1192', '010-5877-6831');
 INSERT INTO customer(cst_no, cst_name, cst_address, cst_telno) 
-    VALUES('A008', '°­¸¶¿ë', '´ëÀü½Ã µ¿±¸ ÇÑ³²·Î 348', '010-1096-3107');
+    VALUES('A008', 'ê°•ë§ˆìš©', 'ëŒ€ì „ì‹œ ë™êµ¬ í•œë‚¨ë¡œ 348', '010-1096-3107');
 INSERT INTO customer(cst_no, cst_name, cst_address, cst_telno) 
-    VALUES('A009', 'ÃÖÈÆ¹®', '´ëÀü½Ã Áß±¸ »ê¼­·Î 55', '010-2090-2488');
+    VALUES('A009', 'ìµœí›ˆë¬¸', 'ëŒ€ì „ì‹œ ì¤‘êµ¬ ì‚°ì„œë¡œ 55', '010-2090-2488');
 INSERT INTO customer(cst_no, cst_name, cst_address, cst_telno) 
-    VALUES('A010', 'Á¶ÇÐÅÃ', '´ëÀü½Ã ¼­±¸ °¡¼ö¿ø·Î 186', '010-5309-7957');
+    VALUES('A010', 'ì¡°í•™íƒ', 'ëŒ€ì „ì‹œ ì„œêµ¬ ê°€ìˆ˜ì›ë¡œ 186', '010-5309-7957');
 
--- Á÷¿ø
+-- ì§ì›
 INSERT INTO employee(emp_no, emp_name, emp_address, emp_telno, emp_salay) 
-    VALUES('A001', 'Ãµ°ÉÅÂ', '´ëÀü½Ã ´ë´ö±¸ ¿ÀÁ¤·Î 860', '010-6873-6874', 3000000);
+    VALUES('A001', 'ì²œê±¸íƒœ', 'ëŒ€ì „ì‹œ ëŒ€ë•êµ¬ ì˜¤ì •ë¡œ 860', '010-6873-6874', 3000000);
 INSERT INTO employee(emp_no, emp_name, emp_address, emp_telno, emp_salay) 
-    VALUES('A002', '·ù½Ç°æ', '´ëÀü½Ã ¼­±¸ ¹èÀç·Î 306', '010-1033-1341', 2800000);
+    VALUES('A002', 'ë¥˜ì‹¤ê²½', 'ëŒ€ì „ì‹œ ì„œêµ¬ ë°°ìž¬ë¡œ 306', '010-1033-1341', 2800000);
 INSERT INTO employee(emp_no, emp_name, emp_address, emp_telno, emp_salay) 
-    VALUES('A003', '¾ÈÈ£¹Ú', '´ëÀü½Ã À¯¼º±¸ ½Å¼º·Î 781', '010-7148-9261', 3100000);
+    VALUES('A003', 'ì•ˆí˜¸ë°•', 'ëŒ€ì „ì‹œ ìœ ì„±êµ¬ ì‹ ì„±ë¡œ 781', '010-7148-9261', 3100000);
 INSERT INTO employee(emp_no, emp_name, emp_address, emp_telno, emp_salay) 
-    VALUES('A004', 'Çã¹ü¿ø', '´ëÀü½Ã ¼­±¸ µµ¼Ö·Î 1131', '010-1079-7142', 2750000);
+    VALUES('A004', 'í—ˆë²”ì›', 'ëŒ€ì „ì‹œ ì„œêµ¬ ë„ì†”ë¡œ 1131', '010-1079-7142', 2750000);
 INSERT INTO employee(emp_no, emp_name, emp_address, emp_telno, emp_salay) 
-    VALUES('A005', '¼ÕÈ£±¤', '´ëÀü½Ã Áß±¸ ¹®È­·Î 226', '010-1674-1686', 1980000);
+    VALUES('A005', 'ì†í˜¸ê´‘', 'ëŒ€ì „ì‹œ ì¤‘êµ¬ ë¬¸í™”ë¡œ 226', '010-1674-1686', 1980000);
 INSERT INTO employee(emp_no, emp_name, emp_address, emp_telno, emp_salay) 
-    VALUES('A006', 'Á¤½ÇÀº', '´ëÀü½Ã ¼­±¸ °è¹é·Î 29', '010-7346-5798', 3600000);
+    VALUES('A006', 'ì •ì‹¤ì€', 'ëŒ€ì „ì‹œ ì„œêµ¬ ê³„ë°±ë¡œ 29', '010-7346-5798', 3600000);
 INSERT INTO employee(emp_no, emp_name, emp_address, emp_telno, emp_salay) 
-    VALUES('A007', '¾ö´ÙÈ¸', '´ëÀü½Ã ¼­±¸ °¥¸¶·Î 804', '010-4168-1192', 4980000);
+    VALUES('A007', 'ì—„ë‹¤íšŒ', 'ëŒ€ì „ì‹œ ì„œêµ¬ ê°ˆë§ˆë¡œ 804', '010-4168-1192', 4980000);
 INSERT INTO employee(emp_no, emp_name, emp_address, emp_telno, emp_salay) 
-    VALUES('A008', 'Áø¼Ò±Ô', '´ëÀü½Ã µ¿±¸ °í´Ï2±æ 748', '010-9016-5986', 1580000);
+    VALUES('A008', 'ì§„ì†Œê·œ', 'ëŒ€ì „ì‹œ ë™êµ¬ ê³ ë‹ˆ2ê¸¸ 748', '010-9016-5986', 1580000);
 INSERT INTO employee(emp_no, emp_name, emp_address, emp_telno, emp_salay) 
-    VALUES('A009', '½ÅÁßÀü', '´ëÀü½Ã µ¿±¸ ´ëÀü·Î 1258', '010-3074-2834', 2450000);
+    VALUES('A009', 'ì‹ ì¤‘ì „', 'ëŒ€ì „ì‹œ ë™êµ¬ ëŒ€ì „ë¡œ 1258', '010-3074-2834', 2450000);
 INSERT INTO employee(emp_no, emp_name, emp_address, emp_telno, emp_salay) 
-    VALUES('A010', '³ëÀ²¾Ö', '´ëÀü½Ã ´ë´ö±¸ °èÁ··Î 540', '010-7099-1051', 3010000);
+    VALUES('A010', 'ë…¸ìœ¨ì• ', 'ëŒ€ì „ì‹œ ëŒ€ë•êµ¬ ê³„ì¡±ë¡œ 540', '010-7099-1051', 3010000);
 
--- ÀÚµ¿Â÷
+-- ìžë™ì°¨
 INSERT INTO car(car_no, car_year, car_driving, car_maker, cst_no) 
-    VALUES('123°¡4567', '2010', 150000, 'Çö´ë', 'A001');
+    VALUES('123ê°€4567', '2010', 150000, 'í˜„ëŒ€', 'A001');
 INSERT INTO car(car_no, car_year, car_driving, car_maker, cst_no) 
-    VALUES('473»ç6274', '2018', 100000, 'Á¦³×½Ã½º', 'A002');
+    VALUES('473ì‚¬6274', '2018', 100000, 'ì œë„¤ì‹œìŠ¤', 'A002');
 INSERT INTO car(car_no, car_year, car_driving, car_maker, cst_no) 
-    VALUES('135±¸7208', '2013', 160000, '½Ö¿ë', 'A003');
+    VALUES('135êµ¬7208', '2013', 160000, 'ìŒìš©', 'A003');
 INSERT INTO car(car_no, car_year, car_driving, car_maker, cst_no) 
-    VALUES('498·¯2023', '2020', 135000, 'Åä¿äÅ¸', 'A004');
+    VALUES('498ëŸ¬2023', '2020', 135000, 'í† ìš”íƒ€', 'A004');
 INSERT INTO car(car_no, car_year, car_driving, car_maker, cst_no) 
-    VALUES('369±¸5991', '2021', 90000, '¾Æ¹Ý¶¼', 'A005');
+    VALUES('369êµ¬5991', '2021', 90000, 'ì•„ë°˜ë–¼', 'A005');
 INSERT INTO car(car_no, car_year, car_driving, car_maker, cst_no) 
-    VALUES('202·Î8582', '2022', 12500, '½¦º¸·¹', 'A006');
+    VALUES('202ë¡œ8582', '2022', 12500, 'ì‰ë³´ë ˆ', 'A006');
 INSERT INTO car(car_no, car_year, car_driving, car_maker, cst_no) 
-    VALUES('358µµ8525', '2017', 280000, 'º¥Ã÷', 'A007');
+    VALUES('358ë„8525', '2017', 280000, 'ë²¤ì¸ ', 'A007');
 INSERT INTO car(car_no, car_year, car_driving, car_maker, cst_no) 
-    VALUES('192¸¶6128', '2018', 56000, 'BMW', 'A008');
+    VALUES('192ë§ˆ6128', '2018', 56000, 'BMW', 'A008');
 INSERT INTO car(car_no, car_year, car_driving, car_maker, cst_no) 
-    VALUES('477µÎ7908', '2020', 23000, '±â¾Æ', 'A009');
+    VALUES('477ë‘7908', '2020', 23000, 'ê¸°ì•„', 'A009');
 INSERT INTO car(car_no, car_year, car_driving, car_maker, cst_no) 
-    VALUES('41º¸6378', '2023', 10000, 'Æø½º¹Ù°Õ', 'A010');
+    VALUES('41ë³´6378', '2023', 10000, 'í­ìŠ¤ë°”ê²', 'A010');
 
 INSERT INTO service(svc_no, svc_time, svc_price, emp_no, car_no, cst_no) 
-    VALUES('2019031301', 96, 400000, 'A001', '123°¡4567','A001');
+    VALUES('2019031301', 96, 400000, 'A001', '123ê°€4567','A001');
 INSERT INTO service(svc_no, svc_time, svc_price, emp_no, car_no, cst_no) 
-    VALUES('2019031302', 150, 2000000, 'A002', '473»ç6274','A002');
+    VALUES('2019031302', 150, 2000000, 'A002', '473ì‚¬6274','A002');
 INSERT INTO service(svc_no, svc_time, svc_price, emp_no, car_no, cst_no) 
-    VALUES('2019031303', 30, 250000, 'A003', '135±¸7208','A003');
+    VALUES('2019031303', 30, 250000, 'A003', '135êµ¬7208','A003');
 INSERT INTO service(svc_no, svc_time, svc_price, emp_no, car_no, cst_no) 
-    VALUES('2019031304', 72, 900000, 'A004', '498·¯2023','A004');
+    VALUES('2019031304', 72, 900000, 'A004', '498ëŸ¬2023','A004');
 INSERT INTO service(svc_no, svc_time, svc_price, emp_no, car_no, cst_no) 
-    VALUES('2019031401', 100, 30000, 'A005', '369±¸5991','A005');
+    VALUES('2019031401', 100, 30000, 'A005', '369êµ¬5991','A005');
 INSERT INTO service(svc_no, svc_time, svc_price, emp_no, car_no, cst_no) 
-    VALUES('2019031401', 120, 500000, 'A006', '202·Î8582','A006');
+    VALUES('2019031401', 120, 500000, 'A006', '202ë¡œ8582','A006');
 INSERT INTO service(svc_no, svc_time, svc_price, emp_no, car_no, cst_no) 
-    VALUES('2019031402', 148, 59000, 'A007', '358µµ8525','A007');
+    VALUES('2019031402', 148, 59000, 'A007', '358ë„8525','A007');
 INSERT INTO service(svc_no, svc_time, svc_price, emp_no, car_no, cst_no) 
-    VALUES('2019031403', 300, 40000000, 'A008', '192¸¶6128','A008');
+    VALUES('2019031403', 300, 40000000, 'A008', '192ë§ˆ6128','A008');
 INSERT INTO service(svc_no, svc_time, svc_price, emp_no, car_no, cst_no) 
-    VALUES('2019031404', 16, 65000, 'A009', '477µÎ7908','A009');
+    VALUES('2019031404', 16, 65000, 'A009', '477ë‘7908','A009');
 INSERT INTO service(svc_no, svc_time, svc_price, emp_no, car_no, cst_no) 
-    VALUES('2019031405', 100, 2700000, 'A010', '41º¸6378','A010');
+    VALUES('2019031405', 100, 2700000, 'A010', '41ë³´6378','A010');
 
 
-update service set [¹Ù²Ü µ¥ÀÌÅÍ ¿­] = [¹Ù²Ü °ª] where [Ã£À» µ¥ÀÌÅÍ ¿­] = [°ª];
+update service set [ë°”ê¿€ ë°ì´í„° ì—´] = [ë°”ê¿€ ê°’] where [ì°¾ì„ ë°ì´í„° ì—´] = [ê°’];
 
 select * from service;
 
--- ¿ù±ÞÀÌ 250¸¸¿ø ÀÌ»çÀÌ°í 300¸¸¿ø ÀÌÇÏÀÎ Á÷¿ø¹øÈ£, ÁÖ¼Ò, ¿¬¶ôÃ³, ¿ù±ÞÀ» Ãâ·Â
+-- ì›”ê¸‰ì´ 250ë§Œì› ì´ì‚¬ì´ê³  300ë§Œì› ì´í•˜ì¸ ì§ì›ë²ˆí˜¸, ì£¼ì†Œ, ì—°ë½ì²˜, ì›”ê¸‰ì„ ì¶œë ¥
 select emp_name, emp_address, emp_telno, emp_salay FROM employee 
 where emp_salay >= 2000000 and emp_salay <= 3000000;
 
--- °í°´ 'C007'ÀÌ ¼ö¸®¸¦ ¿äÃ»ÇÑ ¸ñ·ÏÀ» ¼ö¸®ºñ¸¦ ±âÁØÀ¸·Î ³»¸²Â÷¼øÀ¸·Î Ãâ·Â
+-- ê³ ê° 'C007'ì´ ìˆ˜ë¦¬ë¥¼ ìš”ì²­í•œ ëª©ë¡ì„ ìˆ˜ë¦¬ë¹„ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì¶œë ¥
 select b.cst_no, b.cst_name, a.svc_price
     from service a, customer b
     where b.cst_no = 'A007' and a.cst_no = b.cst_no
     order by a.svc_price desc;
 
--- Ä«¼¾ÅÍÀÇ Á÷¿ø¼ö¿Í Æò±Õ±Þ¿©¸¦ Ãâ·Â
-SELECT count(emp_no) Á÷¿ø¼ö, avg(emp_salay) Æò±Õ±Þ¿©  FROM employee;
+-- ì¹´ì„¼í„°ì˜ ì§ì›ìˆ˜ì™€ í‰ê· ê¸‰ì—¬ë¥¼ ì¶œë ¥
+SELECT count(emp_no) ì§ì›ìˆ˜, avg(emp_salay) í‰ê· ê¸‰ì—¬  FROM employee;
 
 
 
