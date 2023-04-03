@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -26,14 +26,16 @@
     <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/0327~0331.sql" connection-id="44af4146-a614-4d0e-b0fc-05cb910ce7e3" session-id="MAIN" current-schema="PC03" />
+    <mapping file-url="file://$PROJECT_DIR$/0403.sql" connection-id="44af4146-a614-4d0e-b0fc-05cb910ce7e3" session-id="MAIN" current-schema="PC03" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />
   </component>
   <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
-    <recently-used-interfaces />
+    <recently-used-interfaces>
+      <mapping database-type="ORACLE" interface-id="DEFAULT" />
+    </recently-used-interfaces>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
@@ -451,7 +453,7 @@
     <operation-settings>
       <transactions>
         <uncommitted-changes>
-          <on-project-close value="ASK" />
+          <on-project-close value="COMMIT" />
           <on-disconnect value="ASK" />
           <on-autocommit-toggle value="ASK" />
         </uncommitted-changes>

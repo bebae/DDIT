@@ -28,7 +28,7 @@ public class Customer2 {
 		this.lastName = lastName;
 	}
 	
-	public void addAccount(BankAccount2 account) {
+	public void addAccount(BankAccount2  account) {
 		this.account[numberOfAccounts++] = account;
 	}
 
@@ -48,8 +48,12 @@ public class Customer2 {
 	public String toString() {
 		return String.format("이름: %s %s, 계좌의 갯수: %s", firstName, lastName, numberOfAccounts);
 	}
-	
-	
-	
-	
+
+	public void addAccount(SavingsAccount customer1SavingsAccount) {
+		this.account[numberOfAccounts++] = customer1SavingsAccount;
+	}
+
+
+
+
 }
