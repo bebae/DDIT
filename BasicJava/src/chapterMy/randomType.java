@@ -126,7 +126,7 @@ public class randomType {
 	}
 	void stringArr() throws IOException {
 		List<String> 배열1 = Arrays.asList("AB","BB","CB","DC","EC","XZ");
-		List<String> 배열2 = Arrays.asList("A","B","C","D","E","F");
+		List<String> 배열2 = Arrays.asList("A","BankExample","C","D","E","F");
 		Collections.shuffle(배열1);
 		Collections.shuffle(배열2);
 		int num = random.nextInt(999)+1;

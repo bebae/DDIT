@@ -152,7 +152,7 @@ declare
     v_id2 number := 10;
 begin
     while v_id < 20 loop
-        DBMS_OUTPUT.PUT(rpad('X', v_id2, ' '));
+        DBMS_OUTPUT.PUT(rpad(' ', v_id2, ' '));
         DBMS_OUTPUT.PUT_LINE(rpad('*',v_id,'*'));
         v_id := v_id + 2;
         v_id2 := v_id2 - 1;
@@ -301,7 +301,7 @@ begin
     for i in v_star.first..v_star.last loop
         DBMS_OUTPUT.PUT_LINE(i||'번째 종족: '||v_star(i));
     end loop;
-end;
+end;/
 
 -- 예외 처리 : 미리 정의된 예외인 경우
 declare
@@ -334,18 +334,159 @@ end;/
 
 -- 예외 처리 : 사용자 정의된 예외인 경우
 ACCEPT p_lgu PROMPT '등록하려는 분류코드 입력 :'
-DECLARE
-   exp_lprod_gu EXCEPTION;
-   v_lgu VARCHAR2(10) := UPPER('&p_lgu');
-BEGIN
-   IF v_lgu IN ('P101','P102','P201','P202') THEN
-        RAISE exp_lprod_gu;
-   END IF;
+declare
+   exp_lprod_gu exception;
+   v_lgu varchar2(10) := upper('&p_lgu');
+begin
+   if v_lgu in ('P101','P102','P201','P202') then
+        raise exp_lprod_gu;
+   end if;
    DBMS_OUTPUT.PUT_LINE (v_lgu || '는 등록 가능');
-EXCEPTION
-     WHEN exp_lprod_gu THEN
+exception
+     when exp_lprod_gu then
            DBMS_OUTPUT.PUT_LINE ( v_lgu ||  '는 이미 등록된 코드 입니다.');
+end;
+/
+
+-- CURSOR 문
+declare
+    v_prod varchar2(30);
+    v_qty number(10,0);
+
+    cursor upremain_cur is
+        select buy_prod, sum(buy_qty) from BUYPROD
+        where extract(year from buy_date) = 2020
+        group by buy_prod order by buy_prod asc;
+begin
+    open upremain_cur;
+    fetch upremain_cur into v_prod, v_qty;
+    while (upremain_cur%found) loop
+        DBMS_OUTPUT.PUT_LINE(
+            upremain_cur%rowcount||'번째 상품='||v_prod||' 입고수량='||v_qty||'입니다.');
+        fetch upremain_cur into v_prod, v_qty;
+    end loop ;
+    close upremain_cur;
+end;/
+
+-- Stored Procedure 상품코드를 매개변수(parameter)로 하여 재고수량  ADD
+create or replace procedure usp_pord_totalstock_update
+    (v_prod_id in PROD.PROD_ID%type, v_qty in PROD.PROD_TOTALSTOCK%type)
+is
+begin
+    update PROD set prod_totalstock = prod_totalstock + v_qty
+    where prod_id = v_prod_id;
+    DBMS_OUTPUT.PUT_LINE('정상적으로 업데이트 되었습니다.');
+    commit;
+exception
+    when others then
+        DBMS_OUTPUT.PUT_LINE('예외 발생: '||sqlerrm);
+        rollback;
+end;/
+
+--  Procedure 실행
+execute usp_pord_totalstock_update('P102000006',500);
+select PROD_ID, PROD_TOTALSTOCK
+    from PROD
+    where prod_id = 'P102000006';
+
+--  OUT 매개변수 예제 1    - 회원아이디를 입력받아 이름과 취미를  OUT 매개변수로 처리
+create or replace procedure usp_memberID(
+    p_mem_id in member.mem_id%type,
+    p_mem_name out member.mem_name%type,
+    p_mem_like out member.mem_like%type)
+is
+begin
+    select mem_name, mem_like into p_mem_name, p_mem_like
+    from "MEMBER" where MEM_ID = p_mem_id;
+end;/
+
+select MEM_ID, MEM_NAME, MEM_LIKE  from "MEMBER";
+
+--  OUT 매개변수의 간단 출력
+VAR mem_name VARCHAR2(20)
+VAR mem_like VARCHAR2(20)
+EXECUTE usp_MemberID ('m001', :mem_name, :mem_like);
+PRINT mem_name
+PRINT mem_like;
+/
+
+-- OUT 매개변수 예제2
+CREATE OR REPLACE PROCEDURE usp_MemberCartTop
+    ( p_year                  IN  VARCHAR2,
+      p_amt                OUT  NUMBER ,
+      p_mem_name   OUT member.mem_name%TYPE )
+IS
+    v_year VARCHAR2(5);
+BEGIN
+     v_year := (p_year || '%');
+    SELECT  mem_name, mem_amt  INTO  p_mem_name, p_amt
+      FROM (
+    SELECT mem_name, SUM(prod_price * cart_qty) mem_amt
+       FROM member, cart, prod
+      WHERE cart_no LIKE v_year
+           AND cart_member = mem_id
+           AND cart_prod = prod_id
+      GROUP BY mem_name
+      ORDER BY SUM(prod_price * cart_qty)  DESC
+      )
+      WHERE  ROWNUM <= 1 ;
 END;
+/
+
+VAR send_member VARCHAR2
+VAR send_amt NUMBER
+EXEC usp_MemberCartTop('2020', :send_amt, :send_member);
+PRINT send_member
+PRINT send_amt;
+
+-- Function = 함수
+-- 회원 아이디를 받으면 해당 이름을 리턴하는 함수 만들기
+create or replace function fn_memName (p_mem_id in varchar2)
+    return varchar2
+is r_name varchar2(30);
+begin
+    select MEM_NAME into r_name from "MEMBER"
+    where MEM_ID = p_mem_id;
+    return r_name;
+exception
+    when others then
+    DBMS_OUTPUT.PUT_LINE('예외 발생: '||sqlerrm );
+    return null;
+end;
+
+-- 년도 및 상품코드를 입력 받으면 해당년도의 평균 판매 횟수를      반환하는 함수
+create or replace function fn_prodAvgQty
+    (p_year in number default (extract(year from sysdate)), p_prod_id in varchar2)
+    return number
+is
+    r_qty number(10);
+    v_year varchar2(5) := to_char(p_year)||'%';
+begin
+    select nvl(avg(cart_qty),0) into r_qty from CART
+    where CART_PROD = p_prod_id and cart_no like v_year;
+    return r_qty;
+exception
+    when others then
+        DBMS_OUTPUT.PUT_LINE('예외 발생:'||sqlerrm);
+        return 0;
+end;/
+--  fn_prodAvgQty 실행 테스트
+VAR qty NUMBER EXEC :qty := fn_prodAvgQty( 2004, 'P101000002');
+PRINT qty EXEC :qty := fn_prodAvgQty(2020, 'P101000002');
+PRINT qty;
+SELECT prod_id,  prod_name,
+    fn_prodAvgQty(2004,prod_id) "2004년 평균 판매횟수",
+    fn_prodAvgQty(2020,prod_id) "2020년 평균 판매횟수"
+    FROM prod
+
+
+
+
+
+
+
+
+
 
 
 

@@ -11,6 +11,6 @@ public class IfExample {
 		
 		if(score< 90) 
 			System.out.println("점수가 90보다 작습니다.");
-			System.out.println("등급은 B 입니다.");
+			System.out.println("등급은 BankExample 입니다.");
 	}
 }
