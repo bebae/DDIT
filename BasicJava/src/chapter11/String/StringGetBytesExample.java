@@ -1,4 +1,4 @@
-package chapter11;
+package chapter11.String;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;

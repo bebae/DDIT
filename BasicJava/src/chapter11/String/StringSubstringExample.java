@@ -1,4 +1,4 @@
-package chapter11;
+package chapter11.String;
 
 public class StringSubstringExample {
     public static void main(String[] args) {

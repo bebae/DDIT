@@ -1,4 +1,4 @@
-package chapter11;
+package chapter11.String;
 
 public class StringEqualsExample {
     public static void main(String[] args) {
@@ -14,7 +14,7 @@ public class StringEqualsExample {
         if(strVar1.equals(strVar2)){
             System.out.println("같은 문자열을 가짐");
         } else {
-            System.out.println("다른 문자열을0 가짐");
+            System.out.println("다른 문자열을 가짐");
         }
     }
 }

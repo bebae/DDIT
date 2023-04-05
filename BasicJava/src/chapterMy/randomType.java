@@ -25,7 +25,7 @@ public class randomType {
 		
 		Collections.shuffle(성);
 	    Collections.shuffle(이름);
-	   bw.write(성.get(0) + 이름.get(0) + 이름.get(1));	
+	   bw.write(성.get(0) + 이름.get(0) + 이름.get(1));
 	   bw.flush();
 	}
 	void address() throws IOException {
@@ -125,13 +125,11 @@ public class randomType {
 		bw.flush();
 	}
 	void stringArr() throws IOException {
-		List<String> 배열1 = Arrays.asList("AB","BB","CB","DC","EC","XZ");
-		List<String> 배열2 = Arrays.asList("A","BankExample","C","D","E","F");
-		Collections.shuffle(배열1);
-		Collections.shuffle(배열2);
+		List<String> list1 = Arrays.asList("AB","BB","CB","DC","EC","XZ");
+		Collections.shuffle(list1);
 		int num = random.nextInt(999)+1;
 		
-		bw.write(String.format(배열1.get(0)+"%03d",num));
+		bw.write(String.format(list1.get(0)+"%03d",num));
 		bw.flush();
 	}
 	
