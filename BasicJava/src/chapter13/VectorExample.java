@@ -12,12 +12,12 @@ public class VectorExample {
         list.add(new Board("제목4", "내용4", "글쓴이4"));
         list.add(new Board("제목5", "내용5", "글쓴이5"));
 
-        list.remove(2);
-        list.remove(3);
+        list.remove(2); // 제목3 = {제목1 [0], 제목2 [1], 제목3 [2], 제목4 [3], 제목5 [4]}
+        // ★★★★★★★★ 중요! 지워지면 인덱스가 앞으로 땡겨짐! ★★★★★★★★★★★★★
+        list.remove(3); // 제목5 = {제목1 [0], 제목2 [1], 제목4 [2], 제목5 [3]}
 
-        for (int i = 0; i < list.size(); i++) {
-            Board board = list.get(i);
-            System.out.println(board.subject+"\t"+board.content+"\t"+board.writer);
+        for (Board board : list) {
+            System.out.println(board.subject + "\t" + board.content + "\t" + board.writer);
         }
 
     }
