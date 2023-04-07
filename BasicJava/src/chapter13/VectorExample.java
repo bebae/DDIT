@@ -4,7 +4,7 @@ import java.util.*;
 
 public class VectorExample {
     public static void main(String[] args) {
-        List<Board> list = new Vector<Board>();
+        List<Board> list = new Vector<>();
 
         list.add(new Board("제목1", "내용1", "글쓴이1"));
         list.add(new Board("제목2", "내용2", "글쓴이2"));
