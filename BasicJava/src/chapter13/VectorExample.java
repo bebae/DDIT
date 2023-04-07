@@ -19,6 +19,6 @@ public class VectorExample {
         for (Board board : list) {
             System.out.println(board.subject + "\t" + board.content + "\t" + board.writer);
         }
-
+        
     }
 }
