@@ -1,21 +1,47 @@
 -- 트리거
 
 -- 다음 파일이름을 입력하여 새로 생긴 SQL 파일에 다음과 같이 입력하시오.(파일이름:TRIG01.SQL)
-create or replace trigger th_lprod_in
-    after insert on LPROD
-begin
-    DBMS_OUTPUT.PUT_LINE('상품부류가 추가되었습니다.');
-end;/
+CREATE OR REPLACE TRIGGER th_lprod_in AFTER
+    INSERT ON lprod
+BEGIN
+    dbms_output.put_line('상품부류가 추가되었습니다.');
+END;
+/
 
 -- 만들어진 트리거확인
-select trigger_name from user_triggers;
+SELECT
+    trigger_name
+FROM
+    user_triggers;
 
 -- 상품분류 테이블에 로우를 추가.
 set serveroutput on;
-insert into LPROD(LPROD_ID, LPROD_GU, LPROD_NM)
-    values((select max(LPROD_ID) + 1 from LPROD),
-    (select 'P' || (substr(max(LPROD_GU),2)+1) from LPROD),'트리거추가값1');
-select * from LPROD;
+
+INSERT INTO lprod (
+    lprod_id,
+    lprod_gu,
+    lprod_nm
+) VALUES (
+    (
+        SELECT
+            MAX(lprod_id) + 1
+        FROM
+            lprod
+    ),
+    (
+        SELECT
+            'P'
+            || ( substr(MAX(lprod_gu), 2) + 1 )
+        FROM
+            lprod
+    ),
+    '트리거추가값1'
+);
+
+SELECT
+    *
+FROM
+    lprod;
 
 /*
 -- 직원을 저장할 테이블 생성
@@ -35,45 +61,85 @@ create TABLE SAL01(
 
 --  급여번호를 자동 생성하는 시퀀스를 정의하고
 -- 이 시퀀스로부터 일련번호를 얻어 급여번호에 부여합시다.
-create sequence SAL01_SALNO_SEQ;
+CREATE SEQUENCE sal01_salno_seq;
 
-create or replace trigger TRG_02
-after insert
-on EMP01
-for each row
-begin
-insert into SAL01 values(
-SAL01_SALNO_SEQ.nextval, 100, :new.EMPNO);
-end;
+CREATE OR REPLACE TRIGGER trg_02 AFTER
+    INSERT ON emp01
+    FOR EACH ROW
+BEGIN
+    INSERT INTO sal01 VALUES (
+        sal01_salno_seq.NEXTVAL,
+        100,
+        :new.empno
+    );
+
+END;
 /
 
+INSERT INTO emp01 VALUES (
+    2,
+    '전수빈',
+    '프로그래머'
+);
 
-insert into EMP01 values(2, '전수빈', '프로그래머');
-insert into EMP01 values(1, '정범진', '프로그래머');
-insert into EMP01 values(3, '이한준', '화가');
-select * from EMP01;
-select * from SAL01;
+INSERT INTO emp01 VALUES (
+    1,
+    '정범진',
+    '프로그래머'
+);
+
+INSERT INTO emp01 VALUES (
+    3,
+    '이한준',
+    '화가'
+);
+
+SELECT
+    *
+FROM
+    emp01;
+
+SELECT
+    *
+FROM
+    sal01;
 
 -- 사원이 삭제되면 그 사원의 급여 정보도 자동 삭제되는 트리거를 작성해 보도록 합시다.
-delete from EMP01 where EMPNO=2;
+DELETE FROM emp01
+WHERE
+    empno = 2;
 
 -- 사원의 정보가 제거 될 때 그 사원의 급여 정보도 함께 삭제하는 내용을 트리거로 작성
-CREATE OR REPLACE TRIGGER TRG_03
-AFTER DELETE ON EMP01
-FOR EACH ROW
+CREATE OR REPLACE TRIGGER trg_03 AFTER
+    DELETE ON emp01
+    FOR EACH ROW
 BEGIN
-DELETE FROM SAL01 WHERE EMPNO=:old.EMPNO;
+    DELETE FROM sal01
+    WHERE
+        empno = :old.empno;
+
 END;
 /
 
 -- 사원 테이블에 로우를 삭제해 봅시다.
-DELETE FROM EMP01 WHERE EMPNO=1;
-SELECT * FROM EMP01;
-SELECT * FROM SAL01;
+DELETE FROM emp01
+WHERE
+    empno = 1;
+
+SELECT
+    *
+FROM
+    emp01;
+
+SELECT
+    *
+FROM
+    sal01;
 
 -- DROP TIGGER 다음에 삭제할 트리거 명을 기술합니다.
-DROP TRIGGER TRG_02;
-DROP TRIGGER TRG_03;
+DROP TRIGGER trg_02;
+
+DROP TRIGGER trg_03;
 
 
 -- 상품이 입력되면 입고 수량을 상품 테이블의 재고 수량에 추가되는 트리거
@@ -99,76 +165,208 @@ CREATE TABLE IPGO(
 */
 
 -- 샘플 데이터 입력
-INSERT INTO PRODUCT(PROD_ID, PROD_NAME, PROD_JEJO, PROD_SALE)
-	VALUES('A00001','세탁기', 'LG', 500);
-INSERT INTO PRODUCT(PROD_ID, PROD_NAME, PROD_JEJO, PROD_SALE)
-	VALUES('A00002','컴퓨터', 'LG', 700);
-INSERT INTO PRODUCT(PROD_ID, PROD_NAME, PROD_JEJO, PROD_SALE)
-	VALUES('A00003','냉장고', '삼성', 600);
+INSERT INTO product (
+    prod_id,
+    prod_name,
+    prod_jejo,
+    prod_sale
+) VALUES (
+    'A00001',
+    '세탁기',
+    'LG',
+    500
+);
+
+INSERT INTO product (
+    prod_id,
+    prod_name,
+    prod_jejo,
+    prod_sale
+) VALUES (
+    'A00002',
+    '컴퓨터',
+    'LG',
+    700
+);
+
+INSERT INTO product (
+    prod_id,
+    prod_name,
+    prod_jejo,
+    prod_sale
+) VALUES (
+    'A00003',
+    '냉장고',
+    '삼성',
+    600
+);
 
 -- 입고 테이블에 상품이 입력되면 입고 수량을 상품 테이블의 재고 수량에 추가하는 트리거
-create or replace trigger TRG_04
-    after insert
-    on ipgo for each row
-begin
-    update product set prod_jaego = prod_jaego + :new.ipgo_qty
-    where prod_id = :new.prod_id;
-end;
+CREATE OR REPLACE TRIGGER trg_04 AFTER
+    INSERT ON ipgo
+    FOR EACH ROW
+BEGIN
+    UPDATE product
+    SET
+        prod_jaego = prod_jaego + :new.ipgo_qty
+    WHERE
+        prod_id = :new.prod_id;
+
+END;
 /
 
 -- 트리거를 실행시킨 후 입고 테이블에 행 추가
 -- 수량 변경을 확인
-INSERT INTO IPGO(IPGO_ID, PROD_ID, IPGO_QTY, IPGO_COST, IPGO_AMOUNT)
-VALUES(1, 'A00001', 5, 320, 1600);
-INSERT INTO IPGO(IPGO_ID, PROD_ID, IPGO_QTY, IPGO_COST, IPGO_AMOUNT)
-VALUES(3, 'A00001', 15, 320, 4800);
-SELECT * FROM IPGO;
-SELECT * FROM PRODUCT;
+INSERT INTO ipgo (
+    ipgo_id,
+    prod_id,
+    ipgo_qty,
+    ipgo_cost,
+    ipgo_amount
+) VALUES (
+    1,
+    'A00001',
+    5,
+    320,
+    1600
+);
+
+INSERT INTO ipgo (
+    ipgo_id,
+    prod_id,
+    ipgo_qty,
+    ipgo_cost,
+    ipgo_amount
+) VALUES (
+    3,
+    'A00001',
+    15,
+    320,
+    4800
+);
+
+SELECT
+    *
+FROM
+    ipgo;
+
+SELECT
+    *
+FROM
+    product;
 
 -- 입고 테이블에 또 다른 상품
-insert into ipgo(ipgo_id, prod_id, ipgo_qty, ipgo_cost, IPGO_AMOUNT) values(2, 'A00002',10,680,6800);
-insert into ipgo(ipgo_id, prod_id, ipgo_qty, ipgo_cost, IPGO_AMOUNT) values(4, 'A00003',20,560,13000);
-insert into ipgo(ipgo_id, prod_id, ipgo_qty, ipgo_cost, IPGO_AMOUNT) values(5, 'A00002',20,680,13600);
-select * from ipgo;
-select * from product;
+INSERT INTO ipgo (
+    ipgo_id,
+    prod_id,
+    ipgo_qty,
+    ipgo_cost,
+    ipgo_amount
+) VALUES (
+    2,
+    'A00002',
+    10,
+    680,
+    6800
+);
+
+INSERT INTO ipgo (
+    ipgo_id,
+    prod_id,
+    ipgo_qty,
+    ipgo_cost,
+    ipgo_amount
+) VALUES (
+    4,
+    'A00003',
+    20,
+    560,
+    13000
+);
+
+INSERT INTO ipgo (
+    ipgo_id,
+    prod_id,
+    ipgo_qty,
+    ipgo_cost,
+    ipgo_amount
+) VALUES (
+    5,
+    'A00002',
+    20,
+    680,
+    13600
+);
+
+SELECT
+    *
+FROM
+    ipgo;
+
+SELECT
+    *
+FROM
+    product;
 
 -- 갱신 트리거
-CREATE OR REPLACE TRIGGER TRG_05
-    AFTER UPDATE ON ipgo
+CREATE OR REPLACE TRIGGER trg_05 AFTER
+    UPDATE ON ipgo
     FOR EACH ROW
 BEGIN
     UPDATE product
-    SET PROD_JAEGO = PROD_JAEGO + (-:old.IPGO_QTY+:new.IPGO_QTY)
-    WHERE PROD_ID = :new.PROD_ID;
+    SET
+        prod_jaego = prod_jaego + ( - :old.ipgo_qty + :new.ipgo_qty )
+    WHERE
+        prod_id = :new.prod_id;
+
 END;
 /
 
-update ipgo set ipgo_qty = 10, ipgo_amount=2200 where ipgo_id=3;
-select * from ipgo order by ipgo_id;
-select * from PRODuct;
+UPDATE ipgo
+SET
+    ipgo_qty = 10,
+    ipgo_amount = 2200
+WHERE
+    ipgo_id = 3;
+
+SELECT
+    *
+FROM
+    ipgo
+ORDER BY
+    ipgo_id;
+
+SELECT
+    *
+FROM
+    product;
 
 -- 삭제 트리거
-CREATE OR REPLACE TRIGGER TRG_06
-    AFTER DELETE ON ipgo
+CREATE OR REPLACE TRIGGER trg_06 AFTER
+    DELETE ON ipgo
     FOR EACH ROW
 BEGIN
     UPDATE product
-    SET PROD_JAEGO = PROD_JAEGO - :old.IPGO_QTY
-    WHERE PROD_ID = :old.PROD_ID;
+    SET
+        prod_jaego = prod_jaego - :old.ipgo_qty
+    WHERE
+        prod_id = :old.prod_id;
+
 END;
 /
-DELETE ipgo WHERE ipgo_id=3;
-SELECT * FROM ipgo ORDER BY ipgo_id;
-SELECT * FROM PRODuct;
 
+DELETE ipgo
+WHERE
+    ipgo_id = 3;
 
+SELECT
+    *
+FROM
+    ipgo
+ORDER BY
+    ipgo_id;
 
-
-
-
-
-
-
-
-
-
+SELECT
+    *
+FROM
+    product;

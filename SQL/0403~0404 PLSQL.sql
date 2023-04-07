@@ -145,6 +145,7 @@ begin
         DBMS_OUTPUT.PUT_LINE('');
     end loop;
 end;
+/
 
 -- while문 이용해서 다른 형태 피라미드 만들기
 declare
@@ -469,7 +470,8 @@ exception
     when others then
         DBMS_OUTPUT.PUT_LINE('예외 발생:'||sqlerrm);
         return 0;
-end;/
+end;
+/
 --  fn_prodAvgQty 실행 테스트
 VAR qty NUMBER EXEC :qty := fn_prodAvgQty( 2004, 'P101000002');
 PRINT qty EXEC :qty := fn_prodAvgQty(2020, 'P101000002');
