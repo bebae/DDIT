@@ -62,6 +62,9 @@ public class VectorTest {
         System.out.println("삭제 후 v1 => "+v1);
         System.out.println("삭제 반환 값 : "+r);
 
+//        v1.remove(123);     // v1.remove 123을 데이터 int 123 이 아니라 index 값을 123으로 인식
+        v1.remove(new Integer(123));
+        System.out.println("삭제 후 v1 => "+v1);
 
     }
 }
