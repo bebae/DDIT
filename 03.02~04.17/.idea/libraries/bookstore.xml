@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="bookstore">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/BasicJava/src/bookstore/spring-tx-5.3.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BasicJava/src/bookstore/ojdbc8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BasicJava/src/bookstore/spring-beans-5.3.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BasicJava/src/bookstore/spring-jdbc-5.3.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BasicJava/src/bookstore/spring-core-5.3.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BasicJava/src/bookstore/commons-logging-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
