@@ -59,13 +59,93 @@ public class VectorTest {
         // ==> 삭제할 데이터가 Vector 안에 여러개라면 첫번째 자료 삭제
         // ==> 반환값 삭제성공(true), 삭제실패(false)
         r = v1.remove("CCCC");
-        System.out.println("삭제 후 v1 => "+v1);
+        System.out.println("'CCCC' 삭제 후 v1 => "+v1);
         System.out.println("삭제 반환 값 : "+r);
 
-//        v1.remove(123);     // v1.remove 123을 데이터 int 123 이 아니라 index 값을 123으로 인식
-        v1.remove(new Integer(123));
-        System.out.println("삭제 후 v1 => "+v1);
+/*
+        v1.remove(123);     // v1.remove 123을 데이터 int 123 이 아니라 index 값을 123으로 인식
+        v1.remove(new Integer(123));        // 객체화 시켜서 삭제
+*/
+        v1.remove(Integer.valueOf(123));
+        System.out.println("'123' 삭제 후 v1 => "+v1);
+        System.out.println();
 
+//        v1.remove('a');
+        v1.remove(new Character('a'));
+        System.out.println("'a'삭제 후 v1 => "+v1);
+
+        v1.remove(true);
+        System.out.println("ture 삭제 후 v1 => "+v1);
+
+        v1.remove(3.14);
+        System.out.println("3.14 삭제 후 v1 => "+v1);
+
+        // 전체 데이터 삭제하기 : clear();
+        v1.clear();
+        System.out.println("clear 삭제 후 v1 => "+v1);
+        System.out.println();
+
+        /*
+        제네릭 타입(Generic Type) ==> 클래스 내부에서 사용할 데이터의 타입을 객체를 생성할 때
+                외부에서 지정해 주는 기법으로 객체를 선언할 때 <>괄호 안에 그 객체의 내부에서
+                사용할 데이터의 타입을 정해주는 것을 말한다.
+            - 이런 식으로 선언하게 되면 그 지정된 데이터 타입 이외의 다른 종류의 데이터를 저장할 수 없다.
+            - 이 때 제네릭으로 선언될 수 있는 데이터 타입은 클래스형 이어야 한다.
+                그래서 int -> Integer, boolean -> Boolean, char -> Character 등으로 대체하여 사용
+            - 제네릭 타입으로 선언하게 되면 데이터를 꺼내올 때도 별도의 형변환이 필요없다,
+         */
+
+        Vector<Integer> v2 = new Vector<>();
+        Vector<String> v3 = new Vector<>();
+
+        v3.add("안녕하세요");
+        v3.add("100");
+        
+        String sTemp2 = v3.get(0);      // 형변환 없이 데이터 사용 가능
+
+
+        Vector<Vector> vv = new Vector<>();
+        Vector<Vector<Vector>> vvv = new Vector<>();
+        System.out.println("\n-------------------------------\n");
+
+        v3.clear();
+        System.out.println("v3의 size = "+v3.size());
+        v3.add("AAA");
+        v3.add("BBB");
+        v3.add("CCC");
+        v3.add("DDD");
+        v3.add("EEE");
+
+        Vector<String> v4 = new Vector<>();
+        v4.add("BBB");
+        v4.add("EEE");
+
+        System.out.println("v3 => "+v3);
+        System.out.println("v4 => "+v4);
+
+        /*
+        데이터 삭제하기 3 : removeAll(Collection 객체)
+        ==> 벡터의 데이터 중에서 'Collection 객체가 가지고 있는 모든 데이터를 삭제한다.
+        ==> 반환값 boolean 타입
+        */
+        v3.removeAll(v4);
+        System.out.println("v3에서 v4를 삭제 후 => "+v3);
+        System.out.println("-------------------------------\n");
+
+        v3.add(1,"BBB");
+        v3.add(4,"EEE");
+
+        // 벡터의 데이터들을 순서대로 모두 가져와 사용하기
+        // 이 때는 반복문을 사용하면 된다. (주로 for)
+        for (int i = 0; i < v3.size(); i++) {
+            System.out.println(i+1+"번째 자료 : "+v3.get(i));
+        }
+        System.out.println("-------------------------------\n");
+
+        // 향상된 for
+        for (String temp : v3) {
+            System.out.println(temp);
+        }
     }
 }
 
