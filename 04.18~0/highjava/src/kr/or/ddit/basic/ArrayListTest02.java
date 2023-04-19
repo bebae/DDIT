@@ -23,8 +23,9 @@ public class ArrayListTest02 {
         // '김'씨 성의 이름 출력
         System.out.print("'김'씨 성의 이름: ");
         for (String name : nameList) {
-            if (name.contains("김")) {
-//            if (name.startsWith("김")) {
+//            if (name.charAt(0) == '김') {          // 문자열에 0번째 값
+//            if (name.startsWith("김")) {           // 문자열에 시작문자
+            if (name.indexOf("김") == 0){            // 문자열에 "김"의 위치
                 System.out.print(name + " ");
             }
         }

@@ -2,8 +2,6 @@ package chapterMy;
 
 import java.io.*;
 
-
-
 public class randomMaker {
 
 	public static void main(String[] args) throws IOException {
@@ -25,7 +23,7 @@ public class randomMaker {
 			bw.write("', '");
 			bw.flush();
 			
-			random.name();
+			random.name(ture);
 			
 			bw.write("', '");
 			bw.flush();
