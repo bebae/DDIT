@@ -19,7 +19,7 @@ import java.util.Comparator;
 
 public class ListSortTest01 {
     public static void main(String[] args) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.add("일지매");
         list.add("홍길동");
         list.add("성춘향");

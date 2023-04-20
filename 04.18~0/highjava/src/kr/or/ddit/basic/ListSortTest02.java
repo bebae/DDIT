@@ -19,17 +19,33 @@ public class ListSortTest02 {
         for (Member mem : memList) {
             System.out.println(mem);
         }
-        System.out.println("===========================================");
+        System.out.println("===============================================");
 
         Collections.sort(memList);
         System.out.println("정렬 후");
         for (Member mem : memList) {
             System.out.println(mem);
         }
-        System.out.println("===========================================");
+        System.out.println("===============================================");
 
         // 데이터 섞기
         Collections.shuffle(memList);
+
+        System.out.println("섞기 후");
+        for (Member mem : memList) {
+            System.out.println(mem);
+        }
+        System.out.println("===============================================");
+
+        // Member 의 회원번호(num) 값의 내침차순으로 정렬하는 외부 정렬 기준 클래스를 작성하세요
+        // ==> Comparator 인터페이스를 구현 (클래스명 : SortNumDesc)
+        Collections.sort(memList, new SortNumDesc());
+        
+        System.out.println("숫자 정렬 후");
+        for (Member mem : memList) {
+            System.out.println(mem);
+        }
+        System.out.println("===============================================");
 
     }
 }
@@ -62,14 +78,6 @@ class Member implements Comparable<Member> {
         this.name = name;
     }
 
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
-
     @Override
     public String toString() {
         return "Member" + "num=" + num +
@@ -80,6 +88,18 @@ class Member implements Comparable<Member> {
     @Override
     public int compareTo(Member member) {
         return getName().compareTo(member.getName());
+    }
+}
+class SortNumDesc implements Comparator<Member> {
+    @Override
+    public int compare(Member mem1, Member mem2) {
+//        if (mem1.getNum() > mem2.getNum()) {
+//            return -1;
+//        } else if (mem1.getNum() < mem2.getNum()) {
+//            return 1;
+//        }
+//        return 0;
+        return Integer.compare(mem1.getNum(), mem2.getNum()) * -1;
     }
 }
 

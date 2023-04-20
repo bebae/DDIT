@@ -38,7 +38,7 @@ public class randomType {
             }
         }
         bw.flush();
-        return  sw.toString();
+        return sw.toString();
     }
 
     void address() throws IOException {
@@ -137,23 +137,14 @@ public class randomType {
         bw.flush();
     }
 
-    void numberArr() throws IOException {
-        int num = 5;
+    public int range(int start, int end) throws IOException {
+        int num = random.nextInt(end - start + 1) + start;
         for (int i = 0; i < num; i++) {
-            bw.write(String.valueOf(random.nextInt(10)));
+            bw.write(String.valueOf(random.nextInt(end - start + 1) + start));
         }
-        bw.flush();
+        // bw.flush();
+        return num;
     }
-
-    void stringArr() throws IOException {
-        List<String> list1 = Arrays.asList("AB", "BB", "CB", "DC", "EC", "XZ");
-        Collections.shuffle(list1);
-        int num = random.nextInt(999) + 1;
-
-        bw.write(String.format(list1.get(0) + "%03d", num));
-        bw.flush();
-    }
-
 }
 
 

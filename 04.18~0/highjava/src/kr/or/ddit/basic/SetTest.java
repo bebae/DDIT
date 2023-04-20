@@ -1,2 +1,4 @@
-package kr.or.ddit.basic;public class SetTest {
+package kr.or.ddit.basic;
+
+public class SetTest {
 }
