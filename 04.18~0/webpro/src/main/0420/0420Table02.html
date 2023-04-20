@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        table {
+            border: 5px solid blue;
+            margin: 20px auto;
+        }
+        td, tr {
+            width: 200px;
+            height: 50px;
+            text-align: center;
+        }
+        th {
+            height: 20px;
+        }
+        #tab1{
+            border-collapse: collapse;
+        }
+        #tab2{
+            border-spacing: 20px;
+        }
+        h2 {
+            text-align: center;
+            border: 1px solid red;
+        }
+        #tab1 th {
+            border-bottom: 5px double red;
+        }
+        caption {
+            margin: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>border : 5px solid blue  border-collapse: collapse</h2>
+    <table border="1" id="tab1">
+        <caption>고객 리스트</caption>
+        <tr>
+            <th>이름</th>
+            <th>주소</th>
+            <th>전화번호</th>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>대전</td>
+            <td>1234</td>
+        </tr>
+        <tr>
+            <td>개나리</td>
+            <td>서울</td>
+            <td>4567</td>
+        </tr>
+        <tr>
+            <td>진달래</td>
+            <td>부산</td>
+            <td>6789</td>
+        </tr>
+    </table>
+    <h2>border : border-spacing: 20px</h2>
+    <table border="1" id="tab2">
+        <tr>
+            <th>이름</th>
+            <th>주소</th>
+            <th>전화번호</th>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>대전</td>
+            <td>1234</td>
+        </tr>
+        <tr>
+            <td>개나리</td>
+            <td>서울</td>
+            <td>4567</td>
+        </tr>
+        <tr>
+            <td>진달래</td>
+            <td>부산</td>
+            <td>6789</td>
+        </tr>
+    </table>
+</body>
+</html>

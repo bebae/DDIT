@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid blue;
+            float: left;
+            width: 33%;
+        }
+        ul {
+            border: 1px solid rgb(255, 0, 0);
+            width: auto;
+            height: 160px;
+        }
+        li {
+            border: 1px solid greenyellow;;
+        }
+        ul.cir {
+            list-style-type: circle;
+        }
+        ul.squ {
+            list-style-type: square;
+        }
+        ul.limg{
+            list-style-image: url(../images/check.png);
+        }
+        hr {
+            clear : both;
+        }
+        ol.abc {
+            list-style-type: lower-alpha;
+            list-style-type: upper-alpha;
+        }
+        ol.han {
+            list-style-type: hangul;
+        }
+        pre {
+            background: #f1a5d2;
+            font-size: 20px;
+            border-top: 5px double yellow;
+            border-bottom: 5px double yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <pre>
+        블럭 요소를 옆으로 배치
+        float : left;
+    </pre>
+    <div>
+        <ul class="cir">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JAVASCRIPT</li>
+            <li>JQUERY</li>
+            <li>AJAX</li>
+        </ul>
+    </div>
+    <div>
+        <ul class="squ">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JAVASCRIPT</li>
+            <li>JQUERY</li>
+            <li>AJAX</li>
+        </ul>
+    </div>
+    <div>
+        <ul class="limg">
+            <li>HTML </li>
+            <li>CSS</li>
+            <li>JAVASCRIPT</li>
+            <li>JQUERY</li>
+            <li>AJAX</li>
+        </ul>
+    </div>
+    <br><hr color="greenyellow"><br>
+    <div>
+        <ol class="abc">
+            <li>HTML </li>
+            <li>CSS</li>
+            <li>JAVASCRIPT</li>
+            <li>JQUERY</li>
+            <li>AJAX</li>
+        </ol>
+    </div>
+    <div>
+        <ol class="han">
+            <li>HTML </li>
+            <li>CSS</li>
+            <li>JAVASCRIPT</li>
+            <li>JQUERY</li>
+            <li>AJAX</li>
+        </ol>
+    </div>
+</body>
+</html>

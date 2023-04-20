@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        table {
+            border: 5px solid blue;
+            margin: 20px auto;
+        }
+        td, tr {
+            width: 200px;
+            height: 50px;
+            text-align: center;
+        }
+        th {
+            height: 20px;
+        }
+        #tab1{
+            border-collapse: collapse;
+        }
+        h2 {
+            text-align: center;
+        }
+        caption {
+            margin: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>테이블 병합</h2>
+    <table border="1" id="tab1">
+        <tr>
+            <th>1열</th>
+            <th>2열</th>
+            <th>3열</th>
+        </tr>
+        <tr>
+            <td rowspan="2">1행 1열</td>
+            <td>1행 2열</td>
+            <td>1행 3열</td>
+        </tr>
+        <tr>
+            <td>2행 2열</td>
+            <td>2행 3열</td>
+        </tr>
+        <tr>
+            <td colspan="3">3행 1열</td>
+        </tr>
+    </table>
+    <table border="1">
+        <tr>
+            <td colspan="2"></td>
+            <td colspan="2"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="4"></td>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td colspan="4"></td>
+            <td colspan="2" rowspan="2"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>
