@@ -32,6 +32,13 @@ public class ListSortTest {
         // Collections.sort() 메서드는 기본적으로 오름차순 정렬
         Collections.sort(list);
         System.out.println("정렬 후 : "+list);
+        
+        Collections.shuffle(list);
+        System.out.println("자료 섞기 후 : "+list);
+        
+        // 외부 정렬 기준으로 정렬하기
+        list.sort(new Desc());
+        System.out.println("내림차순 정렬 : "+list);
 
     }
 }
@@ -49,12 +56,14 @@ class Desc implements Comparator<String> {
      */
     @Override
     public int compare(String o1, String o2) {
-        if (o1.compareTo(o2) > 0){
-            return -1;
-        } else if (o1.compareTo(o2) < 0) {
-            return 1;
-        }
-        return 0;
+//        if (o1.compareTo(o2) > 0){
+//            return -1;
+//        } else if (o1.compareTo(o2) < 0) {
+//            return 1;
+//        } else {
+//            return 0;
+//        }
+        return Integer.compare(0, o1.compareTo(o2));
     }
 }
 
