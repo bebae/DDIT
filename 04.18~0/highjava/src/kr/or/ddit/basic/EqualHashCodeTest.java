@@ -3,7 +3,7 @@ package kr.or.ddit.basic;
 import java.util.HashSet;
 import java.util.Objects;
 
-public class EqualHashCodeTest01 {
+public class EqualHashCodeTest {
     public static void main(String[] args) {
         Peson p1 = new Peson();
         p1.setId(1);

@@ -62,6 +62,10 @@ class Member implements Comparable<Member> {
         this.tel = tel;
     }
 
+    public Member(String name, String tel) {
+        this.name = name;
+        this.tel = tel;
+    }
     public int getNum() {
         return num;
     }
