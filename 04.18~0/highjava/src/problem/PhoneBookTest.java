@@ -31,7 +31,7 @@ public class PhoneBookTest {
                 menuNum = scanner.nextLine();
             }
 
-
+            Phone searchedPhone = new Phone();
             switch (Integer.parseInt(menuNum)) {
                 case 1:
                     System.out.println("\n새롭게 등록할 전화번호 정보를 입력하세요.");
@@ -87,7 +87,7 @@ public class PhoneBookTest {
                         System.out.println("'" + nameToSearch + "'은 등록되지 않은 사람입니다.\n");
                         break;
                     }
-                    Phone searchedPhone = phoneBook.get(nameToSearch);
+                    searchedPhone = phoneBook.get(nameToSearch);
                     System.out.println("-------------------------------------------------------");
                     System.out.printf("%-8s%-15s%-20s\n", "이름", "전화번호", "주소");
                     System.out.println("-------------------------------------------------------");
@@ -102,7 +102,7 @@ public class PhoneBookTest {
                     int index = 1;
                     for (String key : phoneBook.keySet()) {
                         Phone temp = phoneBook.get(key);
-                        System.out.printf("  %-5s%-6s%-15s%-20s\n", index++, temp.name, temp.phoneNumber, temp.address);
+                        System.out.printf("  %-5s%-6s%-15s%-20s\n", index++, searchedPhone.getName(), searchedPhone.getPhoneNumber(), searchedPhone.getAddress());
                     }
                     System.out.println("-------------------------------------------------------");
                     System.out.println("출력 끝...\n");
@@ -121,14 +121,18 @@ public class PhoneBookTest {
     }
 }
 class Phone {
-    String name;
-    String address;
-    String phoneNumber;
+    private String name;
+    private String address;
+    private String phoneNumber;
 
     Phone(String name, String address, String phoneNumber) {
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
+    }
+
+    public Phone() {
+
     }
 
     public String getName() {

@@ -1,0 +1,77 @@
+{
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "ArrayListTest01",
+            "request": "launch",
+            "mainClass": "kr.or.ddit.basic.ArrayListTest01",
+            "projectName": "04.18~0_eb7d3aad"
+        },
+        {
+            "type": "java",
+            "name": "ArrayListTest02",
+            "request": "launch",
+            "mainClass": "kr.or.ddit.basic.ArrayListTest02",
+            "projectName": "04.18~0_eb7d3aad"
+        },
+        {
+            "type": "java",
+            "name": "ArrayListTest03",
+            "request": "launch",
+            "mainClass": "kr.or.ddit.basic.ArrayListTest03",
+            "projectName": "04.18~0_eb7d3aad"
+        },
+        {
+            "type": "java",
+            "name": "ArrayListTest04",
+            "request": "launch",
+            "mainClass": "kr.or.ddit.basic.ArrayListTest04",
+            "projectName": "04.18~0_eb7d3aad"
+        },
+        {
+            "type": "java",
+            "name": "ListSortTest01",
+            "request": "launch",
+            "mainClass": "kr.or.ddit.basic.ListSortTest01",
+            "projectName": "04.18~0_eb7d3aad"
+        },
+        {
+            "type": "java",
+            "name": "StackQueueTest01",
+            "request": "launch",
+            "mainClass": "kr.or.ddit.basic.StackQueueTest01",
+            "projectName": "04.18~0_eb7d3aad"
+        },
+        {
+            "type": "java",
+            "name": "StackTest01_Favorites",
+            "request": "launch",
+            "mainClass": "kr.or.ddit.basic.StackTest01_Favorites",
+            "projectName": "04.18~0_eb7d3aad"
+        },
+        {
+            "type": "java",
+            "name": "VectorTest",
+            "request": "launch",
+            "mainClass": "kr.or.ddit.basic.VectorTest",
+            "projectName": "04.18~0_eb7d3aad"
+        },
+        {
+            "type": "java",
+            "name": "lottoSet",
+            "request": "launch",
+            "mainClass": "problem.lottoSet",
+            "projectName": "04.18~0_eb7d3aad"
+        }
+    ]
+}

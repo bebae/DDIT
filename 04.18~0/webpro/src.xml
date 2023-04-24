@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Context docBase="C:\Users\PC-03\git\DDIT\04.18~0\webpro\src\main\webapp">
-  <Resources cacheMaxSize="10240">
-    <PreResources base="C:/Users/PC-03/git/DDIT/04.18~0/webpro/out/production/webpro" className="org.apache.catalina.webresources.DirResourceSet" webAppMount="/WEB-INF/classes"/>
-  </Resources>
-</Context>
