@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert title here</title>
+    <style>
+        label {
+            /* border: 1px solid black; */
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form action="0424입력처리5.jsp" method="post">
+        <label for="id">아이디</label> 
+        <input type="text" name="id" id="id"><br>
+
+        <label for="tel">전화번호</label> 
+        <input type="text" name="tel" id="tel"><br>
+
+        <label for="mail">이메일</label> 
+        <input type="text" name="mail" id="mail"><br>
+
+        고객의 의견 <br>
+        <textarea name="area" id="" cols="50" rows="10"></textarea><br>
+
+		<h3>하나만 선택</h3>
+        <select name="carsingle" id="carsingle">
+            <option value="소나타">소나타</option>
+            <option value="BMW" selected="selected">BMW</option>
+            <option value="제네시스">제네시스</option>
+            <option value="SM7">SM7</option>
+        </select><br>
+
+        <h3>여러개 선택</h3>
+        <select name="carmulti" id="carmulti" multiple>
+            <option value="소나타">소나타</option>
+            <option value="BMW" selected="selected">BMW</option>
+            <option value="제네시스">제네시스</option>
+            <option value="SM7">SM7</option>
+        </select><br>
+
+        <input type="submit" value="제출">
+        <input type="image" src="../images/check.png" alt="이미지1">
+    </form>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 70px;
+            margin: 3px;
+        }
+        input {
+            width: auto;
+        }
+        form {
+            border: 1px solid violet;
+            width: 80%;
+            padding: 20px;
+            background-color: rgb(241, 241, 177);
+        }
+        fieldset {
+            width: 90%;
+        }
+        div {
+            width: 50%;
+            height: 50px;
+            border: 1px solid orange;
+            padding: 10px auto;
+        }
+        span {
+            background-color: lightblue;
+        }
+    </style>
+    <script>
+        function changeColor(){
+            colValue = document.getElementById('col').value;
+            colValue = document.querySelector('#col').value;
+            console.log(colValue);
+
+            // vform = document.getElementsByTagName('form');
+            // vform[0].style.backgroundColor = colValue;
+            vform = document.querySelector('form');
+            vform.style.backgroundColor = colValue;
+
+            // 요소를 검색
+            // colValue를 id가 #scolor에 HTML출력
+            document.querySelector('#scolor').innerHTML = colValue;
+
+
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="color" id="col" onchange="changeColor()" style="width: 50px;">
+        <span id="scolor">결과</span>
+    </div><br>
+    <form action="">
+        <fieldset>
+            <legend>개인정보</legend>
+            <label for="id">아이디</label>
+            <input type="text" name="id" id="id"><br>
+
+            <label for="pass">비밀번호</label>
+            <input type="password" name="pass" id="pass"><br>
+
+            <label for="bir">생일</label>
+            <input type="date" name="bir" id="bir"><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>경력사항</legend>
+            <label for="">1차</label>
+            <input type="text" name="" id="">
+            <textarea name="" id="" cols="30" rows="3"></textarea>
+
+        </fieldset>
+    </form>
+</body>
+</html>

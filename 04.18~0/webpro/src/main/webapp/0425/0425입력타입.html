@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        정규식 : 입력데이터의 형식을 규정
+        [0-9]{3}-[0-9]{4}=[0-9]{4}
+        + : 1번 이상 와야한다
+        * : 0번 이상 와야한다
+        ? : 0 OR 1
+        () : 그룹
+        . : \n를 제외한 모든 문자를 의미
+        \. : "." 자체를 의미
+
+        이메일 예시
+        kk123@naver.com
+        Aabc99@ddit.or.kr
+        kk123@w3.org
+        [a-zA-z]+[0-9]*@[a-zA-Z]+[0-9]*(\.[a-zA-Z]+){1,2}
+
+    </pre>
+    <input type="month"><br>
+    <input type="time"><br>
+    <input type="week" name="" id=""><br>
+
+    <form action="0425telcheck.jsp">
+        <span>전화번호</span>
+        <input type="tel" name="" id="" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"><br>
+
+        <span>이메일</span>
+        <input type="email" size="23" pattern="[a-zA-z]+[0-9]*@[a-zA-Z]+[0-9]*(\.[a-zA-Z]+){1,2}"><br>
+
+        <span>신발 사이즈</span>
+        <input type="number" name="" id="" min="190" max="300" step="5" value="260"><br>
+        <input type="range" name="" id=""  min="190" max="300" step="5" value="260"><br>
+
+        <br><input type="submit" value="제출">
+    </form>
+
+</body>
+</html>
