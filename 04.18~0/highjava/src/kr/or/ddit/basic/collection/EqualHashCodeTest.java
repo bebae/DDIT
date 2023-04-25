@@ -1,4 +1,4 @@
-package kr.or.ddit.basic;
+package kr.or.ddit.basic.collection;
 
 import java.util.HashSet;
 import java.util.Objects;
