@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/myStyle.css">
+    <style>
+        p[title] {
+            background: rgba(255, 255, 0, 0.5);
+        }
+        p[id=p3] {
+            background: tomato;
+        }
+        p[class=pp] {
+            background-color: aquamarine;
+        }
+        p[id^=a] {
+            color:blue;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        p[class$='3'] {
+            background-color: deeppink;
+        }
+
+    </style>
+</head>
+<body>
+    <pre>
+        Title 속성을 가지고 있는 태크를 선택     p[title]
+        ID가 p3인 요소를 선택                   #p3 / p[id=p3]
+        class가 pp 인 요소를 선택               .pp / p[class=pp]
+        id가 'a'로 시작하는 요소 선택           p[id^=a]
+        class가 '3'으로 끝나는 요소 선택        p[class$='3']
+    </pre>
+    <p title="p1">Test text p1</p>
+    <p title="p2">Test text p2</p>
+    <p id="p3">Test text p3</p>
+    <p>Test text p4</p>
+    <p class="pp3">Test text p5</p>
+    <div>
+        <p class="pp3">Test text p1</p>
+        <p>Test text p2</p>
+        <p>Test text p3</p>
+        <p>Test text p4</p>
+        <p>Test text p5</p>
+    </div>
+    <p class="pp">Test text p6</p>
+    <p id="ap7" class="pp">Test text p7</p>
+    <p class="pp">Test text p8</p>
+    <p>Test text p9</p>
+    <p>Test text p10</p>
+</body>
+</html>

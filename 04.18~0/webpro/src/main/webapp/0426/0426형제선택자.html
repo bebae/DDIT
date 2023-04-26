@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            font-size: 2.0em;
+        }
+        div {
+            font-size: 1.5em;
+        }
+        div ~ p {
+            background-color: green;
+        }
+        div + p {
+            background-color: lightsalmon;
+        }
+    </style>
+</head>
+<body>
+    <P>Test text1</P>
+    <P>Test text2</P>
+    <P>Test text3</P>
+    <P>Test text4</P>
+    <div>Test div text
+        <p>Test text4-1</p>
+    </div>
+    <P>Test text5</P>
+    <P>Test text6</P>
+    <P>Test text7</P>
+</body>
+</html>

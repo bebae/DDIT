@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 5px solid blue;
+            border-collapse: collapse;
+            margin: 20px;
+        }
+        td {
+            width: 250px;
+            height: 50px;
+            text-align: center;
+        }
+        th {
+            height: 50px;
+        }
+        #tab1 tr:nth-child(2n-1), #tab2 tr:nth-child(2n-1){
+            background-color: lightgreen;
+        }
+        table#tab2 {
+            border: 5px inset blue;
+        }
+        #tab2 tr:nth-child(2n) {
+            background-color: lightblue;
+        }
+        #tab1 tr:first-child, #tab2 tr:first-child{
+            background-color: black;
+            color:white;
+        }
+        #tab3 td:first-child {
+            background-color: crimson;
+            color:deepskyblue;
+        }
+        #tab3 td:nth-child(2n){
+            background-color: orangered;
+        }
+        #tab3 td:nth-child(3){
+            background-color: yellow;
+        }
+        #tab3 tr:first-child td {
+            background-color: rgb(80, 80, 80);
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" id="tab1">
+        <tr>
+            <th>Test th1</th>
+            <th>Test th2</th>
+            <th>Test th3</th>
+            <th>Test th4</th>
+            <th>Test th5</th>
+        </tr>
+        <tr>
+            <td>Test td1</td>
+            <td>Test td2</td>
+            <td>Test td3</td>
+            <td>Test td4</td>
+            <td>Test td5</td>
+        </tr>
+        <tr>
+            <td>Test td1</td>
+            <td>Test td2</td>
+            <td>Test td3</td>
+            <td>Test td4</td>
+            <td>Test td5</td>
+        </tr>
+        <tr>
+            <td>Test td1</td>
+            <td>Test td2</td>
+            <td>Test td3</td>
+            <td>Test td4</td>
+            <td>Test td5</td>
+        </tr>
+    </table>
+    <table border="1" id="tab2">
+        <tr>
+            <th>Test th1</th>
+            <th>Test th2</th>
+            <th>Test th3</th>
+            <th>Test th4</th>
+            <th>Test th5</th>
+        </tr>
+        <tr>
+            <td>Test td1</td>
+            <td>Test td2</td>
+            <td>Test td3</td>
+            <td>Test td4</td>
+            <td>Test td5</td>
+        </tr>
+        <tr>
+            <td>Test td1</td>
+            <td>Test td2</td>
+            <td>Test td3</td>
+            <td>Test td4</td>
+            <td>Test td5</td>
+        </tr>
+        <tr>
+            <td>Test td1</td>
+            <td>Test td2</td>
+            <td>Test td3</td>
+            <td>Test td4</td>
+            <td>Test td5</td>
+        </tr>
+    </table>
+    <table border="1" id="tab3">
+        <tr>
+            <td>Test th1</td>
+            <td>Test th2</td>
+            <td>Test th3</td>
+            <td>Test th4</td>
+            <td>Test th5</td>
+        </tr>
+        <tr>
+            <td>Test td1</td>
+            <td>Test td2</td>
+            <td>Test td3</td>
+            <td>Test td4</td>
+            <td>Test td5</td>
+        </tr>
+        <tr>
+            <td>Test td1</td>
+            <td>Test td2</td>
+            <td>Test td3</td>
+            <td>Test td4</td>
+            <td>Test td5</td>
+        </tr>
+        <tr>
+            <td>Test td1</td>
+            <td>Test td2</td>
+            <td>Test td3</td>
+            <td>Test td4</td>
+            <td>Test td5</td>
+        </tr>
+    </table>
+</body>
+</html>
