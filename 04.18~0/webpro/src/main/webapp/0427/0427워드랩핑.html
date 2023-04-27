@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: auto;
+            height: auto;
+            border: 5px dotted blue;
+            margin: 10px;
+            padding: 20px;
+            font-size: 2rem;
+        }
+        .div2 {
+            word-wrap: break-word;
+        }
+        .div2 span {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function add() {
+            vtext = document.createTextNode('hello world');
+            vd3 = document.getElementsByClassName('div3');
+            vd3[0] = vtext.firstChild;
+            vd3 = document.querySelector('.div3');
+
+            vd3.appendChild(vtext);
+        }
+    </script>
+</head>
+<body>
+    <div class="div1">
+        hellowhellowhellowhellowhellowhellowhellowhellow
+        hellowhellowhellowhellowhellowhellowhellowhellow
+        hellowhellowhellowhellowhellowhellowhellowhellow
+    </div>
+    <div class="div2">
+        <span>word-wrap: break-word;</span><br>
+        hellowhellowhellowhellowhellowhellowhellowhellow
+        hellowhellowhellowhellowhellowhellowhellowhellow
+        hellowhellowhellowhellowhellowhellowhellowhellow
+    </div>
+    <div class="div3">
+        <span>word-wrap: break-word;</span><br>
+        hellow world <br><input type="button" value="확인" onclick="add()"><br>
+    </div>
+</body>
+</html>
