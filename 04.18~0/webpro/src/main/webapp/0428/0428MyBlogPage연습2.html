@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header, aside, section, footer, div {
+            box-sizing: border-box;
+            border-radius: 30px;
+            margin: 2px;
+        }
+        header {
+            background-color: yellow;
+            text-align: center;
+            padding: 10px;
+        }
+        #content {
+            margin: 3px;
+            display: flex;
+            justify-content: space-between;            
+        }
+        @media screen and (max-width: 580px) {
+            #content {
+                flex-direction: column;         /* 세로정렬 */
+            }
+            aside {
+                width: 100%;
+            }
+            section {
+                width: 100%;
+            }
+        }
+        aside {
+            background-color: lightcoral;
+            padding: 1px 20px;
+            width: 29%;
+        }
+        aside a {
+            color: yellow;
+            text-decoration: none;            
+        }
+        aside a:hover {
+            color: blue;
+        }
+        aside a:visited {
+            color: white;
+        }
+        aside figure{
+            width: 65%;
+            height: 27%;
+        }
+        aside figure img {
+            width: 100%;
+        }
+        section {
+            background-color: lightblue;
+            padding: 10px;
+            width: 70%;
+            display: flex;
+            flex-direction: column;         /* 세로정렬 */
+        }
+        h3 {
+            margin: 0;
+        }
+        section #div1, #div2{
+            background-color: aquamarine;
+            padding: 20px;
+            border: 2px solid rgb(106, 194, 106);
+            margin: 10px;
+        }
+        footer {
+            background-color:cornflowerblue;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            margin: 7px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Blog Page</h1>
+        <p>시멘틱 태그로 만들어진 페이지 입니다.</p>
+    </header>
+    <div id="content">
+        <aside>
+            <h2>Links</h2>
+            <ul>
+                <li><a href="">w3schools</a></li>
+                <li><a href="aa">Naver</a></li>
+                <li><a href="aa">Daum</a></li>
+            </ul>
+            <figure>
+                <img src="../images/spongebob.png" alt="스폰지밥">
+                <figcaption>스포지밥</figcaption>
+            </figure>
+        </aside>
+        <section>
+            <div id="div1">
+                <h3>Samantic Tags</h3>
+                <p>시멘틱 요소(Semantic elements)들은 브라우저에게 요소의 의미나 목적을 명확하게 알려주는 요소이다. 레이아웃을 만들 때 쓰는 것. 의미가 있는 요소라면 div보다는 시멘틱 태그를 사용해준다.</p>
+            </div>
+            <div id="div2">
+                <h3>div와 span</h3>
+                <p>div은 "divide"의 약자로서 페이지를 논리적인 섹션으로 분리하는데 사용되는 태그이다. span요소는 인라인 요소로서 텍스트를 위한 컨테이너로 사용할 수 있다.</p>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <span>Copyright (c)2019 Hong</span>
+    </footer>
+</body>
+</html>
