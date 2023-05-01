@@ -3,6 +3,7 @@ package problem;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class racingTest {
 
@@ -79,7 +80,7 @@ public class racingTest {
                 setPosition(i);
                 printPosition();
                 try {
-                    Thread.sleep((int) (Math.random() * 500)); // 말이 랜덤한 시간 동안 쉬지 않고 달리도록 설정
+                    Thread.sleep(new Random().nextInt(500)); // 말이 랜덤한 시간 동안 쉬지 않고 달리도록 설정
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
