@@ -4,14 +4,21 @@
     box-sizing: border-box;
 }
 .mainDiv {
-    border-radius: 30px;
+    border-radius: 25px;
     margin: 2px;
-    padding: 10px;
+    padding: 10px 15px;
 }
 #mainHeader {
     background-color: lightgoldenrodyellow;
-    padding-left: 5%;
+    padding-left: 3%;
+    display: flex;
+    align-items: center
 }
+#mainHeader>img {
+    margin: 10px;
+}
+
+
 #mainNav {
     background-color: lightcyan;
 }
@@ -20,6 +27,9 @@
     display: flex;
     justify-content: space-around;
 }
+#mainNav ul li {
+    color: darkolivegreen;
+}
 #mainNav ul a {
     text-decoration: none;
     color: darkolivegreen;
@@ -27,10 +37,15 @@
 #main {
     display: flex;
     justify-content: space-between;
+    min-height:70vh;
 }
 #main nav {
     background-color: lightcoral;
+    flex-grow: 1;
     flex: 20%;
+}
+#main nav h2 {
+    margin-left: 20px;
 }
 #main nav ul {
     list-style: none;
@@ -46,41 +61,71 @@
     padding: 10px;
     margin: 0;
 }
-#main nav li a {
+#main>nav li a {
     text-decoration: none;
     color: aliceblue;
 }
+
+
 #main article {
     background-color: rgb(230, 230, 230);
+    flex-grow: 1;
     flex: 60%;
+    position: relative;
 }
-#main>aside {
-    background-color: lightpink;
-    flex: 20%;
+#main #mainframe {
+    position: absolute;
+    width: 97%;         /* iframe 크기조절 */
+    height: 97%;        /* iframe 크기조절 */
+}
+#mainframe body {
+    overflow-x: hidden;
 }
 
+
+#main>aside {
+    background-color: lightpink;
+    flex-grow: 1;
+    flex: 20%;
+}
+#main>aside header {
+    margin-left: 15px;
+}
+
+#main>aside #login h2 {
+    margin: 0  0 10px 15px;
+}
 #login form {
     background-color: #fff;
-    border-radius: 10px;
     margin: 0 auto;
     padding: 20px;
     display: flex;
     flex-direction: column;         /* 세로정렬 */
+    align-items: center;            /* 가운데 정렬 */
 }
 #login label {
     display: block;
     margin-bottom: 5px;
 }
 #login #loginInput{
-    padding: 10px;
-    width: 100%;
+    padding: 10px 0;
+    width: 100%; 
+    display: flex;
+    flex-direction: column;         /* 세로정렬 */
+    justify-content: center;        /* 좌우 정렬 */
 }
 #login input[type="text"], input[type="password"] {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     padding: 10px;
-    width: 100%;
+    width: 80%;                     /* 수정: 80%로 변경 */
+    max-width: 300px;               /* 최대 너비 설정 */
+}
+
+#login #loginBtn {
+    display: flex;
+    justify-content: space-around;
 }
 #login input[type="submit"], input[type="reset"] {
     background-color: #4CAF50;
@@ -91,7 +136,10 @@
     font-size: 16px;
     margin-top: 10px;
     padding: 10px;
-    width: 100%;
+    flex: 50%;
+}
+#login input[type="submit"] {
+    margin-right: 5px;
 }
 #login input[type="submit"]:hover, input[type="reset"]:hover {
     background-color: #3e8e41;
