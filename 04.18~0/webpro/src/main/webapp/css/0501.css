@@ -1,0 +1,104 @@
+#mainBody {
+    display: flex;
+    flex-direction: column;         /* 세로정렬 */
+    box-sizing: border-box;
+}
+.mainDiv {
+    border-radius: 30px;
+    margin: 2px;
+    padding: 10px;
+}
+#mainHeader {
+    background-color: lightgoldenrodyellow;
+    padding-left: 5%;
+}
+#mainNav {
+    background-color: lightcyan;
+}
+#mainNav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+#mainNav ul a {
+    text-decoration: none;
+    color: darkolivegreen;
+}
+#main {
+    display: flex;
+    justify-content: space-between;
+}
+#main nav {
+    background-color: lightcoral;
+    flex: 20%;
+}
+#main nav ul {
+    list-style: none;
+    padding: 10px;
+}
+#main nav li:nth-child(1){
+    border-top: 1px solid gainsboro;
+}
+#main nav li {
+    margin: 10px;
+    border-bottom: 1px solid gainsboro;
+    color: wheat;
+    padding: 10px;
+    margin: 0;
+}
+#main nav li a {
+    text-decoration: none;
+    color: aliceblue;
+}
+#main article {
+    background-color: rgb(230, 230, 230);
+    flex: 60%;
+}
+#main>aside {
+    background-color: lightpink;
+    flex: 20%;
+}
+
+#login form {
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;         /* 세로정렬 */
+}
+#login label {
+    display: block;
+    margin-bottom: 5px;
+}
+#login #loginInput{
+    padding: 10px;
+    width: 100%;
+}
+#login input[type="text"], input[type="password"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+#login input[type="submit"], input[type="reset"] {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+}
+#login input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: #3e8e41;
+}
+
+#mainFooter {
+    background-color: lightskyblue;
+    text-align: center;
+}
+
