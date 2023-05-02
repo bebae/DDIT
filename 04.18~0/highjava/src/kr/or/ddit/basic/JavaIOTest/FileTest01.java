@@ -34,8 +34,18 @@ public class FileTest01 {
         } else {
             System.out.println(file5.getName()+"은 이미 존재합니다.");
         }
-
-
+        
+        // mkdirs() 중간 경로가 없더라도 다 만들게 하는 명령어
+        File file6 = new File("d:/d_other/test/test/java/src");
+        if (!file6.exists()) {
+            if (file6.mkdirs()) {
+                System.out.println(file6.getName()+" mkdir 성공!");
+            } else {
+                System.out.println(file6.getName()+" mkdir 실패!");
+            }
+        } else {
+            System.out.println(file6.getName()+"은 이미 존재합니다.");
+        }
 
 
 

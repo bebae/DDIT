@@ -37,12 +37,12 @@
 #main {
     display: flex;
     justify-content: space-between;
-    min-height:70vh;
+    min-height:71vh;
 }
 #main nav {
     background-color: lightcoral;
     flex-grow: 1;
-    flex: 20%;
+    flex: 15%;
 }
 #main nav h2 {
     margin-left: 20px;
@@ -68,7 +68,7 @@
 
 
 #main article {
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(248, 248, 248);
     flex-grow: 1;
     flex: 60%;
     position: relative;
@@ -86,7 +86,7 @@
 #main>aside {
     background-color: lightpink;
     flex-grow: 1;
-    flex: 20%;
+    flex: 15%;
 }
 #main>aside header {
     margin-left: 15px;
@@ -148,5 +148,8 @@
 #mainFooter {
     background-color: lightskyblue;
     text-align: center;
+}
+#mainFooter p {
+    padding: 0;
 }
 
