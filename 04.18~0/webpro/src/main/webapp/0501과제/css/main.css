@@ -1,46 +1,55 @@
+@charset "utf-8";
+
+a {
+    text-decoration: none;
+}
+
 #mainBody {
     display: flex;
     flex-direction: column;         /* 세로정렬 */
     box-sizing: border-box;
 }
+
 .mainDiv {
     border-radius: 25px;
     margin: 2px;
     padding: 10px 15px;
 }
 #mainHeader {
-    background-color: lightgoldenrodyellow;
+    background-color: rgb(255, 255, 192);
     padding-left: 3%;
     display: flex;
-    align-items: center
+    align-items: center;
 }
+
+#mainHeader a {
+    color: rgb(134, 173, 26);
+}
+
 #mainHeader>img {
     margin: 10px;
 }
 
 
 #mainNav {
-    background-color: lightcyan;
+    background-color: rgb(177, 255, 255);
 }
 #mainNav ul {
     list-style: none;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
-#mainNav ul li {
-    color: darkolivegreen;
-}
-#mainNav ul a {
-    text-decoration: none;
-    color: darkolivegreen;
+#mainNav ul li, #mainNav ul a {
+    color: #007bff;
+    font-weight: bold;
 }
 #main {
     display: flex;
     justify-content: space-between;
-    min-height:71vh;
+    min-height:73vh;
 }
 #main nav {
-    background-color: lightcoral;
+    background-color: rgb(235, 137, 137);
     flex-grow: 1;
     flex: 15%;
 }
@@ -62,7 +71,6 @@
     margin: 0;
 }
 #main>nav li a {
-    text-decoration: none;
     color: aliceblue;
 }
 
@@ -84,18 +92,15 @@
 
 
 #main>aside {
-    background-color: lightpink;
+    background-color: rgb(179, 209, 144);
     flex-grow: 1;
     flex: 15%;
 }
-#main>aside header {
-    margin-left: 15px;
-}
 
-#main>aside #login h2 {
+#main>aside h2 {
     margin: 0  0 10px 15px;
 }
-#login form {
+#login form, #main>aside header {
     background-color: #fff;
     margin: 0 auto;
     padding: 20px;
@@ -127,7 +132,7 @@
     display: flex;
     justify-content: space-around;
 }
-#login input[type="submit"], input[type="reset"] {
+#main input[type="submit"], input[type="reset"], input[type="button"] {
     background-color: #4CAF50;
     border: none;
     border-radius: 5px;
@@ -141,7 +146,7 @@
 #login input[type="submit"] {
     margin-right: 5px;
 }
-#login input[type="submit"]:hover, input[type="reset"]:hover {
+#login input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
     background-color: #3e8e41;
 }
 
@@ -150,6 +155,8 @@
     text-align: center;
 }
 #mainFooter p {
+    color: #888888;
     padding: 0;
+    margin: 5px;
 }
 

@@ -10,6 +10,7 @@
         .news-container {
             display: flex;
             flex-direction: column;
+            background-color: #fff;
         }
 
         .news {
@@ -18,7 +19,9 @@
             align-items: center;
             padding: 15px 0;
             text-align: center; /* 이미지 중앙 정렬을 위해 추가 */
-            border-bottom: 1px solid #ff1111; /* 이미지 사이에 줄 생성 */
+            border-bottom: 1px solid #cfcfcf; /* 이미지 사이에 줄 생성 */
+            width: 90%;
+            margin: auto;
         }
 
         .news:last-child {
@@ -41,24 +44,29 @@
             margin: 0;
         }
     </style>
+    <script>
+        function showPrompt() {
+          alert("미구현 상태입니다.");
+        }
+    </script>
 </head>
 
 <body>
     <div class="news-container">
         <div class="news">
-            <a href="#"><img src="https://via.placeholder.com/700x200" alt="뉴스 이미지"></a>
+            <a href="#" onclick="showPrompt()"><img src="../img/news01.PNG" alt="뉴스 이미지1"></a>
         </div>
         <div class="news">
-            <a href="#"><img src="https://via.placeholder.com/600x200" alt="뉴스 이미지"></a>
+            <a href="#" onclick="showPrompt()"><img src="../img/news02.PNG" alt="뉴스 이미지2"></a>
         </div>
         <div class="news">
-            <a href="#"><img src="https://via.placeholder.com/600x200" alt="뉴스 이미지"></a>
+            <a href="#" onclick="showPrompt()"><img src="../img/news01.PNG" alt="뉴스 이미지3"></a>
         </div>
         <div class="news">
-            <a href="#"><img src="https://via.placeholder.com/600x200" alt="뉴스 이미지"></a>
+            <a href="#" onclick="showPrompt()"><img src="../img/news02.PNG" alt="뉴스 이미지4"></a>
         </div>
         <div class="news">
-            <a href="#"><img src="https://via.placeholder.com/600x200" alt="뉴스 이미지"></a>
+            <a href="#" onclick="showPrompt()"><img src="../img/news03.PNG" alt="뉴스 이미지5"></a>
         </div>
     </div>
 </body>

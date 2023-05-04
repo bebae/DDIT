@@ -22,6 +22,19 @@
       text-align: center;
     }
 
+    @media screen and (max-width: 768px) {
+      .item {
+        flex-basis: 45%;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .item {
+        flex-basis: 100%;
+      }
+    }
+
+
     .item img {
       width: 100%;
       max-width: 300px;
@@ -48,10 +61,16 @@
       font-size: 16px;
       cursor: pointer;
     }
+
     .item button:hover {
       background-color: #0d47a1;
     }
   </style>
+  <script>
+    function showPrompt() {
+      alert("미구현 상태입니다.");
+    }
+</script>
 </head>
 
 <body>
@@ -59,38 +78,46 @@
     <div class="item">
       <img src="../img/com_1.PNG" alt="item-1">
       <h4>다나와표준PC 게임용 230417 (16GB, SSD 512GB)</h4>
-      <p>AMD / 라이젠5-5세대 / 라파엘 / 7600X (4.7GHz) / (AMD) B650 / DDR4 / 16GB / SSD / 512GB / 지포스 RTX 3060 Ti / 8GB / 1Gbps 유선 / HDMI / DP포트 / 800W / 운영체제 미포함 / 미들타워 / 용도: 게임용</p>
-      <button>상품 보기</button>
+      <p>AMD / 라이젠5-5세대 / 라파엘 / 7600X (4.7GHz) / (AMD) B650 / DDR4 / 16GB / SSD / 512GB / 지포스 RTX 3060 Ti / 8GB / 1Gbps
+        유선 / HDMI / DP포트 / 800W / 운영체제 미포함 / 미들타워 / 용도: 게임용</p>
+      <button onclick="showPrompt()">상품 구매</button>
     </div>
     <div class="item">
       <img src="../img/com_2.PNG" alt="item-2">
       <h4>다나와표준PC 온라인강의용 230406 (8GB, SSD 250GB)</h4>
-      <p>AMD / 라이젠7-4세대 / 세잔 / 5700G (3.8GHz) / (AMD) B550 / DDR4 / 8GB / SSD / 250GB / 라데온 그래픽스 8 / 1Gbps 유선 / HDMI / DP포트 / D-SUB / 600W / 운영체제 미포함 / 미들타워 / 용도: 사무/인강용</p>
-      <button>상품 보기</button>
+      <p>AMD / 라이젠7-4세대 / 세잔 / 5700G (3.8GHz) / (AMD) B550 / DDR4 / 8GB / SSD / 250GB / 라데온 그래픽스 8 / 1Gbps 유선 / HDMI /
+        DP포트 / D-SUB / 600W / 운영체제 미포함 / 미들타워 / 용도: 사무/인강용</p>
+      <button onclick="showPrompt()">상품 구매</button>
     </div>
     <div class="item">
       <img src="../img/com_3.PNG" alt="item-3">
       <h4>한성컴퓨터 프리워커 F5600 (16GB, M.2 500GB)</h4>
-      <p>AMD / 라이젠5-4세대 / 세잔 / 5600G (3.9GHz) / (AMD) A520 / DDR4 / 16GB / M.2 / 500GB / 라데온 그래픽스 7 / 1Gbps 유선 / 500W / 운영체제 미포함 / 미들타워 / 용도: 사무/인강용</p>
-      <button>상품 보기</button>
+      <p>AMD / 라이젠5-4세대 / 세잔 / 5600G (3.9GHz) / (AMD) A520 / DDR4 / 16GB / M.2 / 500GB / 라데온 그래픽스 7 / 1Gbps 유선 / 500W /
+        운영체제 미포함 / 미들타워 / 용도: 사무/인강용</p>
+      <button onclick="showPrompt()">상품 구매</button>
     </div>
     <div class="item">
       <img src="../img/com_4.PNG" alt="item-4">
       <h4>포유컴퓨터 퍼포먼스PC 32 i5 13400F RTX3060Ti (16GB, M.2 500GB)</h4>
-      <p>인텔 / 코어i5-13세대 / 랩터레이크 / i5-13400F (2.5GHz) / (인텔) H610 / DDR5 / 16GB / M.2 / 500GB / 지포스 RTX 3060 Ti / 1Gbps 유선 / HDMI / DP포트 / 600W / 운영체제 미포함 / 미들타워 / 용도: 게임용</p>
-      <button>상품 보기</button>
+      <p>인텔 / 코어i5-13세대 / 랩터레이크 / i5-13400F (2.5GHz) / (인텔) H610 / DDR5 / 16GB / M.2 / 500GB / 지포스 RTX 3060 Ti / 1Gbps
+        유선 / HDMI / DP포트 / 600W / 운영체제 미포함 / 미들타워 / 용도: 게임용</p>
+      <button onclick="showPrompt()">상품 구매</button>
     </div>
     <div class="item">
       <img src="../img/com_5.PNG" alt="item-5">
       <h4>삼성전자 올인원PC DM530ADA-L58A (8GB, M.2 256GB)</h4>
-      <p>인텔 / 코어i5-11세대 / 타이거레이크 / i5-1135G7 (4.2GHz) / DDR4 / 8GB / M.2 / 256GB / Iris Xe 그래픽스 / 스피커 내장형 / 1Gbps 유선 / 802.11ac(Wi-Fi 5) 무선 / 블루투스 / HDMI / USB 3.0(5Gbps) / 웹캠 / 윈도우11 / 일체형 / 7.11kg / 화면크기: 61cm(24인치) / 1920x1080 / LED 백라이트 / 눈부심방지 / 용도: 사무/인강용</p>
-      <button>상품 보기</button>
+      <p>인텔 / 코어i5-11세대 / 타이거레이크 / i5-1135G7 (4.2GHz) / DDR4 / 8GB / M.2 / 256GB / Iris Xe 그래픽스 / 스피커 내장형 / 1Gbps 유선 /
+        802.11ac(Wi-Fi 5) 무선 / 블루투스 / HDMI / USB 3.0(5Gbps) / 웹캠 / 윈도우11 / 일체형 / 7.11kg / 화면크기: 61cm(24인치) / 1920x1080 /
+        LED 백라이트 / 눈부심방지 / 용도: 사무/인강용</p>
+      <button onclick="showPrompt()">상품 구매</button>
     </div>
     <div class="item">
       <img src="../img/com_6.PNG" alt="item-6">
       <h4>레노버 요가 Slim7 ProX 14IAH7 82TK009TKR (SSD 512GB)</h4>
-      <p>노트북 / 운영체제(OS): 미포함(프리도스) / 화면정보 36.8cm(14.5인치) / 3072x1920 / 400nit / 주사율: 120Hz / CPU 인텔 / 코어i5-12세대 / i5-12500H (2.5GHz) / 12코어(4P+8E) / 램 LPDDR5(온보드) / 램 용량: 16GB / 5200MHz / 램 교체: 불가능 / 그래픽 외장그래픽 / RTX3050 / VRAM:4GB / 512GB / 저장 슬롯: 1개 / USB-A: 1개 / 고속충전 / 입력장치 키보드 라이트 / 무게: 1.45kg</p>
-      <button>상품 보기</button>
+      <p>노트북 / 운영체제(OS): 미포함(프리도스) / 화면정보 36.8cm(14.5인치) / 3072x1920 / 400nit / 주사율: 120Hz / CPU 인텔 / 코어i5-12세대 /
+        i5-12500H (2.5GHz) / 12코어(4P+8E) / 램 LPDDR5(온보드) / 램 용량: 16GB / 5200MHz / 램 교체: 불가능 / 그래픽 외장그래픽 / RTX3050 /
+        VRAM:4GB / 512GB / 저장 슬롯: 1개 / USB-A: 1개 / 고속충전 / 입력장치 키보드 라이트 / 무게: 1.45kg</p>
+      <button onclick="showPrompt()">상품 구매</button>
     </div>
   </div>
 </body>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보드게임</title>
+    <style>
+        /* 적당한 스타일을 적용하세요 */
+        .clothing-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .clothing-item {
+            width: 24%;
+            margin-bottom: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .clothing-item {
+                width: 45%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .clothing-item {
+                width: 100%;
+            }
+        }
+
+        .clothing {
+            box-sizing: border-box;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background-color: #f1f1f1;
+            padding: 10px;
+        }
+
+        .clothing img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .clothing h3 {
+            margin: 10px 0;
+        }
+
+        .clothing p {
+            margin: 0;
+        }
+
+        .clothing .price {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        .clothing .price del {
+            color: #666;
+            margin-right: 5px;
+            font-size: 12px;
+        }
+
+        .clothing .discount {
+            font-size: 22px;
+            color: #ee3434;
+            margin-right: 5px;
+        }
+
+        .clothing button {
+            background-color: #e51e1e;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .clothing button:hover {
+            background-color: #a10d0d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clothing-container">
+        <div class="clothing-item">
+            <div class="clothing">
+                <img src="../img/board01.jpg" alt="보드게임 이미지">
+                <h3>할리갈리 시리즈 모음</h3>
+                <p class="price">
+                    <span class="discount">32%</span>
+                    <span class="price"></spawn>
+                        <del>19000</del>
+                </p>
+                <button onclick="showPrompt()">구매하기</button>
+            </div>
+        </div>
+        <div class="clothing-item">
+            <div class="clothing">
+                <img src="../img/board02.png" alt="보드게임 이미지">
+                <h3>다빈치코드</h3>
+                <p class="price">
+                    <span class="discount">32%</span>
+                    <span class="price"></spawn>
+                        <del>26000</del>
+                </p>
+                <button onclick="showPrompt()">구매하기</button>
+            </div>
+        </div>
+        <div class="clothing-item">
+            <div class="clothing">
+                <img src="../img/board03.jpg" alt="보드게임 이미지">
+                <h3>러시아워 한글판</h3>
+                <p class="price">
+                    <span class="discount">32%</span>
+                    <span class="price"></spawn>
+                        <del>32000</del>
+                </p>
+                <button onclick="showPrompt()">구매하기</button>
+            </div>
+        </div>
+        <div class="clothing-item">
+            <div class="clothing">
+                <img src="../img/board04.jpg" alt="보드게임 이미지">
+                <h3>뱅! 시리즈 모음</h3>
+                <p class="price">
+                    <span class="discount">30%</span>
+                    <span class="price"></spawn>
+                        <del>28000</del>
+                </p>
+                <button onclick="showPrompt()">구매하기</button>
+            </div>
+        </div>
+        <div class="clothing-item">
+            <div class="clothing">
+                <img src="../img/board05.png" alt="보드게임 이미지">
+                <h3>텀블링 몽키</h3>
+                <p class="price">
+                    <span class="discount">25%</span>
+                    <span class="price"></spawn>
+                        <del>27000</del>
+                </p>
+                <button onclick="showPrompt()">구매하기</button>
+            </div>
+        </div>
+        <div class="clothing-item">
+            <div class="clothing">
+                <img src="../img/board06.jpg" alt="보드게임 이미지">
+                <h3>인지니어스</h3>
+                <p class="price">
+                    <span class="discount">40%</span>
+                    <span class="price"></spawn>
+                        <del>33000</del>
+                </p>
+                <button onclick="showPrompt()">구매하기</button>
+            </div>
+        </div>
+        <div class="clothing-item">
+            <div class="clothing">
+                <img src="../img/board07.png" alt="보드게임 이미지">
+                <h3>타불라의 늑대</h3>
+                <p class="price">
+                    <span class="discount">32%</span>
+                    <span class="price"></spawn>
+                        <del>22000</del>
+                </p>
+                <button onclick="showPrompt()">구매하기</button>
+            </div>
+        </div>
+        <div class="clothing-item">
+            <div class="clothing">
+                <img src="../img/board08.jpg" alt="보드게임 이미지">
+                <h3>카탄 시리즈 모음</h3>
+                <p class="price">
+                    <span class="discount">40%</span>
+                    <span class="price"></spawn>
+                        <del>49000</del>
+                </p>
+                <button onclick="showPrompt()">구매하기</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function showPrompt() {
+        alert("미구현 상태입니다.");
+    }
+    function calculateDiscountedPrice(originalPrice, discount) {
+        return Math.round(originalPrice * (100 - discount) / 100);
+    }
+
+    function updatePriceElements() {
+        const clothingItems = document.querySelectorAll('.clothing-item');
+        clothingItems.forEach(item => {
+            const originalPrice = parseInt(item.querySelector('del').textContent);
+            const discount = parseInt(item.querySelector('.discount').textContent);
+            const discountedPrice = calculateDiscountedPrice(originalPrice, discount);
+
+             // 세자리마다 쉼표를 추가합니다.
+            const formattedOriginalPrice = originalPrice.toLocaleString();
+            const formattedDiscountedPrice = discountedPrice.toLocaleString();
+
+            item.querySelector('.price').innerHTML = `
+                <span class="discount">${discount}%</span>
+                <span class="price">￦${formattedDiscountedPrice}</span>
+                <del>￦${formattedOriginalPrice}</del>
+            `;
+        });
+    }
+
+    // 모든 가격 업데이트
+    updatePriceElements();
+</script>
+
+</html>

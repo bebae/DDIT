@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calc(a) {
+            vx = parseInt(document.getElementById('x').value);
+            vy = parseInt(document.getElementById('y').value);
+            switch (a) {
+                case "+":
+                    res = add(vx, vy);
+                    break;
+                case "-":
+                    res = sub(vx, vy);
+                    break;
+                case "*":
+                    res = muti(vx, vy);
+                    break;  
+                case "/":
+                    res = divide(vx, vy);
+                    break;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        첫번째 :<input id="x"><br>
+        두번째 :<input id="y"><br>
+        결과 :<input id="sum"><br>
+        <input type="button"  onclick="calc('+')" value="+">
+        <input type="button"  onclick="calc('-')" value="-">
+        <input type="button"  onclick="calc('*')" value="*">
+        <input type="button"  onclick="calc('/')" value="/"><br>
+        <p>첫번째 값 :<span id="sp1"></span> </p>
+        <p>두번째 값 :<span id="sp2"></span> </p>
+        <p>결과 :<span id="sp3"></span> </p>
+    </form>
+</body>
+
+</html>

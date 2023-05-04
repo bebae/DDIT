@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑카트 페이지</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 10px;
+            width: 100%;
+            /* 테이블의 너비를 100%로 설정 */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 960px;
+            /* 부모 요소의 최대 너비를 지정 */
+            width: 90%;
+            /* 부모 요소의 너비를 90%로 설정 */
+            margin: auto;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #a2f5b0;
+        }
+
+
+        .total {
+            text-align: right;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .product-image div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 75px;
+            height: 75px;
+        }
+
+        .product-name {
+            font-weight: bold;
+        }
+
+        .product-price {
+            font-style: normal;
+        }
+
+        .product-quantity {
+            flex: 10%;
+        }
+
+        .product-quantity input[type=number] {
+            padding: 5px 7px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            width: 40px;
+        }
+
+        .product-total {
+            font-weight: bold;
+        }
+
+        .product-delete .flex-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* 세로 중앙 정렬 */
+            align-items: center;
+            /* 가로 중앙 정렬 */
+            background-color: transparent;
+        }
+
+        .product-delete button {
+            background-color: rgb(248, 34, 34);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+
+        }
+
+        .purchase-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #43b446;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .total {
+            background-color: #f9d9eb;
+            text-align: right;
+            width: 100%;
+            font-size: 24px;
+            margin-top: 30px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>쇼핑카트 페이지</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>이미지</th>
+                    <th>제품명</th>
+                    <th>판매가</th>
+                    <th>개수</th>
+                    <th>합계</th>
+                    <th>선택</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="product-image"><img src="https://dummyimage.com/50x50/000/fff&text=Product+1"alt="Product 1"></div>
+                    </td>
+                    <td class="product-name">Product 1</td>
+                    <td class="product-price">10000</td>
+                    <td class="product-quantity">
+                        <input type="number" min="1" max="10" value="1">
+                    </td>
+                    <td class="product-total">10000</td>
+                    <td class="product-delete">
+                        <div class="flex-container">
+                            <button onclick="showPrompt()">주문</button>
+                            <button onclick="deleteItem(this)">삭제</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="product-image"><img src="https://dummyimage.com/50x50/000/fff&text=Product+1"alt="Product 2"></div>
+                    </td>
+                    <td class="product-name">Product 2</td>
+                    <td class="product-price">20000</td>
+                    <td class="product-quantity">
+                        <input type="number" min="1" max="10" value="1">
+                    </td>
+                    <td class="product-total">20000</td>
+                    <td class="product-delete">
+                        <div class="flex-container">
+                            <button onclick="showPrompt()">주문</button>
+                            <button onclick="deleteItem(this)">삭제</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="product-image"><img src="https://dummyimage.com/50x50/000/fff&text=Product+1"alt="Product 3"></div>
+                    </td>
+                    <td class="product-name">Product 3</td>
+                    <td class="product-price">30000</td>
+                    <td class="product-quantity">
+                        <input type="number" min="1" max="10" value="1">
+                    </td>
+                    <td class="product-total">30000</td>
+                    <td class="product-delete">
+                        <div class="flex-container">
+                            <button onclick="showPrompt()">주문</button>
+                            <button onclick="deleteItem(this)">삭제</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="total">총합계 : <span id="totalAmount">60000</span></div>
+        <button class="purchase-button">구매하기</button>
+        <script type="text/javascript">
+            function showPrompt() {
+                alert("미구현 상태입니다.");
+            }
+            window.addEventListener('DOMContentLoaded', () => {
+                const numbers = document.querySelectorAll('.product-price, .product-total, #totalAmount');
+                numbers.forEach(number => {
+                    const formattedNumber = Number(number.textContent).toLocaleString('en');
+                    number.textContent = `${formattedNumber}원`;
+                });
+            });
+            function updatePriceElements() {
+                // .product-quantity의 input 요소를 모두 선택합니다.
+                const quantities = document.querySelectorAll('.product-quantity input');
+                // 각각의 .product-quantity input 요소에 대해 이벤트 리스너를 등록합니다.
+                quantities.forEach(quantity => {
+                    quantity.addEventListener('change', () => {
+                        // 현재 .product-quantity input 요소의 값과 그 부모 요소의 형제 요소인 .product-pricedmf의 텍스트 값을 가져옵니다.
+                        const quantityValue = quantity.value;
+                        const price = quantity.parentElement.previousElementSibling.textContent;
+                        // .product-pricedmf의 텍스트 값을 정규식을 사용하여 숫자만 추출합니다.
+                        const priceValue = Number(price.replace(/[^0-9]/g, ''));
+
+                        // .product-total의 값을 갱신합니다.
+                        const total = priceValue * quantityValue;
+                        const formattedTotal = total.toLocaleString();
+                        quantity.parentElement.nextElementSibling.textContent = formattedTotal;
+                        // updateTotal 함수를 호출합니다.
+                        updateTotal();
+                    });
+                });
+            }
+
+            function deleteItem(btn) {
+                var row = btn.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+                updateTotal();
+            }
+
+            function updateTotal() {
+                var totalAmount = 0;
+                var quantityElements = document.getElementsByClassName('product-quantity');
+                var priceElements = document.getElementsByClassName('product-price');
+                var totalElements = document.getElementsByClassName('product-total');
+
+                for (var i = 0; i < totalElements.length; i++) {
+                    var quantity = parseInt(quantityElements[i].querySelector('input').value);
+                    var price = parseInt(priceElements[i].innerText.replace(/[^0-9]/g, ''));
+                    totalElements[i].innerText = (quantity * price).toLocaleString() + '원';
+                    totalAmount += quantity * price;
+                }
+
+                document.getElementById('totalAmount').innerText = totalAmount.toLocaleString() + '원';
+            }
+            updatePriceElements();
+        </script>
+    </div>
+</body>
+
+</html>

@@ -13,18 +13,28 @@ pre{
 	margin : 10px;
 	font-size : 1.5rem;
 }
-
+body {
+	display: flex;
+    flex-direction: column;         /* 세로정렬 */
+    align-items: center;            /* 가운데 정렬 */
+}
 .box{
-	
+	width: 50%;
 	border : 3px double blue;
 	/* background : skyblue; */
-	background-image :  linear-gradient(skyblue, white);
+	background-image :  linear-gradient(rgb(96, 190, 228), rgba(255, 189, 48, 0.63));
 	margin : 10px;
-	padding : 10px;
+	padding : 20px;
 	
 }
 
+.box .btnWrapper {
+	text-align: right;
+  }
+  
 .box input[type=button]{
+	display: inline-block;
+
 	background : blue;
 	color : white;
 	font-size : 20px;
@@ -33,10 +43,10 @@ pre{
 	border-radius: 20px;
 	
 }
-.box .result{
+.box .result, .box #result{
 	border : 1px dotted red;
-	margin : 10px;
-	padding : 10px;
+	margin: 15px 0;
+	padding : 20px;
 	font-size : 1.5rem;
 	
 }

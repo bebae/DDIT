@@ -7,10 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>종이 가구 설명</title>
     <style>
+        @font-face {
+            font-family: 'KorailRoundGothicBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KorailRoundGothicBold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
         /* 중앙 정렬 */
         body {
             display: flex;
             justify-content: center;
+            background-color: #ffffff;
+            font-family: 'KorailRoundGothicBold';
         }
 
         /* 구역 나누기 */
@@ -29,9 +37,11 @@
             justify-content: space-between;
             margin: 10px;
         }
+
         .text {
             width: 60%;
         }
+
         .image {
             width: 35%;
         }
@@ -59,11 +69,34 @@
             max-width: 100%;
             height: auto;
         }
+
+        /* 이미지 로딩 애니메이션 효과 */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        /* 이미지에 애니메이션 적용 */
+        .section:nth-child(2) .image img {
+            animation: fadeIn 1s ease-in-out;
+        }
+        .section:nth-child(3) .image img {
+            animation: fadeIn 2s ease-in-out;
+        }
+        .section:nth-child(4) .image img {
+            animation: fadeIn 3s ease-in-out;
+        }
+        .section:nth-child(5) .image img {
+            animation: fadeIn 4s ease-in-out;
+        }
     </style>
 </head>
 
 <body>
-    
+
     <div class="container">
         <div>
             <h1>종이 가구 소개</h1>
@@ -84,13 +117,15 @@
             </div>
             <div class="text">
                 <h2>내구성이 강력함</h2>
-                <p>종이 가구는 매우 강력하고 내구성이 있기 때문에 일반적인 가구와 비교해도 뒤처지지 않습니다. 많은 종이 가구 제조업체들이 자신들의 제품을 테스트하며 내구성과 견고성을 확인하기 위해 다양한 방법을 사용합니다. 종이 가구는 또한 수명이 길고, 점차 더 많은소비자들이 이를 인식하면서 인기가 더욱 상승하고 있습니다.</p>
+                <p>종이 가구는 매우 강력하고 내구성이 있기 때문에 일반적인 가구와 비교해도 뒤처지지 않습니다. 많은 종이 가구 제조업체들이 자신들의 제품을 테스트하며 내구성과 견고성을 확인하기 위해
+                    다양한 방법을 사용합니다. 종이 가구는 또한 수명이 길고, 점차 더 많은소비자들이 이를 인식하면서 인기가 더욱 상승하고 있습니다.</p>
             </div>
         </div>
         <div class="section">
             <div class="text">
                 <h2>다양한 디자인</h2>
-                <p>또한 종이 가구는 다양한 디자인으로 제작되기 때문에, 누구든 자신의 인테리어 스타일에 맞는 제품을 찾을 수 있습니다. 전통적인 나무 가구와 비교해보면, 종이 가구는 다양한 색상과 패턴으로 제작됩니다. 이러한 다양성은 소비자들이 자신의 개성을 더욱 살릴 수 있게 해주고, 공간에 생동감과 특별함을 더해줍니다.</p>
+                <p>또한 종이 가구는 다양한 디자인으로 제작되기 때문에, 누구든 자신의 인테리어 스타일에 맞는 제품을 찾을 수 있습니다. 전통적인 나무 가구와 비교해보면, 종이 가구는 다양한 색상과
+                    패턴으로 제작됩니다. 이러한 다양성은 소비자들이 자신의 개성을 더욱 살릴 수 있게 해주고, 공간에 생동감과 특별함을 더해줍니다.</p>
             </div>
             <div class="image">
                 <img src="../img/paper3.PNG" alt="종이 가구 이미지">
@@ -102,10 +137,12 @@
             </div>
             <div class="text">
                 <h2>높은 디자인 가치</h2>
-                <p>종이 가구는 환경 문제와 가격 문제, 이동성 문제 등 다양한 문제를 해결하면서도 높은 디자인 가치를 지니고 있습니다. 이러한 이유로 종이 가구는 많은 소비자들에게 인기 있는 제품 중 하나입니다.</p>
+                <p>종이 가구는 환경 문제와 가격 문제, 이동성 문제 등 다양한 문제를 해결하면서도 높은 디자인 가치를 지니고 있습니다. 이러한 이유로 종이 가구는 많은 소비자들에게 인기 있는 제품 중
+                    하나입니다.</p>
             </div>
         </div>
     </div>
 
 </body>
+
 </html>
