@@ -21,7 +21,7 @@
             border-collapse: collapse;
             margin: 10px;
             width: 100%;
-            /* 테이블의 너비를 100%로 설정 */
+            background-color: #fff;
         }
 
         .container {
@@ -44,22 +44,23 @@
         }
 
         th {
-            background-color: #a2f5b0;
+            background-color: #bdfdc8;
         }
 
-
-        .total {
-            text-align: right;
-            font-weight: bold;
-            margin-right: 10px;
+        td:nth-child(1) {
+            width: 15%;
+            min-width: 50px;
         }
 
-        .product-image div {
+        .product-image>div {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 75px;
-            height: 75px;
+           
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
         }
 
         .product-name {
@@ -120,12 +121,18 @@
         }
         
         .total {
-            background-color: #f9d9eb;
             text-align: right;
-            width: 100%;
+            font-weight: bold;
+            background-color: #ddf9d9;
+            width: 98%;
             font-size: 24px;
             margin-top: 30px;
             padding: 10px;
+            border-radius: 30px;
+        }
+
+        .total #totalAmount {
+            margin-right: 20px;
         }
 
     </style>
@@ -133,7 +140,7 @@
 
 <body>
     <div class="container">
-        <h1>쇼핑카트 페이지</h1>
+        <h1>쇼핑카트</h1>
         <table>
             <thead>
                 <tr>
@@ -148,9 +155,9 @@
             <tbody>
                 <tr>
                     <td>
-                        <div class="product-image"><img src="https://dummyimage.com/50x50/000/fff&text=Product+1"alt="Product 1"></div>
+                        <div class="product-image"><img src="../img/cart01.jpg"alt="Product 1"></div>
                     </td>
-                    <td class="product-name">Product 1</td>
+                    <td class="product-name">컬쳐랜드 1만원 상품권</td>
                     <td class="product-price">10000</td>
                     <td class="product-quantity">
                         <input type="number" min="1" max="10" value="1">
@@ -165,14 +172,14 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="product-image"><img src="https://dummyimage.com/50x50/000/fff&text=Product+1"alt="Product 2"></div>
+                        <div class="product-image"><img src="../img/board01.jpg"alt="Product 2"></div>
                     </td>
-                    <td class="product-name">Product 2</td>
-                    <td class="product-price">20000</td>
+                    <td class="product-name">할리갈리 시리즈 모음</td>
+                    <td class="product-price">12920</td>
                     <td class="product-quantity">
                         <input type="number" min="1" max="10" value="1">
                     </td>
-                    <td class="product-total">20000</td>
+                    <td class="product-total">12920</td>
                     <td class="product-delete">
                         <div class="flex-container">
                             <button onclick="showPrompt()">주문</button>
@@ -182,14 +189,14 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="product-image"><img src="https://dummyimage.com/50x50/000/fff&text=Product+1"alt="Product 3"></div>
+                        <div class="product-image"><img src="../img/com_1.PNG"alt="Product 3"></div>
                     </td>
-                    <td class="product-name">Product 3</td>
-                    <td class="product-price">30000</td>
+                    <td class="product-name">다나와표준PC 게임용 230417<br>(16GB, SSD 512GB)</td>
+                    <td class="product-price">1531730</td>
                     <td class="product-quantity">
                         <input type="number" min="1" max="10" value="1">
                     </td>
-                    <td class="product-total">30000</td>
+                    <td class="product-total">1531730</td>
                     <td class="product-delete">
                         <div class="flex-container">
                             <button onclick="showPrompt()">주문</button>
@@ -211,6 +218,7 @@
                     const formattedNumber = Number(number.textContent).toLocaleString('en');
                     number.textContent = `${formattedNumber}원`;
                 });
+                updateTotal();
             });
             function updatePriceElements() {
                 // .product-quantity의 input 요소를 모두 선택합니다.
@@ -235,7 +243,7 @@
             }
 
             function deleteItem(btn) {
-                var row = btn.parentNode.parentNode;
+                var row = btn.parentNode.parentNode.parentNode;
                 row.parentNode.removeChild(row);
                 updateTotal();
             }
@@ -249,8 +257,10 @@
                 for (var i = 0; i < totalElements.length; i++) {
                     var quantity = parseInt(quantityElements[i].querySelector('input').value);
                     var price = parseInt(priceElements[i].innerText.replace(/[^0-9]/g, ''));
+                    if (!isNaN(quantity) && !isNaN(price)) {
                     totalElements[i].innerText = (quantity * price).toLocaleString() + '원';
                     totalAmount += quantity * price;
+                    }
                 }
 
                 document.getElementById('totalAmount').innerText = totalAmount.toLocaleString() + '원';

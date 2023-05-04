@@ -10,6 +10,9 @@
         function showPrompt() {
           alert("미구현 상태입니다.");
         }
+        function showShoppingCart() {
+            document.getElementById('mainframe').src = './shopingCart.html';
+        }
     </script>
 </head>
 <body>
@@ -48,7 +51,7 @@
                 <h2>Shoping Cart</h2>
                 <header class="mainDiv">
                     <p>현재 쇼핑카드에 물품이 없습니다.</p>
-                    <input type="button" value="쇼핑카트" onclick="showPrompt()">
+                    <input type="button" value="쇼핑카트" onclick="showShoppingCart()">
                 </header>
                 <section id="login">
                     <h2>Login</h2>
