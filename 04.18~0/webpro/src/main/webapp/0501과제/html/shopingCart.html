@@ -7,135 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>쇼핑카트 페이지</title>
     <meta charset="utf-8">
-    <style type="text/css">
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
-
-        table {
-            border-collapse: collapse;
-            margin: 10px;
-            width: 100%;
-            background-color: #fff;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 960px;
-            /* 부모 요소의 최대 너비를 지정 */
-            width: 90%;
-            /* 부모 요소의 너비를 90%로 설정 */
-            margin: auto;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #bdfdc8;
-        }
-
-        td:nth-child(1) {
-            width: 15%;
-            min-width: 50px;
-        }
-
-        .product-image>div {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-           
-        }
-        .product-image img {
-            width: 100%;
-            height: 100%;
-        }
-
-        .product-name {
-            font-weight: bold;
-        }
-
-        .product-price {
-            font-style: normal;
-        }
-
-        .product-quantity {
-            flex: 10%;
-        }
-
-        .product-quantity input[type=number] {
-            padding: 5px 7px;
-            font-size: 16px;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-            width: 40px;
-        }
-
-        .product-total {
-            font-weight: bold;
-        }
-
-        .product-delete .flex-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            /* 세로 중앙 정렬 */
-            align-items: center;
-            /* 가로 중앙 정렬 */
-            background-color: transparent;
-        }
-
-        .product-delete button {
-            background-color: rgb(248, 34, 34);
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 5px;
-
-        }
-
-        .purchase-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: bold;
-            background-color: #43b446;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .total {
-            text-align: right;
-            font-weight: bold;
-            background-color: #ddf9d9;
-            width: 98%;
-            font-size: 24px;
-            margin-top: 30px;
-            padding: 10px;
-            border-radius: 30px;
-        }
-
-        .total #totalAmount {
-            margin-right: 20px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="../css/shopingCart.css">
 </head>
 
 <body>
@@ -155,7 +27,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <div class="product-image"><img src="../img/cart01.jpg"alt="Product 1"></div>
+                        <div class="product-image"><img src="../images/cart01.jpg"alt="Product 1"></div>
                     </td>
                     <td class="product-name">컬쳐랜드 1만원 상품권</td>
                     <td class="product-price">10000</td>
@@ -172,7 +44,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="product-image"><img src="../img/board01.jpg"alt="Product 2"></div>
+                        <div class="product-image"><img src="../images/board01.jpg"alt="Product 2"></div>
                     </td>
                     <td class="product-name">할리갈리 시리즈 모음</td>
                     <td class="product-price">12920</td>
@@ -189,7 +61,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="product-image"><img src="../img/com_1.PNG"alt="Product 3"></div>
+                        <div class="product-image"><img src="../images/com_1.PNG"alt="Product 3"></div>
                     </td>
                     <td class="product-name">다나와표준PC 게임용 230417<br>(16GB, SSD 512GB)</td>
                     <td class="product-price">1531730</td>

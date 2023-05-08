@@ -1,0 +1,79 @@
+.clothing-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.clothing-item {
+    width: 24%;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .clothing-item {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .clothing-item {
+        width: 100%;
+    }
+}
+
+.clothing {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+.clothing img {
+    max-width: 100%;
+    height: auto;
+}
+
+.clothing h3 {
+    margin: 10px 0;
+}
+
+.clothing p {
+    margin: 0;
+}
+
+.clothing .price {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.clothing .price del {
+    color: #666;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.clothing .discount {
+    font-size: 22px;
+    color: #ee3434;
+    margin-right: 5px;
+}
+
+.clothing button {
+    background-color: #e51e1e;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.clothing button:hover {
+    background-color: #a10d0d;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <script>
+        const myCar = {
+            color : 'red',
+            name : 'bmw',
+            speed : 100,
+
+            brake : function() {
+                this.speed -= 10;
+            },
+            accel : function() {
+                this.speed += 10;
+            }
+        }
+        function porc1() {
+            printObj('box1');
+        }
+        function printObj(result) {
+            str = `이름 : ${myCar.name} <br>`;
+            str += `색상 : ${myCar.color} <br>`;
+            str += `속도 : ${myCar.speed} <br>`;
+
+            document.getElementById(result).innerHTML = str;
+        }
+        function porc2() {
+            myCar.name = prompt("이름 입력");
+            myCar.color = prompt("색상 입력");
+            myCar.accel();
+
+            printObj('box2');
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h3>객체 리터널</h3>
+        <input type="button" value="확인" onclick="porc1()">
+        <div class="result" id="box1"></div>
+    </div>
+    <div class="box">
+        <h3>이름과 색상을 입력, 속도를 10 증가 시켜 출력</h3>
+        <input type="button" value="확인" onclick="porc2()">
+        <div class="result" id="box2"></div>
+    </div>
+</body>
+</html>
