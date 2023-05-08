@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"  href="../css/mystyle.css">
+
+<script>
+const  arr = ["사과","바나나","복숭아","참외", "사과", "파인애플", "수박", "사과"];
+
+function proc1(){
+	
+	//찾는 과일 이름입력 
+	fr = prompt("찾는 과일입력");
+	
+	//입력한 이름의 과일이 배열에서 몇번째 있는지 검사 - indexOf(과일이름)
+	idx = arr.indexOf(fr);
+	
+	//결과를 출력 
+	str = `찾는 과일 ${fr}<br>`;
+	
+	if(idx  < 0 ){
+		str += "없습니다"
+	}else{
+		str += `${idx} 번째 있습니다`
+	}
+	
+
+	document.getElementById('result1').innerHTML = str;
+		
+}
+
+proc2 = function(){
+	
+}
+
+proc3 = () =>{
+	
+}
+
+</script>
+
+</head>
+<body>
+<div class="box">
+  <h3>찾기</h3>
+
+  <input type="button" value="indexOf" onclick="proc1()">
+  <input type="button" value="lastIndexOf" onclick="proc2()">
+  <input type="button" value="여러개 찾기" onclick="proc3()">
+  
+  <div id="result1" class="result"></div>
+  <div id="result2" class="result"></div>
+  <div id="result3" class="result"></div>
+</div>
+
+</body>
+</html>

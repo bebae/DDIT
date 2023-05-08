@@ -55,6 +55,7 @@ a {
 }
 #main nav h2 {
     margin-left: 20px;
+    margin-top: 20px;
 }
 #main nav ul {
     list-style: none;
@@ -98,7 +99,7 @@ a {
 }
 
 #main>aside h2 {
-    margin: 0  0 10px 15px;
+    margin: 20px  0 10px 15px;
 }
 #login form, #main>aside header {
     background-color: #fff;
