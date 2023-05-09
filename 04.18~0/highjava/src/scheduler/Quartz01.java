@@ -11,6 +11,7 @@ import org.quartz.impl.StdSchedulerFactory;
 
 public class Quartz01 {
     public static void main(String[] args) throws Exception {
+
         // 스케줄러 팩토리 생성
         SchedulerFactory schedulerFactory = new StdSchedulerFactory();
         Scheduler scheduler = schedulerFactory.getScheduler();
@@ -31,7 +32,7 @@ public class Quartz01 {
 
     public static class MyJob implements Job {
         @Override
-        public void execute(org.quartz.JobExecutionContext context) throws org.quartz.JobExecutionException {
+        public void execute(org.quartz.JobExecutionContext context) {
             System.out.println("Quartz job started.");
             try {
                 Thread.sleep(1000);
