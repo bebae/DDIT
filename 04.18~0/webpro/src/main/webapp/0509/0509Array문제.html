@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <script>
+        proc1 = function () {
+            let arr = new Array();
+            let str;
+            do {
+                str = prompt("배열 저장");
+                if (str) {
+                    arr.push(str);
+                }
+            } while (str !== null && str !== '');
+            str = `저장된 배열 : ${arr}`;
+
+            document.getElementById('result1').innerHTML = str;
+        }
+        proc2 = () => {
+            let arr = new Array();
+            let str;
+            do {
+                str = prompt("배열 저장");
+                idx = arr.indexOf(str);
+                if (str && idx == -1) {
+                    arr.push(str);
+                }
+            } while (arr.length < 5);
+            str = `저장된 배열 : ${arr}`;
+
+            document.getElementById('result2').innerHTML = str;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h3>prompt()를 이용하여 이름을 계속 입력 받아 배열에 저장하고 출력하는 프로그램을 작성하시오. <br>- 입력의 마지막은 공백 문자를 입력하거나 "취소"버튼을 눌렀을 때(null)로 한다.
+        </h3>
+
+        <input type="button" value="문제1" onclick="proc1()">
+
+        <div id="result1" class="result"></div>
+    </div>
+    <div class="box">
+        <h3>서로 중복되지 않은 정수 5개를 입력 받아 배열에 저장하고 출력하는 프로그램을 작성하시오.</h3>
+
+        <input type="button" value="문제2" onclick="proc2()">
+
+        <div id="result2" class="result"></div>
+    </div>
+
+</body>
+
+</html>
