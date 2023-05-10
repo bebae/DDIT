@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <script>
+        let vstr = "대한민국 우리나라 좋은나라 대한민국"
+        function proc1() {
+            sub = vstr.substring(1, 5);
+            res = "vstr.substring(1, 5)";
+            printStr('result1');
+        }
+        function proc2() {
+            sub = vstr.substring(5, 9);
+            res = "vstr.substring(5, 9)";
+            printStr('result2');
+        }
+        proc3 = () => {
+            sub = vstr.substring(5, 4);
+            res = "vstr.substring(5, 4)";
+        }
+        proc4() = function () {
+            vares = document.querySelectorAll('#area').value;
+            // 엔터기호를 
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h3></h3>
+        <input type="button" value="substring" onclick="proc1()">
+        <input type="button" value="slice" onclick="proc2()">
+        <input type="button" value="substr" onclick="proc3()">
+        <div class="result" id="result1"></div>
+        <div class="result" id="result2"></div>
+        <div class="result" id="result3"></div>
+    </div>
+</body>
+
+</html>
