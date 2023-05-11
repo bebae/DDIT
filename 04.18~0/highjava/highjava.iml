@@ -17,5 +17,14 @@
         <jarDirectory url="file://D:/DDIT/04.18~1/고급자바과제/quartz-2.3.0-SNAPSHOT/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/DDIT/03.02~04.17/JDBC/ojdbc8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
