@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <script>
+        function proc1() {
+            open("http://www.google.co.kr", "_blank", "width=200", "height=200");
+        }
+
+        let timers = [];
+        function proc2() {
+            let vid = setInterval(function () {
+                let bgcolor = document.getElementById("result2");
+
+                let red = parseInt(Math.random() * 256);
+                let green = parseInt(Math.random() * 256);
+                let blue = parseInt(Math.random() * 256);
+
+                bgcolor.style.background = "#" + red.toString(16) + green.toString(16) + blue.toString(16);
+
+                console.log(vid);
+                // vid = setTimeout(run, 1000);/
+            }, 1000);
+            timers.push(vid); // timer ID를 전역 변수에 추가
+        }
+        function proc2Stop() {
+            timers.forEach(function (timer) {
+                clearInterval(timer); // 모든 timer ID에 대해 clearInterval() 함수 호출
+            });
+            let bgcolor = document.getElementById("result2");
+            bgcolor.style.background = "none";
+        }
+
+        function proc3() {
+            let vid = setTimeout(function run() {
+                let bgcolor = document.getElementById("result3");
+
+                let red = parseInt(Math.random() * 256);
+                let green = parseInt(Math.random() * 256);
+                let blue = parseInt(Math.random() * 256);
+
+                bgcolor.style.background = "#" + red.toString(16) + green.toString(16) + blue.toString(16);
+
+                console.log(vid);
+                vid = setTimeout(run, 1000);
+            }, 1000);
+            timers.push(vid); // 실행된 timer ID를 timers 배열에 추가
+        }
+        function proc3Stop() {
+            timers.forEach(function (timer) {
+                clearTimeout(timer); // 모든 timer ID에 대해 clearTimeout() 함수 호출하여 중지
+            });
+            let bgcolor = document.getElementById("result3");
+            bgcolor.style.background = "none";
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h3>새로운 창 열기</h3>
+        <input type="button" value="확인" onclick="proc1()">
+        <div class="result" id="result1"></div>
+    </div>
+    <div class="box">
+        <h3>setInterVal, 1초마다 브라우저 배경색이 랜덤으로 바뀌는 프로그램을 작성하시오.</h3>
+        <input type="button" value="확인" onclick="proc2()">
+        <input type="button" value="종료" onclick="proc2Stop()">
+        <div class="result" id="result2"></div>
+    </div>
+    <div class="box">
+        <h3>setTimeout, 1초마다 브라우저 배경색이 랜덤으로 바뀌는 프로그램을 작성하시오.</h3>
+        <input type="button" value="확인" onclick="proc3()">
+        <input type="button" value="종료" onclick="proc3Stop()">
+        <div class="result" id="result3"></div>
+    </div>
+</body>
+
+</html>

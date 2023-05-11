@@ -16,7 +16,7 @@ body {
     align-items: center;            /* 가운데 정렬 */
 }
 .box{
-	width: 50%;
+	width: 40%;
 	border : 3px double blue;
 	/* background : skyblue; */
 	background-image :  linear-gradient(rgb(207, 207, 207), rgba(255, 255, 255, 0.63));

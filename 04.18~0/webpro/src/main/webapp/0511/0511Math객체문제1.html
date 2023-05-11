@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <script>
+        function proc1() {
+            let com = ["가위","바위","보"];
+            let comStr = com[parseInt(Math.random()*com.length)];
+            
+            let userStr = prompt("가위바위보를 입력하세요");
+
+            let result = "";
+            if (userStr == comStr) {
+                result = "무승부!";
+            } else if ("가위" == userStr && "보" == comStr 
+                    || "바위" == userStr && "가위" == comStr
+                    || "보" == userStr && "바위" == comStr) {
+                        result = "당신이 이겼습니다!"
+            } else {
+                result = "컴퓨터가 이겼습니다!";
+            }
+
+            str = `USER : ${userStr}<br>`;
+            str += `COM : ${comStr}<br>`;
+            str += `결과 : ${result}`;
+
+
+            document.getElementById('result1').innerHTML = str;
+        }
+        function proc2() {
+            let lotton = new Array();
+            let number = 0;
+            for (let i = 0; i < 6; i++) {
+                number = parseInt(Math.random() * 45 + 1);
+                if (lotton.indexOf(number) != -1) {
+                    i--;
+                    continue;
+                }
+                lotton.push(number);
+            }
+            str = `로또번호 : ${lotton}`;
+
+            document.getElementById('result2').innerHTML = str;
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h3>컴퓨터와 가위바위보 게임을 할 수 있는 프로그램</h3>
+        <input type="button" value="확인" onclick="proc1()">
+        <div class="result" id="result1"></div>
+    </div>
+    <div class="box">
+        <h3>로또 번호를 생성하는 프로그램을 작성하시오.</h3>
+        <input type="button" value="확인" onclick="proc2()">
+        <div class="result" id="result2"></div>
+    </div>
+</body>
+
+</html>
