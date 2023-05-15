@@ -1,6 +1,10 @@
 package main;
 
 public enum Goddess {
+    NAME(new String[] { "유리나", "사이네", "히미카", "토코요", "오보로", 
+            "유키히", "신라", "하가네", "치카게", "쿠루루", "탈리야", "라이라",
+            "우츠로", "호노카", "코르누", "야츠하", "하츠미", "미즈키", "메구미", "카나에", 
+            "카무이", "렌리", "아키나", "시스이"}),
     YURINA(new String[] { "참", "일섬", "자루치기", "거합", "기백", "압도", "기염만장" },
             new String[] { "월영락", "해안의 파랑일며", "쪽배에서 쉬노니", "아마네 유리나의 저력" }),
     SAINE(new String[] { "팔방 휘두르기", "후려베기", "무게추", "간파", "권역", "충음벽", "무음벽" },
@@ -60,24 +64,37 @@ public enum Goddess {
     SHISUI(new String[] { "톱날 베기", "파고드는 톱날", "반란격", "철저항전", "가시밭길", "쇳가루 휘감기", "검은 갑옷(금지)" },
             new String[] { "파드마 베기", "우팔라 찢기", "아부다 먹기", "쿠와하타 시스이가 죽는 곳" });
 
-    private final String[] nomal;
+    private final String[] names;
+    private final String[] normal;
     private final String[] special;
     private final String[] addition;
 
-    private Goddess(String[] nomal, String[] special) {
-        this.nomal = nomal;
+    private Goddess(String[] names){
+        this.names = names;
+        this.normal = null;
+        this.special = null;
+        this.addition = null;
+    }
+    private Goddess(String[] normal, String[] special) {
+        this.names = null;
+        this.normal = normal;
         this.special = special;
         this.addition = null;
     }
 
-    private Goddess(String[] nomal, String[] special, String[] addition) {
-        this.nomal = nomal;
+    private Goddess(String[] normal, String[] special, String[] addition) {
+        this.names = null;
+        this.normal = normal;
         this.special = special;
         this.addition = addition;
     }
 
+    public String[] getName() {
+        return names;
+    }
+
     public String[] getNormal() {
-        return nomal;
+        return normal;
     }
 
     public String[] getSpecial() {

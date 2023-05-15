@@ -43,9 +43,9 @@ public class JdbcTest06 {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            try { rs.close(); } catch (SQLException ignored) {}
-            try { stmt.close(); } catch (SQLException ignored) {}
-            try { conn.close(); } catch (SQLException ignored) {}
+            try { if(rs != null) rs.close(); } catch (SQLException ignored) {}
+            try { if(stmt != null) stmt.close(); } catch (SQLException ignored) {}
+            try { if(conn != null) conn.close(); } catch (SQLException ignored) {}
         }
     }
 
@@ -58,9 +58,10 @@ public class JdbcTest06 {
             System.out.println("2. 자료 삭제");
             System.out.println("3. 자료 수정");
             System.out.println("4. 전체 자료 출력");
+            System.out.println("5. 원하는 항목만 수정");
             System.out.println("0. 작업 끝");
             System.out.println("----------------------");
-            System.out.print("메뉴 입력 >>>");
+            System.out.print("메뉴 입력 >>> ");
             menu = scan.nextInt();
             switch (menu) {
                 case 1:
@@ -75,6 +76,9 @@ public class JdbcTest06 {
                 case 4:
                     selectMember();
                     break;
+                case 5:
+                    updateMember2();
+                    break;
                 case 0:
                     System.out.println("프로그램을 종료합니다. ㅠㅠ");
                     System.exit(0);
@@ -86,58 +90,135 @@ public class JdbcTest06 {
         }
     }
 
+    /**
+     *  선택한 항목만 수정할 수 있게 하는 업데이트
+     */
+    private void updateMember2() throws SQLException {
+        boolean isDuplicate = true;
+        String sql="";
+        String id="";
+        while (isDuplicate) {
+            System.out.print("회원 ID ▶ ");
+            id = scan.nextLine();
+            sql = "SELECT COUNT(*) FROM mymember WHERE mem_id = ?";
+            if (conn != null) {
+                pstmt = conn.prepareStatement(sql);
+            }
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                isDuplicate = false;
+            } else {
+                System.out.println("존재하지 않는 id 입니다. 다시 입력하세요.");
+            }
+        }
+        System.out.println("수정 사항");
+        System.out.println("----------------------");
+        System.out.println(" 1. 패스워드");
+        System.out.println(" 2. 회원이름");
+        System.out.println(" 3. 전화번호");
+        System.out.println(" 4. 주소");
+        System.out.println("----------------------");
+        System.out.print("수정할 항목 ▶ ");
+        int menu = Integer.parseInt(scan.nextLine());
+        String select = "";
+        switch (menu) {
+            case 1:
+                select = "mem_pass";
+                System.out.print("새로운 패스워드 ▶ ");
+                break;
+            case 2:
+                select = "mem_name";
+                System.out.print("새로운 회원이름 ▶ ");
+                break;
+            case 3:
+                select = "mem_tel";
+                System.out.print("새로운 전화번호 ▶ ");
+                break;
+            case 4:
+                select = "mem_addr";
+                System.out.print("새로운 주소 ▶ ");
+                break;
+            default:
+                System.out.println("입력 실패 ㅠㅠ");
+                return;
+        }
+        String update = scan.nextLine();
+
+        sql = "UPDATE mymember SET " +  select + " = ? WHERE mem_id = ?";
+
+        if (conn != null) {
+            pstmt = conn.prepareStatement(sql);
+        }
+        pstmt.setString(1, update);
+        pstmt.setString(2, id);
+        int cnt = pstmt.executeUpdate();
+
+        if (cnt > 0) {
+            System.out.println("UPDATE ㄱㄱ 되었습니다.");
+        } else {
+            System.out.println("UPDATE ㄱㄱ가  ㅠㅠ");
+        }
+
+    }
+
     public void insertMember() throws SQLException {
         boolean isDuplicate = true;
         String sql="";
         String id="";
         while (isDuplicate) {
             System.out.print("회원 ID ▶");
-            id = scan.next();
+            id = scan.nextLine();
             sql = "SELECT COUNT(*) FROM mymember WHERE mem_id = ?";
-            pstmt = conn.prepareStatement(sql);
+            if (conn != null) {
+                pstmt = conn.prepareStatement(sql);
+            }
             pstmt.setString(1, id);
             rs = pstmt.executeQuery();
 
-            if (!rs.next()) {
+            if (rs.next()) {
                 isDuplicate = false;
             } else {
                 System.out.println("이미 존재하는 id 입니다. 다시 입력하세요.");
             }
         }
 
+        System.out.print("패스워드 ▶ ");
+        String pass = scan.nextLine();
+        System.out.print("이름  ▶ ");
+        String name = scan.nextLine();
+        System.out.print("주소  ▶ ");
+        String addr = scan.nextLine();
+        System.out.print("전화번호  ▶ ");
+        String phone = scan.nextLine();
 
-        System.out.print("이름  ▶");
-        String name = scan.next();
-        System.out.print("주소  ▶");
-        String addr = scan.next();
-        System.out.print("전화번호  ▶");
-        String phone = scan.next();
 
-
-        sql = "INSERT INTO mymember(mem_id, mem_name, mem_addr, mem_tel) " +
-                "VALUES(?, ?, ?, ?)";
+        sql = "INSERT INTO mymember(mem_id, mem_pass, mem_name, mem_addr, mem_tel) " +
+                "VALUES(?, ?, ?, ?, ?)";
 
         pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, name);
-        pstmt.setString(2, addr);
-        pstmt.setString(3, phone);
+        pstmt.setString(1, id);
+        pstmt.setString(2, pass);
+        pstmt.setString(3, name);
+        pstmt.setString(4, addr);
+        pstmt.setString(5, phone);
         int cnt = pstmt.executeUpdate();
         if (cnt > 0) {
             System.out.println("insert ㄱㄱ 되었습니다.");
         } else {
             System.out.println("insert ㄱㄱ가  ㅠㅠ");
         }
-        rs.close();
-        stmt.close();
-        conn.close();
     }
 
     public void deleteMember() throws SQLException {
         System.out.print("지울 ID를 입력해주세요 ▶");
-        String id = scan.next();
+        String id = scan.nextLine();
 
         String sql = "DELETE FROM mymember WHERE mem_id = ?";
-        pstmt = conn.prepareStatement(sql);
+        if (conn != null) {
+            pstmt = conn.prepareStatement(sql);
+        }
         pstmt.setString(1, id);
         int cnt = pstmt.executeUpdate();
 
@@ -146,23 +227,22 @@ public class JdbcTest06 {
         } else {
             System.out.println("delete ㄱㄱ가  ㅠㅠ");
         }
-        rs.close();
-        stmt.close();
-        conn.close();
     }
 
     public void updateMember() throws SQLException {
         System.out.print("수정할 ID ▶");
-        String id = scan.next();
-        System.out.print("수정된 이름 ▶");
-        String name = scan.next();
-        System.out.print("수정된 주소  ▶");
-        String addr = scan.next();
-        System.out.print("수정된 전화번호 ▶");
-        String phone = scan.next();
+        String id = scan.nextLine();
+        System.out.print("새로운 이름 ▶");
+        String name = scan.nextLine();
+        System.out.print("새로운 주소  ▶");
+        String addr = scan.nextLine();
+        System.out.print("새로운 전화번호 ▶");
+        String phone = scan.nextLine();
 
         String sql = "UPDATE mymember SET mem_name = ?, mem_addr = ?, mem_tel = ? WHERE mem_id = ?";
-        pstmt = conn.prepareStatement(sql);
+        if (conn != null) {
+            pstmt = conn.prepareStatement(sql);
+        }
         pstmt.setString(1, name);
         pstmt.setString(2, addr);
         pstmt.setString(3, phone);
@@ -170,18 +250,16 @@ public class JdbcTest06 {
         int cnt = pstmt.executeUpdate();
 
         if (cnt > 0) {
-            System.out.println("delete ㄱㄱ 되었습니다.");
+            System.out.println("UPDATE ㄱㄱ 되었습니다.");
         } else {
-            System.out.println("delete ㄱㄱ가  ㅠㅠ");
+            System.out.println("UPDATE ㄱㄱ가  ㅠㅠ");
         }
-        rs.close();
-        stmt.close();
-        conn.close();
     }
 
     public void selectMember() throws SQLException {
         String sql = "SELECT mem_id, mem_name, mem_addr, mem_tel FROM mymember";
-        stmt = conn.createStatement();
+        if (conn != null)
+            stmt = conn.createStatement();
         rs = stmt.executeQuery(sql);
         while (rs.next()) {
             String id = rs.getString("mem_id");
@@ -190,8 +268,5 @@ public class JdbcTest06 {
             String phone = rs.getString("mem_tel");
             System.out.println(id + "\t" + name + "\t" + addr + "\t" + phone);
         }
-        rs.close();
-        stmt.close();
-        conn.close();
     }
 }
