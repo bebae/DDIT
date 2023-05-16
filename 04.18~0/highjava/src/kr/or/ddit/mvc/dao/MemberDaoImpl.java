@@ -3,28 +3,36 @@ package kr.or.ddit.mvc.dao;
 import kr.or.ddit.mvc.vo.MemberVo;
 import kr.or.ddit.util.DBUtil3;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class MemberDaoimpl implements IMemberDao {
+public class MemberDaoImpl implements IMemberDao {
+
+    private static MemberDaoImpl memDao;
+
+    private MemberDaoImpl() {}
+
+    public static MemberDaoImpl getInstance() {
+        if(memDao == null) memDao = new MemberDaoImpl();
+        return memDao;
+    }
+
     @Override
     public int insertMember(MemberVo memberVo) {
-        Connection conn = null;
+        Connection conn = DBUtil3.getConnection();
         PreparedStatement pstmt = null;
         int cnt = 0;
         try {
-            conn = DBUtil3.getConnection();
-            String sql = "insert into mymember(mem_id, mem_name, mem_tel, mem_addr) values(?,?,?,?)";
+            String sql = "insert into mymember(mem_id, mem_pass, mem_name, mem_tel, mem_addr) values(?,?,?,?,?)";
             assert conn != null;
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, memberVo.getMem_id());
-            pstmt.setString(2, memberVo.getMem_name());
-            pstmt.setString(3, memberVo.getMem_tel());
-            pstmt.setString(4, memberVo.getMem_addr());
+            pstmt.setString(2, memberVo.getMem_pass());
+            pstmt.setString(3, memberVo.getMem_name());
+            pstmt.setString(4, memberVo.getMem_tel());
+            pstmt.setString(5, memberVo.getMem_addr());
             cnt = pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -37,11 +45,10 @@ public class MemberDaoimpl implements IMemberDao {
 
     @Override
     public int deleteMember(String memId) {
-        Connection conn = null;
+        Connection conn = DBUtil3.getConnection();
         PreparedStatement pstmt = null;
         int cnt = 0;
         try {
-            conn = DBUtil3.getConnection();
             String sql = "delete from mymember where mem_id = ?";
             assert conn != null;
             pstmt = conn.prepareStatement(sql);
@@ -58,11 +65,10 @@ public class MemberDaoimpl implements IMemberDao {
 
     @Override
     public int updateMember(MemberVo memberVo) {
-        Connection conn = null;
+        Connection conn = DBUtil3.getConnection();
         PreparedStatement pstmt = null;
         int cnt = 0;
         try {
-            conn = DBUtil3.getConnection();
             String sql = "update mymember set mem_name = ?, mem_tel = ?, mem_addr = ? where mem_id = ?";
             assert conn != null;
             pstmt = conn.prepareStatement(sql);
@@ -82,7 +88,7 @@ public class MemberDaoimpl implements IMemberDao {
 
     @Override
     public List<MemberVo> getAllMember() {
-        Connection conn = null;
+        Connection conn = DBUtil3.getConnection();
         Statement stmt = null;
         ResultSet rs = null;
         List<MemberVo> memberList = new ArrayList<>(); // 반환할 리스트 객체 생성
@@ -109,12 +115,11 @@ public class MemberDaoimpl implements IMemberDao {
 
     @Override
     public int getMemberCount(String memId) {
-        Connection conn = null;
+        Connection conn = DBUtil3.getConnection();
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         int cnt = 0;
         try {
-            conn = DBUtil3.getConnection();
             String sql = "select count(*) from mymember where mem_id = ?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, memId);
@@ -129,4 +134,26 @@ public class MemberDaoimpl implements IMemberDao {
         }
         return cnt;
     }
+
+    @Override
+    public int updateMember2(Map<String, String> paramMap) {
+        Connection conn = DBUtil3.getConnection();
+        PreparedStatement pstmt = null;
+        int cnt = 0;
+        // key값 정보 ==> 회원ID(memid), 수정할 컬럼명(field), 수정할 데이터(data)
+        try {
+            String sql = "UPDATE mymember SET " + paramMap.get("field") + " = ? WHERE mem_id = ?";
+
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,  paramMap.get("data"));
+            pstmt.setString(2,  paramMap.get("memid"));
+            cnt = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil3.close(conn, pstmt);
+        }
+        return cnt;
+    }
+
 }

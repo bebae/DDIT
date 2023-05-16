@@ -5,20 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="./css/main.css">
     <script>
         function showPrompt() {
           alert("미구현 상태입니다.");
         }
         function showShoppingCart() {
-            document.getElementById('mainframe').src = './shopingCart.html';
+            document.getElementById('mainframe').src = './html/shopingCart.html';
         }
     </script>
 </head>
 <body>
     <div  id="mainBody">
         <header id="mainHeader" class="mainDiv">
-            <img src="../images/html-64.png" alt="로고"> 
+            <img src="./images/html-64.png" alt="로고"> 
             <a href="./index.html">
                 <h1>Web Shoping</h1>
             </a>
@@ -36,16 +36,16 @@
             <nav class="mainDiv">
                 <h2>카테고리</h2>
                 <ul>
-                    <li><a href="./computer.html" target="mainframe">컴퓨터</a></li>
-                    <li><a href="./boardgame.html" target="mainframe">보드게임</a></li>
-                    <li><a href="./news.html" target="mainframe">경제</a></li>
-                    <li><a href="./movie.html" target="mainframe">영화</a></li>
-                    <li><a href="./sportsLeisure.html" target="mainframe">스포츠/레저</a></li>
-                    <li><a href="./furniture.html" target="mainframe">가구/인테리어</a></li>
+                    <li><a href="./html/computer.html" target="mainframe">컴퓨터</a></li>
+                    <li><a href="./html/boardgame.html" target="mainframe">보드게임</a></li>
+                    <li><a href="./html/news.html" target="mainframe">경제</a></li>
+                    <li><a href="./html/movie.html" target="mainframe">영화</a></li>
+                    <li><a href="./html/sportsLeisure.html" target="mainframe">스포츠/레저</a></li>
+                    <li><a href="./html/furniture.html" target="mainframe">가구/인테리어</a></li>
                 </ul>
             </nav>
             <article class="mainDiv">
-                <iframe id="mainframe" src="./computer.html" frameborder name="mainframe"></iframe>
+                <iframe id="mainframe" src="./html/computer.html" frameborder name="mainframe"></iframe>
             </article>
             <aside class="mainDiv">
                 <h2>Shoping Cart</h2>
@@ -67,7 +67,7 @@
                             <input type="reset" value="초기화">
                         </div>
                         <div>
-                            <input type="button" value="회원가입" onclick="document.getElementById('mainframe').src='./register.html';">
+                            <input type="button" value="회원가입" onclick="document.getElementById('mainframe').src='./html/register.html';">
                         </div>
                       </form>
                 </section>

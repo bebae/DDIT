@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,19 +8,97 @@
     <title>Document</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/mystyle.css">
-    <script>
-        function proc1() {
-
-
-            document.getElementById('result1').innerHTML = str;
+    <style>
+        img {
+            height: 100px;
+            width: 100px;
+            margin: 5px;
         }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").on("click", function () {
+                ptag = document.createElement("p");
+                text = document.createTextNode("Hellow JQuery");
+
+                ptag.appendChild(text);
+                ptag.id = "p1";
+                ptag.onclick = function () {
+                    alert("환영합니다.");
+                }
+
+                document.getElementById("result1").appendChild(ptag);
+            })
+
+            $("#btn2").on("click", function () {
+                ptag = $("<p id='p1' onclick='proc1()'> Hello JQuery</p>");
+                // ptag.appendTo($("#result1"));
+                $("#result1").append(ptag);
+            })
+
+            $("#btn3").on("click", function () {
+                ptag = $("<p></p>", {
+                    "id": "p1",
+                    "text": "Hellow JQuery",
+                    "onclick": "proc1()"
+                })
+
+                // ptag.appendTo($("#result2"));
+                $("#result2").append(ptag);
+            })
+
+            $("#btn4").on("click", function () {
+                btn1 = $("<button id='btn4' onclick='proc2()' > 이미지 추가</button>");
+                $("#box3p").append(btn1);
+            })
+        });
+        function proc1() {
+            alert("환영합니다.");
+        }
+        function proc2() {
+            img1 = $("<img src='../images/코알라.jpg' alt='코알라' onclick='proc3(this)'>");
+            img2 = $("<img src='../images/Jellyfish.jpg' alt='해파리' onclick='proc3(this)'>");
+            img3 = $("<img src='../images/Tulips.jpg' alt='튤립' onclick='proc3(this)'>");
+            img4 = $("<img src='../images/국화.jpg' alt='국화' onclick='proc3(this)'>");
+
+            $("#result3").append(img1);
+            $("#result3").append(img2);
+            $("#result3").append(img3);
+            $("#result3").append(img4);
+        }
+        function proc3(image) {
+  $(image).css("border", "2px solid red");
+}
     </script>
 </head>
+
 <body>
     <div class="box">
-        <h3></h3>
-        <button type="button" onclick="proc1()">확인</button>
+        <h3>JQuery로 새로운 요소 생성</h3>
+        <h3> ptag = $("&lt;p id='p1' onclick='proc1()'> Hello JQuery&lt;/p>");</h3>
+        <button id="btn1" type="button">확인</button>
+        <button id="btn2" type="button">확인</button>
         <div class="result" id="result1"></div>
     </div>
+    <div class="box">
+        <h3>JQuery</h3>
+        <h3> ptag = $("&lt;p>&lt;/p>", {<br>
+            "id" : "p1",<br>
+            "text" : "Hellow JQuery",<br>
+            "click" : function() {
+            alert("환영합니다.");
+            }
+            })</h3>
+        <button id="btn3" type="button">확인</button>
+        <div class="result" id="result2"></div>
+    </div>
+    <div class="box" id="box3">
+        <h3>JQuery</h3>
+        <h3> 이미지 추가 버튼과 이미지 추가 하기</h3>
+        <button id="btn4" type="button">확인</button>
+        <p id="box3p"></p>
+        <div class="result" id="result3"></div>
+    </div>
 </body>
+
 </html>

@@ -169,24 +169,9 @@ public class JdbcTest06 {
     }
 
     public void insertMember() throws SQLException {
-        boolean isDuplicate = true;
-        String sql="";
-        String id="";
-        while (isDuplicate) {
-            System.out.print("회원 ID ▶");
-            id = scan.nextLine();
-            sql = "SELECT COUNT(*) FROM mymember WHERE mem_id = ?";
-            if (conn != null) {
-                pstmt = conn.prepareStatement(sql);
-            }
-            pstmt.setString(1, id);
-            rs = pstmt.executeQuery();
-
-            if (rs.next()) {
-                isDuplicate = false;
-            } else {
-                System.out.println("이미 존재하는 id 입니다. 다시 입력하세요.");
-            }
+        String id = getValidMemberId();
+        if (id == null) {
+            return;
         }
 
         System.out.print("패스워드 ▶ ");
@@ -199,7 +184,7 @@ public class JdbcTest06 {
         String phone = scan.nextLine();
 
 
-        sql = "INSERT INTO mymember(mem_id, mem_pass, mem_name, mem_addr, mem_tel) " +
+        String sql = "INSERT INTO mymember(mem_id, mem_pass, mem_name, mem_addr, mem_tel) " +
                 "VALUES(?, ?, ?, ?, ?)";
 
         pstmt = conn.prepareStatement(sql);
