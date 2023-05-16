@@ -19,12 +19,12 @@ body {
 	width: 40%;
 	border : 3px double blue;
 	/* background : skyblue; */
-	background-image :  linear-gradient(rgb(207, 207, 207), rgba(255, 255, 255, 0.63));
+	background-image :  linear-gradient(to right, rgb(252, 166, 166), rgb(154, 211, 154));
 	margin : 10px;
 	padding : 20px;
 }
 
-.box input[type=button]{
+.box input[type=button], button{
 	text-align: center;
 	background : blue;
 	color : white;

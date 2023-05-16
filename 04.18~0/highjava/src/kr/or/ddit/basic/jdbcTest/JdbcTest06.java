@@ -1,6 +1,6 @@
 package kr.or.ddit.basic.jdbcTest;
 
-import kr.or.ddit.util.DBUtil;
+import kr.or.ddit.util.*;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -27,7 +27,7 @@ import java.util.Scanner;
 public class JdbcTest06 {
 
     private final Scanner scan = new Scanner(System.in);
-    private final Connection conn = DBUtil.getConnection();
+    private final Connection conn = DBUtil3.getConnection();
     private PreparedStatement pstmt;
     private Statement stmt;
     private ResultSet rs;
@@ -94,24 +94,9 @@ public class JdbcTest06 {
      *  선택한 항목만 수정할 수 있게 하는 업데이트
      */
     private void updateMember2() throws SQLException {
-        boolean isDuplicate = true;
-        String sql="";
-        String id="";
-        while (isDuplicate) {
-            System.out.print("회원 ID ▶ ");
-            id = scan.nextLine();
-            sql = "SELECT COUNT(*) FROM mymember WHERE mem_id = ?";
-            if (conn != null) {
-                pstmt = conn.prepareStatement(sql);
-            }
-            pstmt.setString(1, id);
-            rs = pstmt.executeQuery();
-
-            if (rs.next()) {
-                isDuplicate = false;
-            } else {
-                System.out.println("존재하지 않는 id 입니다. 다시 입력하세요.");
-            }
+        String id = getValidMemberId();
+        if (id == null) {
+            return;
         }
         System.out.println("수정 사항");
         System.out.println("----------------------");
@@ -122,7 +107,7 @@ public class JdbcTest06 {
         System.out.println("----------------------");
         System.out.print("수정할 항목 ▶ ");
         int menu = Integer.parseInt(scan.nextLine());
-        String select = "";
+        String select = ""; // 수정할 컬럼명
         switch (menu) {
             case 1:
                 select = "mem_pass";
@@ -145,22 +130,42 @@ public class JdbcTest06 {
                 return;
         }
         String update = scan.nextLine();
-
-        sql = "UPDATE mymember SET " +  select + " = ? WHERE mem_id = ?";
-
+        String sql = "UPDATE mymember SET " + select + " = ? WHERE mem_id = ?";
         if (conn != null) {
             pstmt = conn.prepareStatement(sql);
         }
         pstmt.setString(1, update);
         pstmt.setString(2, id);
         int cnt = pstmt.executeUpdate();
-
         if (cnt > 0) {
             System.out.println("UPDATE ㄱㄱ 되었습니다.");
         } else {
-            System.out.println("UPDATE ㄱㄱ가  ㅠㅠ");
+            System.out.println("UPDATE ㄱㄱ가 ㅠㅠ");
         }
+    }
 
+    // helper method to get a valid member ID
+    private String getValidMemberId() throws SQLException {
+        String id = "";
+        while (true) {
+            System.out.print("회원 ID ▶ ");
+            id = scan.nextLine();
+            String sql = "SELECT COUNT(*) FROM mymember WHERE mem_id = ?";
+            if (conn != null) {
+                pstmt = conn.prepareStatement(sql);
+            }
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                if (count == 0) {
+                    System.out.println("존재하지 않는 id 입니다. 다시 입력하세요.");
+                } else {
+                    break;
+                }
+            }
+        }
+        return id;
     }
 
     public void insertMember() throws SQLException {

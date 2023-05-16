@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+
+pre{
+	border : 4px double blue;
+	border-left : none;
+	border-right : none;
+	background : #E8F5FF;
+	padding : 10px;
+	margin : 10px;
+	font-size : 1.5rem;
+}
+body {
+	display: flex;
+    flex-direction: column;         /* 세로정렬 */
+    align-items: center;            /* 가운데 정렬 */
+}
+.box{
+	width: 40%;
+	border : 3px double blue;
+	/* background : skyblue; */
+	background-image :  linear-gradient(to right, rgb(252, 166, 166), rgb(154, 211, 154));
+	margin : 10px;
+	padding : 20px;
+}
+
+.box input[type=button], button{
+	text-align: center;
+	background : blue;
+	color : white;
+	font-size : 20px;
+	width : 100px;
+	height : 40px;
+	border-radius: 20px;
+}
+.box .result {
+	border : 1px dotted red;
+	margin: 15px 0;
+	padding : 20px;
+	font-size : 1.5rem;
+	
+}
+
+
+
+
+

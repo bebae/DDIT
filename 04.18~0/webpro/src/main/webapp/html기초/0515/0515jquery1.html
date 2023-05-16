@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <!-- <script src="../js/jquery-3.7.0.min.js"></script> -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- // 앞에 http, https 가 없는 이유는 비워두면 자동으로 현재 환경에 맞춰서 잡아주기 때문에 -->
+    <script>
+        function proc1() {
+            // document.getElementById("result1").style.background = "#080808";
+            $("#result1").css("background", "#080808");
+        }
+
+        // whindow.onload = function () {
+        //     function proc1() {
+        //         $("#result1").css("background", "blur");
+        //     }
+        // }
+        $(document).ready(function () {
+            document.getElementById("result2").style.background = "skyblue";
+
+            $('#btn1').on('click', function() {
+                $("#result3").css("background", "lightcoral");
+            });
+        })
+
+        proc3 = () => {
+            // let re4 =  document.getElementById("result4")
+            // let vh4 = re4.getElementsByTagName("h4");
+            // for (let i = 0; i < vh4.length; i++) {
+            //     vh4[i].style.color = "red";
+            // }
+            $("#result4 h4").css("color", "red");
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h3>jquery 차이 예제 <br> document.getElementById</h3>
+        <button type="button" onclick="proc1()">확인</button>
+        <div class="result" id="result1"></div>
+    </div>
+    <div class="box">
+        <h3>jquery 차이 예제 <br> window.onload = function()</h3>
+        <button type="button" onclick="proc2()">확인</button>
+        <div class="result" id="result2"></div>
+    </div>
+    <div class="box">
+        <h3>onclick 속성 없이 jquery를 실행</h3>
+        <button type="button" id="btn1">확인</button>
+        <div class="result" id="result3"></div>
+    </div>
+    <div class="box">
+        <h3>jquery 차이 예제</h3>
+        <button type="button" onclick="proc3()">확인</button>
+        <div class="result" id="result4">
+            <h4>h4 Test Text</h4>
+            <h4>h4 Test Text</h4>
+            <h4>h4 Test Text</h4>
+        </div>
+    </div>
+</body>
+
+</html>

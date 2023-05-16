@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <link rel="stylesheet" href="../css/mystyle.css">
+
+  <script>
+    arr = ["hello", "Happy", "즐거운 주말", "맛있는 점심", "javascript"]
+
+    proc1 = () => {
+
+      // 랜덤발생
+      let title = arr[parseInt(Math.random() * arr.length)];
+
+      // arr[랜덤] 문자열로 text객체 생성 - createTextNode
+      let text = document.createTextNode(title);
+
+      // p태그 객체 객체 생성 - createElement('p')
+      let p = document.createElement('p');
+
+      // p객체에 text객체를 추가 - appendChild()를 이용
+      p.appendChild(text);
+
+      // result1에 p객체를 추가 
+      let result1 = document.getElementById("result1");
+      result1.appendChild(p);
+    }
+    proc2 = () => {
+      let result1 = document.getElementById("result1");
+      result1.removeChild(result1.lastChild); // 마지막 자식 노드 삭제
+    }
+    proc3 = () => {
+      let title = arr[parseInt(Math.random() * arr.length)];
+      let text = document.createTextNode(title);
+      let p = document.createElement('p');
+      p.appendChild(text);
+      
+      // button 객체 생성
+      let button = document.createElement('button');
+      button.type = 'button';
+      button.innerHTML = "삭제";
+      button.onclick = function() {
+        this.parentNode.parentNode.removeChild(this.parentNode);
+      };
+
+
+      // p객체에 button 객체를 추가
+      p.appendChild(button);
+
+      // p 객체를 result에 추가
+
+      let result = document.getElementById("result2");
+      result.appendChild(p);
+    };
+  </script>
+</head>
+
+<body>
+
+  <div class="box">
+    <h3>추가버튼 클릭시 랜덤으로 문자열추가 </h3>
+    <h3>삭제버튼 클릭시 아래에서부터 (위에서부터) 차례대로 삭제 </h3>
+
+    <input type="button" value="추가" onclick="proc1()">
+    <input type="button" value="삭제" onclick="proc2()">
+    <div id="result1" class="result"></div>
+  </div>
+  <div class="box">
+    <h3>추가버튼 클릭시 랜덤으로 문자열추가 </h3>
+    <h3>삭제버튼 클릭시 해당 p태그 삭제 </h3>
+
+    <input type="button" value="추가삭제" onclick="proc3()">
+    <div id="result2" class="result"></div>
+  </div>
+
+</body>
+
+</html>
