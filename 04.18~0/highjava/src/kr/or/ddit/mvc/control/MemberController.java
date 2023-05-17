@@ -14,7 +14,8 @@ public class MemberController {
     private final Scanner scan;
 
     public MemberController() {
-        service = new MemberServiceImpl();
+//        service = new MemberController();
+        service = MemberServiceImpl.getInstance();
         scan = new Scanner(System.in);
     }
 

@@ -9,11 +9,18 @@ import java.util.Map;
 
 public class MemberServiceImpl implements IMemberService {
     private final IMemberDao dao;     // DAO 객체가 저장될 변수 선언
+    private static MemberServiceImpl service;      // 싱글톤 인스턴스 객체
 
-    public MemberServiceImpl() {
+    private MemberServiceImpl() {
 //        dao = new MemberDaoImpl();
         dao = MemberDaoImpl.getInstance();
     }
+
+    public static MemberServiceImpl getInstance() {
+        if(service == null) service = new MemberServiceImpl();
+        return service;
+    }
+
     @Override
     public int insertMember(MemberVo memberVo) {
         return dao.insertMember(memberVo);

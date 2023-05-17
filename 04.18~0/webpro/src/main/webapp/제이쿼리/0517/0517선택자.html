@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <script>
+        window.onload = function () {
+
+        }
+        $(document).ready(function () {
+            $("#btn1").on("click", function () {
+                // $("h3 > p").css("background", "yellow")
+                //     .css("width", "50%")
+                //     .css("text-align", "center");
+                $("h3 ~ p").css({"background": "yellow",
+                    "width": "50%",
+                    "text-align": "center"});
+
+                $("h3 + p").css({
+                    "font-weight" : "bold",
+                    "font-size" : "2.0em"
+                });
+            })
+
+        });
+        function proc1() {
+
+
+            document.getElementById('result1').innerHTML = str;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h3></h3>
+        <button id="btn1" type="button" onclick="proc1()">확인</button>
+        <div class="result" id="result1">
+            <p>형제 선택자 에 대하여</p>
+            <h3> 꼬마버스 타요 가족을 소개 합니다</h3>
+            <p> 타요</p>
+            <p> 로기</p>
+            <p> 라니 </p>
+            <p> 가니 </p>
+        </div>
+
+    </div>
+</body>
+
+</html>

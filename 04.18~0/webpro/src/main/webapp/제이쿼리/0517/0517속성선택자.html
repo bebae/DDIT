@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <script>
+        $(document).ready(function () {
+            $("#btn1").on("click", function () {
+
+            })
+
+        });
+        function proc1() {
+
+
+            document.getElementById('result1').innerHTML = str;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h3></h3>
+        <button id="btn1" type="button" onclick="proc1()">확인</button>
+        <div class="result" id="result1">
+            <p> 일반 문단입니다 </p>
+            <p title="툴팁으로 보입니다"> 타이틀을 가지고 있는 문단입니다 </p>
+            회원번호 <input type="text"><br>
+             비밀번호  <input type=" password">
+            <input type="button" value="확인">
+        </div>
+
+    </div>
+</body>
+
+</html>
