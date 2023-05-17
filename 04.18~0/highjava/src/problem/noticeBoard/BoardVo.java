@@ -10,6 +10,25 @@ public class BoardVo {
     private int boardCnt;
     private String boardContent;
 
+    public BoardVo() {}
+
+    public BoardVo(int boardNo, String boardTitle, String boardWriter, java.sql.Date boardDate, int boardCnt, String boardContent) {
+        this.boardNo = boardNo;
+        this.boardTitle = boardTitle;
+        this.boardWriter = boardWriter;
+        this.boardDate = boardDate;
+        this.boardCnt = boardCnt;
+        this.boardContent = boardContent;
+    }
+
+    public BoardVo(int boardNo, String boardTitle, String boardWriter, java.sql.Date boardDate, int boardCnt) {
+        this.boardNo = boardNo;
+        this.boardTitle = boardTitle;
+        this.boardWriter = boardWriter;
+        this.boardDate = boardDate;
+        this.boardCnt = boardCnt;
+    }
+
     public int getBoardNo() {
         return boardNo;
     }

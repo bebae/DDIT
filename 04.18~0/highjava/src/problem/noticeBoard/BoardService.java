@@ -11,9 +11,7 @@ public class BoardService {
     }
 
     public static BoardService getInstance() {
-        if (instance == null) {
-            instance = new BoardService();
-        }
+        if (instance == null) instance = new BoardService();
         return instance;
     }
 
@@ -23,8 +21,8 @@ public class BoardService {
     }
 
     // 새글 작성
-    public void insertBoard(BoardVo boardVo) {
-        boardDao.insertBoard(boardVo);
+    public int insertBoard(BoardVo boardVo) {
+        return boardDao.insertBoard(boardVo);
     }
 
 
@@ -34,18 +32,22 @@ public class BoardService {
     }
 
     // 게시글 수정
-    public void updateBoard(BoardVo boardVo) {
-        boardDao.updateBoard(boardVo);
+    public int updateBoard(BoardVo boardVo) {
+        return boardDao.updateBoard(boardVo);
     }
 
     // 게시글 삭제
-    public void deleteBoard(int boardNo) {
-        boardDao.deleteBoard(boardNo);
+    public int deleteBoard(int boardNo) {
+        return boardDao.deleteBoard(boardNo);
     }
 
     // 게시글 검색
     public List<BoardVo> searchBoard(String title) {
         return boardDao.searchBoard(title);
+    }
+
+    public int increaseBoardCount(int boardNo) {
+        return boardDao.increaseBoardCount(boardNo);
     }
 }
 

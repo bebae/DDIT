@@ -20,17 +20,7 @@ public class BoardView {
     }
 
     public int showMenuAndGetInput() {
-        // 게시글 목록 출력
-        List<BoardVo> boardVoList = BoardService.getInstance().getAllBoards();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        System.out.println("-------------------------------------------------------------");
-        System.out.println(" No\t\t제 목\t\t\t작성자\t조회수\t작성일");
-        System.out.println("-------------------------------------------------------------");
-        for (BoardVo boardVo : boardVoList) {
-            System.out.printf(" %d\t\t%s\t\t%s\t%d\t%s%n", boardVo.getBoardNo(), boardVo.getBoardTitle(), boardVo.getBoardWriter(),
-                    boardVo.getBoardCnt(), dateFormat.format(boardVo.getBoardDate()));
-        }
-
+        displayBoardList();
         System.out.println("-------------------------------------------------------------");
         System.out.println("메뉴 : 1. 새글작성     2. 게시글보기    3. 검색    0. 작업끝");
         System.out.print("작업선택 >> ");
@@ -39,17 +29,12 @@ public class BoardView {
 
     public BoardVo getNewBoardInfo() {
         BoardVo boardVo = new BoardVo();
-
         System.out.println("새글 작성하기");
         System.out.println("-----------------------------------");
-        System.out.print("- 제  목 : ");
-        boardVo.setBoardTitle(scanner.nextLine());
-        System.out.print("- 작성자 : ");
-        boardVo.setBoardWriter(scanner.nextLine());
-        System.out.print("- 내  용 : ");
-        boardVo.setBoardContent(scanner.nextLine());
+        boardVo.setBoardTitle(getInput("제  목"));
+        boardVo.setBoardWriter(getInput("작성자"));
+        boardVo.setBoardContent(getInput("내  용"));
         boardVo.setBoardDate(new Date());
-
         return boardVo;
     }
 
@@ -79,17 +64,15 @@ public class BoardView {
     public BoardVo getUpdatedBoardInfo(BoardVo boardVo) {
         System.out.println("수정 작업하기");
         System.out.println("-----------------------------------");
-        System.out.print("- 제  목 : ");
-        boardVo.setBoardTitle(scanner.nextLine());
-        System.out.print("- 내  용 : ");
-        boardVo.setBoardContent(scanner.nextLine());
+        boardVo.setBoardTitle(getInput("제  목"));
+        boardVo.setBoardContent(getInput("내  용"));
         return boardVo;
     }
 
     public String getSearchKeyword() {
-        System.out.print("- 검색할 제목 입력 : ");
-        return scanner.nextLine();
+        return getInput("검색할 제목 입력");
     }
+
     public void showSearchResults(List<BoardVo> searchResults) {
         System.out.println("-------------------------------------------------------------");
         System.out.println(" No\t\t제 목\t\t\t작성자\t조회수");
@@ -102,5 +85,22 @@ public class BoardView {
 
     public void showMessage(String message) {
         System.out.println(message);
+    }
+
+    private void displayBoardList() {
+        List<BoardVo> boardVoList = BoardService.getInstance().getAllBoards();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        System.out.println("-------------------------------------------------------------");
+        System.out.println(" No\t\t제 목\t\t\t작성자\t조회수\t작성일");
+        System.out.println("-------------------------------------------------------------");
+        for (BoardVo boardVo : boardVoList) {
+            System.out.printf(" %d\t\t%s\t\t%s\t%d\t%s%n", boardVo.getBoardNo(), boardVo.getBoardTitle(), boardVo.getBoardWriter(),
+                    boardVo.getBoardCnt(), dateFormat.format(boardVo.getBoardDate()));
+        }
+    }
+
+    private String getInput(String prompt) {
+        System.out.print("- " + prompt + " : ");
+        return scanner.nextLine();
     }
 }
