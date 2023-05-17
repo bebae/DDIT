@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//code.jquery.com/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <script>
+        $(document).ready(function () {
+            $('#btn1').on('click', () => {
+                proc2();
+            });
+            $('#btn2').on('click', () => {
+                $('#result2 tr').filter(':even').css('background', 'lightgreen');
+                $('#result2 tr').filter(':odd').css('background', 'lightgray');
+            });
+            $('#btn3').on('click', () => {
+                proc3();
+            });
+        });
+        function proc1() {
+            $('#result1 li:eq(5)').css('background', 'red');
+            $('#result1 li:first, #result1 li:last').css('background', 'yellow');
+            $('#result1 li:lt(4)').css('font-size', '2.0rem');
+        }
+        function proc2() {
+            $('#result1 li').eq(5).css('background', 'red');
+            $('#result1').find('li').filter(':first, :last').css('background', 'yellow');
+            $('#result1 li').slice(0, 4).css('font-size', '2.0rem');
+        }
+        function proc3() {
+            // jQuery가 포함된 span태그 의 테두리 파랑 : 
+            $('#result3').find('span:contains(jQuery)').css('border', '3px solid blue');
+            // jQuery가 포함되지 않은 span 태그 의 테두리 빨강  : 
+            $('#result3').find('span:not(:contains(jQuery))').css('border', '3px solid red');
+            // span을 갖는 div요소 태그 의 테두리   그린 
+            $('#result3').find('div:has(span)').css('border', '3px solid green');
+            // 아무것도 없는 빈 div 태그 의 테두리      
+            $('#result3').find('div:empty').css('border','none');
+            // div 후손 span 태그 의 글자색  빨강, 크기,굵게
+            $('#result3').find('div span').css({
+                'color': 'red',
+                'font-weight': 'bold'
+            });
+        }
+
+    </script>
+    <style>
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 200px;
+            height: 50px;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3></h3>
+        <button id="btn1" type="button" onclick="proc1()">확인</button>
+        <div class="result" id="result1">
+            <ul>
+                <li> one </li>
+                <li> two </li>
+                <li> three </li>
+                <li> four </li>
+                <li> five </li>
+                <li> six</li>
+                <li> seven</li>
+                <li>eight</li>
+                <li>nine</li>
+            </ul>
+        </div>
+    </div>
+    <div class="box">
+        <h3></h3>
+        <button id="btn2" type="button">확인</button>
+        <div class="result" id="result2">
+            <table border="1">
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="box">
+        <h3></h3>
+        <button id="btn3" type="button">확인</button>
+        <div class="result" id="result3">
+            <div></div>
+            <div>헬로우~~
+                <span>오늘도 즐겁게~열심히!</span>
+            </div>
+            <p>Hello jQuery! <span>Thanks, jQuery!</span></p>
+            <div class="myClass">jQuery!</div>
+            <span class="notMyClass">쉬운 jQuery~~!</span>
+            <div></div>
+
+        </div>
+    </div>
+</body>
+
+</html>
