@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <script>
+        window.onload = function () {
+
+        }
+        $(document).ready(function () {
+            $("#btn1")
+        });
+        function proc1() {
+
+
+            document.getElementById('result1').innerHTML = str;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h3></h3>
+        <button id="btn1" type="button" onclick="proc1()">확인</button>
+        <div class="result" id="result1">
+            <form onsubmit="return false;">
+                Text : <input type="text" /><br>
+                Password : <input type="password" /><br><br>
+                Radio : <input type="radio" name="radioGroup" id="radioA" value="A" /> A
+                <input type="radio" name="radioGroup" id="radioB" value="B" /> B<br><br>
+                Checkbox : <input type="checkbox" name="checkboxes" id="checkbox1" value="1" /> 1
+                <input type="checkbox" name="checkboxes" id="checkbox2" value="2" /> 2<br><br>
+                Textarea : <br> <textarea rows="15" cols="50" id="myTextarea" id="myTextarea"></textarea><br><br>
+                Image : <input type="image" src="images/image.1.jpg"><br><br>
+                File : <input type="file"><br><br>
+                Buttons : <button type="button" id="normalButton">Normal</button>
+                <button type="submit" id="submitButton">Submit</button>
+                <button type="reset" id="resetButton">Reset</button> <br><br>
+                <input type="button" value="일반버튼">
+                <input type="submit" value="전송버튼">
+                <input type="reset" value="초기화버튼"> <br><br>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
