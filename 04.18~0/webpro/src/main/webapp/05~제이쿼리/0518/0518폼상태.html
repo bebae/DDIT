@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//code.jquery.com/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <script>
+        window.onload = function () {
+
+        }
+        $(document).ready(function () {
+            $("#btn1").on("click", function () {
+                $('#result1 form *:enabled').css('border', '5px solid red');
+                $('#result1 form *:disabled').css('border', '5px solid green');
+
+                // 속성 상태 변경 
+                // pror('disabled', 'true'); pror('disabled', 'false');
+
+            });
+            $("form#form1").on("submit", function () {
+                let str = "";
+                // alert("Please enter");
+                $(':checkbox').filter(':checked').each(function (i, v) {
+                    $(v).val();
+                    str += $(this).val() + " ";
+
+                });
+                alert(str);
+            });
+
+            $("select#spring").on("change", myChange);
+        });
+        function proc1() {}
+
+        function myChange() {
+            var str = ""; // 변수 초기화
+                $('#spring :selected').each(function () {
+                    str += $(this).val() + " ";
+                });
+                alert(str);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h3>폼 상태 필터</h3>
+        <h3>사용 가능 : enabled</h3>
+        <h3>사용 불가능 : disabled</h3>
+        <button id="btn1" type="button" onclick="proc1()">확인</button>
+        <div class="result" id="result1">
+            <form>
+                <input type="text" name="id"><br>
+                <input type="password" name="pass"><br>
+
+                <select name="disSelect" disabled>
+                    <option>Option1</option>
+                    <option>Option2</option>
+                    <option>Option3</option>
+                    <option>Option4</option>
+                </select>
+                <br>
+                <textarea name="enTextarea" rows=10 cols=20>text</textarea><br>
+                <input type="button" value="확인" onclick="alert('hello!!')" disabled> <br>
+
+            </form>
+        </div>
+    </div>
+    <div class="box">
+        <h3>폼 상태 체크</h3>
+        <h3>:checkbox, :checked</h3>
+        <div class="result" id="result2">
+            <form id="form1" action="checked.jsp" method="post" onsubmit="return false;">
+                이름 : <input type="text" name="user"><br>
+                취 미 :
+                <input type="checkbox" name="hobby" value="여행" checked>여행
+                <input type="checkbox" name="hobby" value="장기">장기
+                <input type="checkbox" name="hobby" value="바둑">바둑
+                <input type="checkbox" name="hobby" value="독서">독서
+                <input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+                <!-- <input type="submit" value="전송"> -->
+                <button type="submit">전송</button>
+            </form>
+        </div>
+    </div>
+    <div class="box">
+        <h3>폼 상태 selected</h3>
+        <h3>select 선택창 => 옵션: selected </h3>
+        <div class="result" id="result3">
+            <form>
+                <!-- 봄소식 : <select name="spring" id="spring" multiple size="6"> -->
+                봄소식 : <select name="spring" id="spring" multiple size="6">
+                    <option>개나리</option>
+                    <option selected>진달래</option>
+                    <option>민들레</option>
+                    <option selected>벚꽃</option>
+                    <option>목련</option>
+                    <option>철쭉</option>
+                </select>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

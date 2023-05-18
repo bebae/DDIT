@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//code.jquery.com/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <script>
+        window.onload = function () {
+
+        }
+        $(document).ready(function () {
+            $("#btn1").on("click", function () {
+                let str = "";
+                $('p:hidden').each(function () {
+                    str += $(this).text() + '<br>';
+                });
+                $('#result1').html(str);
+            });
+            $("#btn2").on("click", function () {
+                let str = "";
+                $('p:visible').each(function () {
+                    str += $(this).text() + '<br>';
+                });
+                $('#result2').html(str);
+            });
+
+            $("#btn3").on("click", function () {
+                let str = "hidden결과<br>";
+                $('#testForm :hidden').each(function () {
+                    if (this.tagName == "INPUT") {
+                        str += this.tagName + "[" + $(this).attr('name') + " : " + $(this).val() + "]" + "<br>";
+                    } else {
+                        str += $(this).text() + '<br>';
+                    }
+                });
+                $('#result3').html(str);
+            });
+
+            $("#btn4").on("click", function () {
+                let str = "visible결과<br>";
+                $('#testForm :visible').each(function () {
+                    if (this.tagName === "INPUT") {
+                        if ($(this).attr('type') === 'radio' && !$(this).is(':checked')) {
+                            return; // Skip unchecked radio buttons
+                        }
+
+                        str += this.tagName + "[" + $(this).attr('name') + " : " + $(this).val() + "]" + "<br>";
+                    } else if (this.tagName === "BR") {
+                        str += $(this).text();
+                    }
+                });
+                $('#result4').html(str);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h3></h3>
+        <p> 보이는 문단</p>
+        <p style="visibility:hidden;">숨겨진 문단</p>
+        <p style="display:none;"> 자리를 차지 하지 못한 문단 </p>
+        <p style="opacity:0;"> 투명한 문단</p>
+        <hr />
+        <button id="btn1" type="button">hidden</button>
+        <button id="btn2" type="button">visible</button>
+        <div class="result" id="result1"></div>
+        <div class="result" id="result2"></div>
+    </div>
+</body>
+
+<body>
+    <div class="box">
+        <h3></h3>
+        <form id="testForm">
+            <input type="hidden" name="userAge" value="33">
+            <input type="hidden" name="userCity" value="대전">
+            I D : <input type="text" name="userID" value="hong">
+            <span style="display:none">ID가 중복됩니다. </span> <br>
+            이름 : <input type="text" name="userName" value="홍길동">
+            <span style="visibility:hidden">이름을 입력하세요</span><br>
+            성별 : <input type="radio" name="sung" value="남" checked>남자
+            <input type="radio" name="sung" value="여">여자
+        </form><br><br>
+        <button id="btn3" type="button">hidden</button>
+        <button id="btn4" type="button">visible</button>
+        <div class="result" id="result3"></div>
+        <div class="result" id="result4"></div>
+    </div>
+</body>
+
+</html>
