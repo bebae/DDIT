@@ -1,13 +1,12 @@
 package kr.or.ddit.mybatisTest;
 
-import kr.or.ddit.mybatisTest.vo.LprodVO;
+import kr.or.ddit.mybatisTest.TestVo.LprodVO;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.InputStream;
-import java.util.List;
 import java.util.Scanner;
 
 public class LprodMybatisTest {

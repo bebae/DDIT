@@ -1,4 +1,4 @@
-package kr.or.ddit.mybatisTest.vo;
+package kr.or.ddit.mybatisTest.TestVo;
 
 public class LprodVO {
     private int lprod_id;

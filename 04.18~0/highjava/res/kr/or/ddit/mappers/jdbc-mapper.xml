@@ -4,24 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="jdbc">
-
+    <select id="getMaxId" resultType="lprodVO">
+        SELECT * FROM lprod WHERE lprod_id = (SELECT MAX(lprod_id) FROM lprod)
+    </select>
+    <select id="getLprod" parameterType="String" resultType="lprodVO">
+        SELECT lprod_id, lprod_gu, lprod_nm FROM lprod WHERE lprod_gu = #{lprod_gu}
+    </select>
     <insert id="insertLprod" parameterType="LprodVO">
         insert into lprod (lprod_id, lprod_gu, lprod_nm)
         values (#{lprod_id}, #{lprod_gu}, #{lprod_nm}) <!-- Vo 클래스의 변수명 -->
     </insert>
-
-    <update id="updateLprod" parameterType="LprodVO">
-        SELECT NVL(MAX(lprod_id), 0) maxid FROM lprod
-    </update>
-
-    <delete id="deleteLprod" parameterType="String">
-        delete lprod where lprod_gu = #{ssskkd}
-    </delete>
-
-    <select id="getAllLprod" resultType="LprodVO">
-        select * from lprod
-    </select>
-    <select id="getLprod" parameterType="String" resultType="lprodVO">
-        SELECT NVL(MAX(lprod_id), 0) maxid FROM lprod
-    </select>
 </mapper>

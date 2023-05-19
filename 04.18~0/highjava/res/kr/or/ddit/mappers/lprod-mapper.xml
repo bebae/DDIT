@@ -23,14 +23,14 @@
             (VO클래스 등을 기술할 때는 해당 클래스의 패키지명을 포함한 전체 이름을 기술해야 한다.)
             (이 속성에는 <typeAlias>태그에서 지정한 alias명을 사용할 수 있다.)
             (예 : typeAliases>
-                      <typeAlias alias="lprodVo" type="kr.or.ddit.mybatisTest.vo.LprodVO"/>
+                      <typeAlias alias="lprodVo" type="kr.or.ddit.mybatisTest.TestVo.LprodVO"/>
                   </typeAliases>
      -->
     <insert id="insertLprod1" parameterType="LprodVO">
         insert into lprod (lprod_id, lprod_gu, lprod_nm)
         values (#{lprod_id}, #{lprod_gu}, #{lprod_nm}) <!-- Vo 클래스의 변수명 -->
     </insert>
-    <insert id="insertLprod2" parameterType="kr.or.ddit.mybatisTest.vo.LprodVO">
+    <insert id="insertLprod2" parameterType="kr.or.ddit.mybatisTest.TestVo.LprodVO">
         insert into lprod (lprod_id, lprod_gu, lprod_nm)
         values (#{lprod_id}, #{lprod_gu}, #{lprod_nm})
     </insert>
