@@ -70,7 +70,7 @@ public class MemberDaoImpl implements IMemberDao {
     @Override
     public List<MemberVo> getAllMember() {
         SqlSession session = null;
-        List<MemberVo> memberList = new ArrayList<>(); // 반환할 리스트 객체 생성
+        List<MemberVo> memberList; // 반환할 리스트 객체 생성
         try {
             session = MyBatisSqlSessionFactory.getSqlSession();
             memberList = session.selectList("member.getAllMember");

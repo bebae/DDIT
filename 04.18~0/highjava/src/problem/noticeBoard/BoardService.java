@@ -4,10 +4,10 @@ import java.util.List;
 
 public class BoardService {
     private static BoardService instance;
-    private final BoardDao boardDao;
+    private final BoardDaoBatis boardDao;
 
     private BoardService() {
-        boardDao = BoardDao.getInstance();
+        boardDao = BoardDaoBatis.getInstance();
     }
 
     public static BoardService getInstance() {
