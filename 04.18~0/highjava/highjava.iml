@@ -29,5 +29,6 @@
     </orderEntry>
     <orderEntry type="library" name="mybatis-3.5.7" level="project" />
     <orderEntry type="library" name="log4j-1.2.17" level="project" />
+    <orderEntry type="library" name="servlet-api" level="project" />
   </component>
 </module>
