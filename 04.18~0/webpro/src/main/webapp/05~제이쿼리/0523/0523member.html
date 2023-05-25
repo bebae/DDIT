@@ -9,9 +9,6 @@
     <script src="//code.jquery.com/jquery-3.7.0.min.js"></script>
     <link rel="stylesheet" href="../css/mystyle.css">
     <script>
-        window.onload = function() {
-        
-        }
         $(document).ready(function () {
             $("#btn1").on("click", function(){
               location.href = "./member.jsp";
@@ -19,24 +16,41 @@
 
             $("#btn2").on("click", function(){
               $.ajax({
-                url: "./memberAjax.jsp",
-                type: "GET",
+           	  	url: "./memberAjax.jsp",
+                type: "get",
+                dataType: "json",
                 
                 success: function(data){
+                  code = `
+                    <table border="1">
+                      <tr>
+                        <td>아이디</td>
+                        <td>이름</td>
+                        <td>전화번호</td>
+                        <td>주소</td>
+                        </tr>
+                      `;
+                  $.each(data, function(i, v){
+                    code += `
+                      <tr>
+                        <td>${data[i].id}</td>
+                        <td>${data[i].name}</td>
+                        <td>${data[i].tel}</td>
+                        <td>${data[i].addr}</td>
+                      </tr>
+                    `;
+                  }); 
+                  code += `</table>`;
 
+                  $("#result1").html(code);
                 },
-                error: function(error){
-
-                },
-                dataType: "json"
+                error : function (xhr){
+					        alert("상태 : "+xhr.status);
+                }
               });
             });
         });
-        function proc1() {
-
-
-            document.getElementById('result1').innerHTML = str;
-        }
+       
     </script>
 </head>
 

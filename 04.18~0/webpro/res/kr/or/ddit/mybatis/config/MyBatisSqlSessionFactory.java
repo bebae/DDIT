@@ -14,7 +14,10 @@ public class MyBatisSqlSessionFactory {
         InputStream in = null;
         try {
             // 1-1. 환경설정 파일을 읽어 올 스트림 객체 생성
-            in = Resources.getResourceAsStream("kr/or/ddit/config/mybatis-config.xml");
+            in = Resources.getResourceAsStream("kr/or/ddit/mybatis/config/mybatis-config.xml");
+            if (in == null) {
+				System.out.println("in인 NULL값 입니다.");
+			}
 
             // 1-2. 환경설정 파일을 읽어와 환경 설정을 완성한 후 SQL문을 호출해서 실행할 수 있는 객체를 생성할 수 있는 SQLSessionFactory 객체를 생성한다.
             factory = new SqlSessionFactoryBuilder().build(in);
