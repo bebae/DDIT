@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//code.jquery.com/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <script>
+        window.onload = function() {
+        
+        }
+        $(document).ready(function () {
+            $("#btn1").on("click", function(){
+              location.href = "./member.jsp";
+            });
+
+            $("#btn2").on("click", function(){
+              $.ajax({
+                url: "./memberAjax.jsp",
+                type: "GET",
+                
+                success: function(data){
+
+                },
+                error: function(error){
+
+                },
+                dataType: "json"
+              });
+            });
+        });
+        function proc1() {
+
+
+            document.getElementById('result1').innerHTML = str;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h3>멤버리스트<br>동기화는 새로운 페이지<br>비동기화는 현재 페이지</h3>
+        <button id="btn1" type="button">memberList(동기화)</button>
+        <button id="btn2" type="button">memberAjax(비동기화)</button>
+        <div class="result" id="result1"></div>
+    </div>
+</body>
+
+</html>
