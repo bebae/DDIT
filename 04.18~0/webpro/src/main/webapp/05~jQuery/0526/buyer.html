@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="//code.jquery.com/jquery-3.7.0.min.js"></script>
+  <link rel="stylesheet" href="../css/mystyle.css">
+  <style>
+    table {
+      text-align: center;
+      border: 1px solid black;
+      margin: 0 auto;
+      
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+      // $("#btn1").on("click", function () {
+      // });
+      $(document).on("click", 'p', function () {
+        alert("Please enter");
+
+        var idValue = $(this).attr("class");
+
+        $.ajax({
+          url: '/webpro/buyerDatail.do',
+          type: 'GET',
+          data: {"id": idValue},
+          dataType: 'json',
+          success: function (res) {
+
+          },
+          error: function (xhr) {
+            alert("상태 : " + xhr.status);
+          }
+          
+        });
+
+      });
+
+      $(document).on('click', '#btn1', function () {
+        $.ajax({
+          url: '/webpro/buyerIdName.do',
+          type: 'GET',
+          dataType: 'json',
+          success: function (res) {
+            code = "";
+            $.each(res, function (i, v) {
+              code += `<p class=${res[i].id}>${res[i].name}</p>`;
+            });
+            $('#udName').html(code);
+          },
+          error: function (xhr) {
+            alert("상태 : " + xhr.status);
+          }
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="box">
+    <h3></h3>
+    <button id="btn1" type="button">확인</button>
+    <div class="result" id="result1">
+      <table border="1" id="table">
+        <tr>
+          <td>거레처 이름</td>
+          <td>거래처 상세정보</td>
+        </tr>
+        <tr>
+          <td id="idName"></td>
+          <td id="detail"></td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

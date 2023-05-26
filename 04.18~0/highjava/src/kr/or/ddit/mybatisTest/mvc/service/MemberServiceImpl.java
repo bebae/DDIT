@@ -11,7 +11,7 @@ public class MemberServiceImpl implements IMemberService {
     private final IMemberDao dao;     // DAO 객체가 저장될 변수 선언
     private static MemberServiceImpl service;      // 싱글톤 인스턴스 객체
 
-    private MemberServiceImpl() {
+        private MemberServiceImpl() {
 //        dao = new MemberDaoImpl();
         dao = MemberDaoImpl.getInstance();
     }

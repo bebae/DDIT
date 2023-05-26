@@ -3,10 +3,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="member">
+<mapper namespace="buyer">
    
-    <select id="getAllMember" resultType="MemberVo">
-        SELECT mem_id, mem_name, mem_addr, mem_tel FROM mymember
+    <select id="getBuyer" resultType="buyerVo">
+        SELECT buyer_id, buyer_name FROM buyer
+    </select>
+
+    <select id="getDetails" parameterType="String" resultType="buyerVo">
+        SELECT
+            buyer_id,
+            buyer_name,
+            buyer_lgu,
+            buyer_bank,
+            buyer_bankno,
+            buyer_bankname,
+            buyer_zip,
+            buyer_add1,
+            buyer_add2,
+            buyer_comtel,
+            buyer_mail
+        FROM buyer WHERE buyer_id = #{buyer_id}
     </select>
 
 </mapper>
