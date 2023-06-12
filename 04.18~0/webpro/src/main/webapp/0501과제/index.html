@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="//code.jquery.com/jquery-3.7.0.min.js"></script>
     <link rel="stylesheet" href="./css/main.css">
     <script>
         function showPrompt() {
@@ -17,7 +18,8 @@
 </head>
 <body>
     <div  id="mainBody">
-        <header id="mainHeader" class="mainDiv">
+        <div id="header"></div>
+        <!-- <header id="mainHeader" class="mainDiv">
             <img src="./images/html-64.png" alt="로고"> 
             <a href="./index.html">
                 <h1>Web Shoping</h1>
@@ -31,7 +33,7 @@
                 <li>MY ACCOUNT</li>
                 <li>CONTACTS</li>
             </ul>
-        </nav>
+        </nav> -->
         <main id="main">
             <nav class="mainDiv">
                 <h2>카테고리</h2>
@@ -73,10 +75,17 @@
                 </section>
             </aside>
         </main>
-        <footer id="mainFooter" class="mainDiv">    
+        <div id="footer"></div>
+        <!-- <footer id="mainFooter" class="mainDiv">    
             <p>Copyright (c) 2023 Web Shoping</p>
-        </footer>
+        </footer> -->
     </div>
 
+    <script>
+        $(function() {
+            $('#header').load('./html/header.html');
+            $('#footer').load('./html/footer.html');
+        });
+    </script>
 </body>
 </html>

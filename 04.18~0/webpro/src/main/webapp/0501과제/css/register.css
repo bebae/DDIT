@@ -11,12 +11,14 @@
     align-items: flex-start; /* 변경된 부분 */
     position: relative; /* 변경된 부분 */
     align-items: center;
-    margin-top: 5px;
+    margin: 5px auto;
     background-color: #f8f9fa;
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    min-width: 300px;
 }
 
 
@@ -40,11 +42,11 @@
     width: 250px;
 }
 
-.mainDiv #id {
+.mainDiv #id, #postcode {
     width: 60% ;
 }
 
-#idBtn {
+#idBtn, #addBtn {
     padding: 9px;
     width: 80px;
     text-align: center;
@@ -95,6 +97,7 @@ label[for="female"] {
     border: 1px solid #ddd;
     font-size: 14px;
 }
+
 
 .mainDiv input[type="submit"] {
     margin: 20px 0;
