@@ -50,6 +50,7 @@
     padding: 9px;
     width: 80px;
     text-align: center;
+    margin-left: 3.5px;
 }
 
 #signupInput #gender {
@@ -85,14 +86,22 @@ label[for="female"] {
 }
 
 #birthday {
+    width: 250px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
     /* 생일 입력 폼과 다른 입력 항목 사이의 간격을 조절 */
 }
 
+#birthday-year {
+    width: 90px;
+}
+#birthday-month, #birthday-day {
+    width: 75px;
+}
+
 .mainDiv select {
-    padding: 10px 14px;
+    padding: 10px 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
     font-size: 14px;
