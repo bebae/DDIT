@@ -10,7 +10,7 @@
 </head>
 <body>
 <h2>Test.jsp 페이지 입니다.</h2>
-<% String str1 = "안녕하세요 : text";  %>
+<%! String str1 = "안녕하세요 : text";  %>
 <h3><%=str1%></h3>
 <h2>
     <ul>
@@ -18,7 +18,7 @@
         <li><%=str1.substring(5)%></li>
         <li>JSP 테스트 중입니다.</li>
     </ul>
-    <% String[] strArr = {"사과","바나나","딸기","배"}; %>
+    <%! String[] strArr = {"사과","바나나","딸기","배"}; %>
     <ul>
         <% for(String str : strArr) { %>
         <li><%=str%></li>

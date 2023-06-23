@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>JSP index</title>
 </head>
 <body>
     <h1>JSP Index</h1>

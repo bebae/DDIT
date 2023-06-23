@@ -2,15 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Insert title here</title>
+    <title>InsertTitle</title>
 </head>
 <body>
 <h1>JSP</h1>
 
 
 
-<script type="text/javascript">
 
-</script>
 </body>
 </html>
