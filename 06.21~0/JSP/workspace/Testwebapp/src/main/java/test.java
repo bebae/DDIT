@@ -12,7 +12,7 @@ public class test extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String url = "taglib";
+        String url = "taglib03";
         request.getContextPath();
         url += ".jsp";
 //        url += ".html";
