@@ -5,20 +5,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/test.do")
-public class test extends HttpServlet {
+@WebServlet("/welcome.do")
+public class welcome extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String url = "first";
+        String url = "welcome";
         request.getContextPath();
         url += ".jsp";
-//        url += ".html";
 
-        System.out.printf("test.do 서블릿을 경유해서 %s로 이동합니다\n", url);
-        request.getRequestDispatcher("/ch04/"+url).forward(request, response);
+        System.out.printf("welcome.do 서블릿을 경유해서 %s로 이동합니다\n", url);
+        request.getRequestDispatcher("/welcome/"+url).forward(request, response);
     }
 
 

@@ -2,12 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>InsertTitle</title>
+    <title>Action Tag</title>
 </head>
 <body>
-    <h1>JSP</h1>
-    <div>
-
-    </div>
+    <h3>이 파일은 second.jsp 입니다.</h3>
+    <p>Today is : <%=request.getParameter("date")%></p>
 </body>
 </html>
