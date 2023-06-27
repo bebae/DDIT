@@ -12,7 +12,7 @@ public class test extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String url = "first";
+        String url = "products";
         request.getContextPath();
         url += ".jsp";
 //        url += ".html";

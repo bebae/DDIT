@@ -39,7 +39,7 @@
                     hour -= 12;
                 }
                 String CT = hour + ":" + minute + ":" + second + " " + am_pm;
-                out.printc("현재 접속 시각 : " + CT + "\n");
+                out.print("현재 접속 시각 : " + CT + "\n");
                 %>
             </h3>
         </div>
