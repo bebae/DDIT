@@ -39,8 +39,8 @@ public class MainActivity5 extends AppCompatActivity {
         Random random = new Random();
 
         String[] strArr = {"홀", "짝"};
-//        String str1 = et_mine.getText().toString();
-        String str1 = strArr[random.nextInt(2)];
+        String str1 = et_mine.getText().toString();
+//        String str1 = strArr[random.nextInt(2)];
         String str2 = strArr[random.nextInt(2)];
         String result = "";
         
@@ -49,7 +49,7 @@ public class MainActivity5 extends AppCompatActivity {
         } else {
             result = "패배";
         }
-        et_mine.setText(String.valueOf(str1));
+//        et_mine.setText(String.valueOf(str1));
         et_com.setText(String.valueOf(str2));
         et_result.setText(String.valueOf(result));
     }

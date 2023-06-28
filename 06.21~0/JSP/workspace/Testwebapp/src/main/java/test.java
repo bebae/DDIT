@@ -12,13 +12,13 @@ public class test extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String url = "products";
+        String url = "response02";
         request.getContextPath();
         url += ".jsp";
 //        url += ".html";
 
         System.out.printf("test.do 서블릿을 경유해서 %s로 이동합니다\n", url);
-        request.getRequestDispatcher("/ch04/"+url).forward(request, response);
+        request.getRequestDispatcher("/ch05/"+url).forward(request, response);
     }
 
 

@@ -51,11 +51,11 @@ public class MainActivity4 extends AppCompatActivity {
         }
         Collections.shuffle(Arrays.asList(numbers));
 
-        et1.setText(String.valueOf(numbers[0]));
-        et2.setText(String.valueOf(numbers[1]));
-        et3.setText(String.valueOf(numbers[2]));
-        et4.setText(String.valueOf(numbers[3]));
-        et5.setText(String.valueOf(numbers[4]));
-        et6.setText(String.valueOf(numbers[5]));
+        et1.setText(numbers[0]+"");
+        et2.setText(numbers[1]+"");
+        et3.setText(numbers[2]+"");
+        et4.setText(numbers[3]+"");
+        et5.setText(numbers[4]+"");
+        et6.setText(numbers[5]+"");
     }
 }
