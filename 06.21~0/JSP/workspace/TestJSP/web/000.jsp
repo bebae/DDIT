@@ -5,7 +5,6 @@
     <title>InsertTitle</title>
 </head>
 <body>
-    <h1>JSP</h1>
     <div>
 
     </div>

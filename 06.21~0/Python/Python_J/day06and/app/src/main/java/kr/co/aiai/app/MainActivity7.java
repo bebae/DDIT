@@ -24,7 +24,7 @@ public class MainActivity7 extends AppCompatActivity {
 
         et_first = findViewById(R.id.et_first);
         et_last = findViewById(R.id.et_last);
-        btn1 = findViewById(R.id.btn1);
+        btn1 = findViewById(R.id.btn_call);
         tv5 = findViewById(R.id.tv5);
 
         btn1.setOnClickListener(new View.OnClickListener() {

@@ -14,7 +14,7 @@
     <style>
         .container img {
             width: 100%;
-            height: 250px;
+            height: 350px;
         }
     </style>
 </head>
@@ -37,6 +37,9 @@
         </div>
     </div>
     <div class="container">
+        <div class="row mb-4" style="justify-content: right">
+            <a href="<%=request.getContextPath()%>/welcome/addProduct.jsp" class="btn btn-primary">상품 추가</a>
+        </div>
         <div class="row" align="center">
             <c:forEach var="vo" items="${listOfProducts}" varStatus="stat">
                 <div class="col-md-4">
@@ -44,7 +47,7 @@
                     <h3>${vo.pname}</h3>
                     <p>${vo.description}</p>
                     <p>${vo.unitPrice}원</p>
-                    <p>상세정보</p>
+                    <p><a href="<%=request.getContextPath()%>/welcome/product.jsp?productId=${vo.productId}" class="btn btn-secondary" role="button">상세정보</a></p>
                 </div>
             </c:forEach>
         </div>

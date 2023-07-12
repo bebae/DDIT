@@ -19,7 +19,7 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         tn1 = findViewById(R.id.et1);
-        btn2 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn_call);
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override

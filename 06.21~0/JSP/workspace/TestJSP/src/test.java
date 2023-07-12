@@ -11,14 +11,15 @@ public class test extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
 
-        String url = "response02";
+        String url = "form01";
         request.getContextPath();
         url += ".jsp";
 //        url += ".html";
 
         System.out.printf("test.do 서블릿을 경유해서 %s로 이동합니다\n", url);
-        request.getRequestDispatcher("/ch05/"+url).forward(request, response);
+        request.getRequestDispatcher("/ch06/"+url).forward(request, response);
     }
 
 

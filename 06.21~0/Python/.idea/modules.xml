@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../HELLO_AJAX/.idea/HELLO_AJAX.iml" filepath="$PROJECT_DIR$/../HELLO_AJAX/.idea/HELLO_AJAX.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Python.iml" filepath="$PROJECT_DIR$/.idea/Python.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../djangoProject/.idea/djangoProject.iml" filepath="$PROJECT_DIR$/../djangoProject/.idea/djangoProject.iml" />
     </modules>
   </component>
 </project>

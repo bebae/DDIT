@@ -15,7 +15,8 @@
 <section id="section">
   <h1>JSP Index</h1>
   <h3><a href="/test.do">테스트</a></h3>
-  <h3><a href="/welcome.do">웰컴 JSP</a></h3>
+  <h3><a href="/welcome.do">Welcome JSP</a></h3>
+  <h3><a href="/products.do">Products JSP</a></h3>
 </section>
 </body>
 </html>

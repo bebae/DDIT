@@ -4,13 +4,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.Arrays;
-import java.util.Collections;
 
 public class MainActivity8 extends AppCompatActivity {
 
@@ -26,7 +23,7 @@ public class MainActivity8 extends AppCompatActivity {
         btn_call = findViewById(R.id.btn_call);
 
         Button[] numberButtons = new Button[10];
-        int[] buttonIds = {R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9};
+        int[] buttonIds = {R.id.btn0, R.id.btn_call, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9};
 
         for (int i = 0; i < numberButtons.length; i++) {
             numberButtons[i] = findViewById(buttonIds[i]);
@@ -34,7 +31,8 @@ public class MainActivity8 extends AppCompatActivity {
 
             numberButtons[i].setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
+                public void onClick(View v) {
+                    myClick(v);
                     String str = tv1.getText().toString();
                     str += String.valueOf(number);
                     tv1.setText(str);
@@ -42,17 +40,22 @@ public class MainActivity8 extends AppCompatActivity {
             });
         }
 
+
         btn_call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myClick();
+                myClick1();
             }
         });
-
-
     }
 
-    public void myClick(){
-        System.out.println("얼쩔팅빌");
+    public void myClick(View v){
+        Button imsi = (Button) v;
+        Log.d("myLog : ", imsi.getText().toString());
+    }
+    public void myClick1(){
+        String str_tel = tv1.getText().toString();
+        Toast myToast = Toast.makeText(this.getApplicationContext(), "CALLING "+str_tel, Toast.LENGTH_LONG);
+        myToast.show();
     }
 }

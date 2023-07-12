@@ -11,10 +11,10 @@ public class welcome extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
 
-        String url = "welcome";
+        String url = "welcome" + ".jsp";
         request.getContextPath();
-        url += ".jsp";
 
         System.out.printf("welcome.do 서블릿을 경유해서 %s로 이동합니다\n", url);
         request.getRequestDispatcher("/welcome/"+url).forward(request, response);

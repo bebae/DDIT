@@ -24,7 +24,7 @@ public class MainActivity3 extends AppCompatActivity {
         et2 = findViewById(R.id.et2);
         et3 = findViewById(R.id.et3);
         tv1 = findViewById(R.id.tv1);
-        btn2 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn_call);
 
         btn2.setOnClickListener(view -> myClick());
     }

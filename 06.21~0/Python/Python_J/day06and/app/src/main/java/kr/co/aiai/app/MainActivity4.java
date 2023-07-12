@@ -1,7 +1,6 @@
 package kr.co.aiai.app;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,7 +8,6 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 
 public class MainActivity4 extends AppCompatActivity {
@@ -33,7 +31,7 @@ public class MainActivity4 extends AppCompatActivity {
         et4 = findViewById(R.id.et4);
         et5 = findViewById(R.id.et5);
         et6 = findViewById(R.id.et6);
-        btn1 = findViewById(R.id.btn1);
+        btn1 = findViewById(R.id.btn_call);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override

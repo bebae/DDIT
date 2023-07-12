@@ -1,7 +1,6 @@
 package kr.co.aiai.app;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +24,7 @@ public class MainActivity5 extends AppCompatActivity {
         et_mine = findViewById(R.id.et_mine);
         et_com = findViewById(R.id.et_com);
         et_result = findViewById(R.id.et_result);
-        btn1 = findViewById(R.id.btn1);
+        btn1 = findViewById(R.id.btn_call);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override

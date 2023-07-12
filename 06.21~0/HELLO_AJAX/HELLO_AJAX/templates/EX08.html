@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>숫자야구 게임</title>
+  <style>
+    /* CSS 스타일 지정 */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .input-container {
+      margin-bottom: 20px;
+    }
+
+    .result-container {
+      margin-bottom: 10px;
+    }
+
+    .message {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+
+    .digit-input {
+      width: 30px;
+      margin: 0 5px;
+      text-align: center;
+    }
+
+    .history-container {
+      margin-bottom: 20px;
+    }
+
+    .history-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .history-item {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>숫자야구 게임</h1>
+
+  <div class="input-container">
+    <label for="digit-input-1">첫 번째 숫자:</label>
+    <input type="text" id="digit-input-1" class="digit-input" maxlength="1" oninput="moveToNextInput(1, this)">
+    <label for="digit-input-2">두 번째 숫자:</label>
+    <input type="text" id="digit-input-2" class="digit-input" maxlength="1" oninput="moveToNextInput(2, this)">
+    <label for="digit-input-3">세 번째 숫자:</label>
+    <input type="text" id="digit-input-3" class="digit-input" maxlength="1" oninput="moveToNextInput(3, this)">
+    <button id="submit-button" class="button">제출</button>
+  </div>
+
+  <div class="result-container">
+    <p class="message" id="result-message"></p>
+    <p>시도한 횟수: <span id="attempt-count">0</span></p>
+  </div>
+
+  <div class="history-container">
+    <h3>게임 기록</h3>
+    <ul id="history-list" class="history-list"></ul>
+  </div>
+
+  <script>
+    // JavaScript 코드 작성
+    document.addEventListener("DOMContentLoaded", function () {
+      const answer = generateAnswer(); // 게임 정답 생성
+      let attempts = 0; // 시도 횟수 초기화
+      const historyList = document.getElementById("history-list");
+
+      const submitButton = document.getElementById("submit-button");
+      submitButton.addEventListener("click", function () {
+        const digit1 = document.getElementById("digit-input-1").value;
+        const digit2 = document.getElementById("digit-input-2").value;
+        const digit3 = document.getElementById("digit-input-3").value;
+        const guess = digit1 + digit2 + digit3;
+
+        if (isValidGuess(guess)) {
+          const result = compareGuess(answer, guess);
+          displayResult(result);
+
+          attempts++;
+          document.getElementById("attempt-count").textContent = attempts;
+
+          const historyItem = document.createElement("li");
+          historyItem.textContent = `입력: ${guess} / 결과: 스트라이크: ${result.strikes}, 볼: ${result.balls}`;
+          historyList.appendChild(historyItem);
+
+          if (result.strikes === 3) {
+            endGame();
+          }
+        } else {
+          alert("잘못된 입력입니다. 숫자를 다시 확인해주세요.");
+        }
+
+        // 입력 필드 초기화
+        document.getElementById("digit-input-1").value = "";
+        document.getElementById("digit-input-2").value = "";
+        document.getElementById("digit-input-3").value = "";
+        document.getElementById("digit-input-1").focus(); // 첫 번째 숫자 입력 칸으로 포커스 이동
+      });
+
+      function endGame() {
+        submitButton.disabled = true;
+        const gameResult = document.createElement("p");
+        gameResult.textContent = `게임 종료! 총 시도 횟수: ${attempts}`;
+        document.querySelector(".result-container").appendChild(gameResult);
+      }
+    });
+
+    // 게임 정답 생성
+    function generateAnswer() {
+      const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      const answer = [];
+
+      for (let i = 0; i < 3; i++) {
+        const index = Math.floor(Math.random() * numbers.length);
+        answer.push(numbers.splice(index, 1)[0]);
+      }
+
+      return answer;
+    }
+
+    // 입력된 값이 유효한 숫자인지 확인
+    function isValidGuess(guess) {
+      const pattern = /^[0-9]{3}$/;
+      return pattern.test(guess);
+    }
+
+    // 입력한 숫자와 정답을 비교하여 결과 반환
+    function compareGuess(answer, guess) {
+      let strikes = 0;
+      let balls = 0;
+
+      for (let i = 0; i < answer.length; i++) {
+        if (answer[i] === Number(guess[i])) {
+          strikes++;
+        } else if (answer.includes(Number(guess[i]))) {
+          balls++;
+        }
+      }
+
+      return { strikes, balls };
+    }
+
+    // 결과를 화면에 표시
+    function displayResult(result) {
+      const resultMessage = document.getElementById("result-message");
+      const { strikes, balls } = result;
+
+      if (strikes === 3) {
+        resultMessage.textContent = "홈런! 정답을 맞추셨습니다.";
+      } else if (strikes > 0 || balls > 0) {
+        resultMessage.textContent = `스트라이크: ${strikes}, 볼: ${balls}`;
+      } else {
+        resultMessage.textContent = "아웃!";
+      }
+    }
+
+    // 다음 입력 칸으로 포커스 이동
+    function moveToNextInput(nextIndex, currentInput) {
+      const nextInput = document.getElementById(`digit-input-${nextIndex}`);
+      if (currentInput.value.length === 1) {
+        nextInput.focus();
+      }
+    }
+  </script>
+</body>
+
+</html>

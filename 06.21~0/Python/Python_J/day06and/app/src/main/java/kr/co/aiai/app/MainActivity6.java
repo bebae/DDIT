@@ -20,8 +20,8 @@ public class MainActivity6 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main6);
 
-        et_dan = findViewById(R.id.et_dan);
-        btn1 = findViewById(R.id.btn1);
+        et_dan = findViewById(R.id.et_num1);
+        btn1 = findViewById(R.id.btn_call);
         tv2 = findViewById(R.id.tv5);
 
         btn1.setOnClickListener(new View.OnClickListener() {

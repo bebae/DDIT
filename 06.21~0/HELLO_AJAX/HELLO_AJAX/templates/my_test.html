@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>EX01</h2>
+    <div id="my_div">Good Morning</div>
+    <input type="button" value="CLICK" onClick="change1()" />
+
+    <br><hr><br>
+
+    <h2>EX02</h2>
+    <p>
+        <input type="text" class="it" value="100" />
+        <input type="button" value="DOUBLE" onclick="change2()">
+    </p>
+
+
+    <br><hr><br>
+
+    <h2>EX03</h2>
+    <table border="1">
+        <tr>
+            <td class="my_td">__</td>
+            <td class="my_td">__</td>
+            <td class="my_td">__</td>
+            <td class="my_td">__</td>
+            <td class="my_td">__</td>
+            <td class="my_td">__</td>
+        </tr>
+        <tr>
+            <td colspan="6"><input type="button" value="로또 생성하기" onclick="change3()" /></td>
+        </tr>
+    </table>
+
+    <br><hr><br>
+
+    <h2>EX04</h2>
+    <table>
+        <tr>
+            <td><input type="number" name="" id="numberInput"></td>
+            <td><button onclick="change4()">출력</button></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="result"></td>
+        </tr>
+    </table>
+    
+
+    <script>
+
+        function  change4() {
+            let number = document.getElementById("numberInput");
+            let resultDiv = document.getElementById("result");
+            let num = parseInt(number.value);
+
+            if (!isNaN(num)) {
+                // 입력된 숫자의 단 출력
+                let table = "<table>";
+                for (let i = 1; i <= 9; i++) {
+                    table += "<tr><td>" + num + " x " + i + " = </td><td>" + (num * i) + "</td></tr>";
+                }
+                table += "</table>";
+
+                resultDiv.innerHTML = table;
+
+            } else {
+                resultDiv.innerHTML = "유효한 숫자 입력";
+            }
+        }
+
+        function change3() {
+            let numbers = [];
+            let td = document.getElementsByClassName("my_td");
+
+            // 1부터 45까지의 배열 생성
+            for (let i = 1; i <= 45; i++) {
+                numbers.push(i);
+            }
+
+            // 배열을 랜덤하게 섞음
+            for (let i = numbers.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+            }
+
+            // 첫 번째 6개의 번호를 td 요소에 적용
+            for (let i = 0; i < 6; i++) {
+                td[i].textContent = numbers[i];
+            }
+        }
+
+        function change2() {
+            let it = document.querySelector(".it");
+            let value = parseInt(it.value);
+            it.value = (value * 2).toString();
+        }
+
+        function change1() {
+            let myDiv = document.getElementById("my_div");
+            if (myDiv.innerHTML !== "Good Morning") {
+              myDiv.innerHTML = "Good Morning";
+            } else {
+              myDiv.innerHTML = "Good Evening";
+            }
+        }
+    </script>
+</body>
+</html>

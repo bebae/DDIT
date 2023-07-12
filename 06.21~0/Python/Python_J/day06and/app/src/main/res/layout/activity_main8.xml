@@ -23,7 +23,7 @@
                 android:id="@+id/tv1"
                 android:layout_width="300dp"
                 android:layout_height="100dp"
-                android:textAlignment="center"
+                android:textAlignment="viewEnd"
                 android:textSize="34sp" />
 
         </LinearLayout>
@@ -34,7 +34,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn1"
+                android:id="@+id/btn_call"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:text="1"
