@@ -85,7 +85,8 @@
     <error-page>
         <!-- 오류 코드 : 웹서버가 제공하는 기본 오류, 응답 상태 코드 -->
         <error-code>404</error-code>
-        <location>/error/error404.jsp</location>
+<!--        <location>/error/error404.jsp</location>-->
+        <location>/welcome/exceptionNoPage.jsp</location>
     </error-page>
     <error-page>
         <!-- 오류 코드 : 웹서버가 제공하는 기본 오류, 응답 상태 코드 -->
@@ -96,4 +97,55 @@
         <exception-type>java.lang.NullPointerException</exception-type>
         <location>/error/errorNullPointer.jsp</location>
     </error-page>
+
+    <!-- Filter 인터페이스 구현 클래스 => 필터 -->
+    <filter>
+        <filter-name>Filter01</filter-name>
+        <filter-class>filter.AuthenFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Filter01</filter-name>
+        <url-pattern>/ch12/filter01_process.jsp</url-pattern>
+    </filter-mapping>
+
+    <!-- Filter 필터2 -->
+    <filter>
+        <filter-name>Filter02</filter-name>
+        <filter-class>filter.InitParamFilter</filter-class>
+        <init-param>
+            <param-name>param1</param-name>
+            <param-value>admin</param-value>
+        </init-param>
+        <init-param>
+            <param-name>param2</param-name>
+            <param-value>123</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>Filter02</filter-name>
+        <url-pattern>/ch12/filter02_process.jsp</url-pattern>
+    </filter-mapping>
+    <!-- 로그 파일 저장 -->
+    <filter>
+        <filter-name>LogFileFilter</filter-name>
+        <filter-class>filter.LogFileFilter</filter-class>
+        <!-- 로그가 저장될 파일 위치 지정-->
+        <init-param>
+            <param-name>filename</param-name>
+            <param-value>c:\\logs\\monitor.log</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>LogFileFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- Web Market Log -->
+    <filter>
+        <filter-name>LogFilter</filter-name>
+        <filter-class>filter.LogFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LogFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

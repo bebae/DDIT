@@ -30,5 +30,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="commons-fileupload-1.2.1" level="project" />
+    <orderEntry type="library" name="jstl-1.2" level="application" />
   </component>
 </module>

@@ -23,6 +23,5 @@
     </div>
 
     <jsp:include page="/welcome/footer.jsp" />
-open
 </body>
 </html>
