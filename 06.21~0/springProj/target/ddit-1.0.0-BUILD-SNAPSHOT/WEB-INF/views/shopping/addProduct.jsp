@@ -13,7 +13,6 @@
 <%--    <fmt:setLocale value='<%=request.getParameter("language")%>' />--%>
     <fmt:setLocale value="${param.language}" />
     <fmt:bundle basename="bundle.message">
-    <%@ include file="./menu.jsp" %>
 
 
     <%--  상품 등록 시작  --%>
@@ -105,7 +104,6 @@
         </form>
     </div>
 
-    <%@ include file="./footer.jsp" %>
 
     </fmt:bundle>
 

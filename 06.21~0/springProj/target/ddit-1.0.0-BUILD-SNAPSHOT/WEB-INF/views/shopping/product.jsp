@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page errorPage="exceptionNoProductId.jsp" %>
 
 <!DOCTYPE html>
 <html>
@@ -15,7 +14,6 @@
   </style>
 </head>
 <body>
-<jsp:include page="./menu.jsp" />
 
 <%--  상품 상세 시작  --%>
 <div class="jumbotron">
@@ -68,7 +66,6 @@
 
 <%--  상품 상세 끝  --%>
 
-<jsp:include page="./footer.jsp" />
 
 <script>
 

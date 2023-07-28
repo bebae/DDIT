@@ -19,7 +19,6 @@
     scope 영역       : page(동일jsp) / request(동일요청) / session(동일웹브라우저) / application(모든 웹브라우저)
     scope 객체       : pageContext   / request           / session                 / application
 -->
-    <jsp:include page="./menu.jsp" />
 
     <div class="jumbotron">
         <div class="container">
@@ -33,7 +32,12 @@
         <div class="row" align="center">
             <c:forEach var="vo" items="${listOfProducts}" varStatus="stat">
                 <div class="col-md-4">
-                    <img src="<%=request.getContextPath()%>/resources/images/${vo.filename}" alt="${vo.filename}">
+                    <c:if test="${vo.filename != null}">
+                        <img src="<%=request.getContextPath()%>/resources/images/${vo.filename}" alt="${vo.filename}">
+                    </c:if>
+                    <c:if test="${vo.filename == null}">
+                        <img src="https://via.placeholder.com/350" alt="임시이미지+${vo.productId}">
+                    </c:if>
                     <h3>${vo.pname}</h3>
                     <p>${vo.description}</p>
                     <p><fmt:formatNumber type="Number" value="${vo.unitPrice}" pattern="#,###" />원</p>
@@ -44,6 +48,5 @@
     </div>
 
 
-    <jsp:include page="./footer.jsp" />
 </body>
 </html>

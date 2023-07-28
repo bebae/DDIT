@@ -26,7 +26,6 @@
   </style>
 </head>
 <body>
-  <jsp:include page="./menu.jsp" />
   <div class="jumbotron">
     <div class="container">
       <h1 class="display-3">상품정보</h1>
@@ -39,8 +38,8 @@
       <table id="table1">
         <tr>
           <!-- 장바구니 자체를 삭제 -->
-          <td><a href="<%=request.getContextPath()%>/shopping/deleteCart?cartId=${cartId}" class="btn btn-danger">전체 삭제하기</a></td>
-          <td><a href="<%=request.getContextPath()%>/shopping/shippingInfo?cartId=${cartId}" class="btn btn-success">주문하기</a></td>
+          <td><a href=/shopping/deleteCart?cartId=${cartId}" class="btn btn-danger">전체 삭제하기</a></td>
+          <td><a href="/shopping/shippingInfo?cartId=${cartId}" class="btn btn-success">주문하기</a></td>
         </tr>
       </table>
     </div>
@@ -97,7 +96,6 @@
   </div>
 
 
-  <jsp:include page="./footer.jsp" />
   <script type="text/javascript">
     <%--window.onload = function(){--%>
     <%--   alert("확인용 : " + ${cartlist});--%>

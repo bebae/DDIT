@@ -20,7 +20,7 @@ import java.util.List;
  
  Impl : implment의 약어
  */
-//"스프링아 이 클래스는 서비스 클래스야"라고 알려주면. 프링이가 자바빈으로 등록해줌
+// @Service "스프링아 이 클래스는 서비스 클래스야"라고 알려주면. 프링이가 자바빈으로 등록해줌
 @Service
 public class ProductServiceImpl implements ProductService {
 

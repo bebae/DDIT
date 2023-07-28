@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace : 매퍼xml 파일이 여러개일 수 있음
+	이를 구별하기 위한 식별 용도로 사용
+ -->
+<mapper namespace="bookInfo">
+
+	<!-- 도서 등록 -->
+	<insert id="addBookPost" parameterType="bookInfoVO">
+		INSERT INTO book_info (book_id, name, unit_price, author, description, publisher, category, units_in_stock, total_pages, release_date, condition)
+		VALUES (#{bookId}, #{name}, #{unitPrice}, #{author}, #{description}, #{publisher}, #{category}, #{unitsInStock}, #{totalPages}, #{releaseDate}, #{condition})
+	</insert>
+
+	<!-- 도서 등록 - 첨부파일 -->
+	<insert id="addAttach" parameterType="attachVo">
+		<!--  결과값 : int  | 쿼리문 "전에" | VO에 어떤 변수에? = "seq" 사용하겠다  -->
+		<selectKey resultType="int" order="BEFORE" keyProperty="seq">
+			SELECT NVL(MAX(SEQ),0) + 1 FROM ATTACH
+		</selectKey>
+		INSERT INTO ATTACH(SEQ, book_id, filename)
+		VALUES (#{seq}, #{bookId}, #{filename})
+	</insert>
+
+	<!-- 도서코드 자동생성 -->
+	<select id="getBookId" resultType="String">
+		SELECT SUBSTR(NVL(MAX(book_id), 'ISBN1234'), 1, 4)
+				   || TRIM((SUBSTR(NVL(MAX(book_id), 'ISBN1234'),5)+1))
+		FROM book_info
+	</select>
+
+	<resultMap id="bookInfoMap" type="bookInfoVO">
+		<result property="bookId" column="BOOK_ID" />
+		<result property="bookId" column="BOOK_ID" />
+		<result property="name" column="NAME" />
+		<result property="unitPrice" column="UNIT_PRICE" />
+		<result property="author" column="AUTHOR" />
+		<result property="description" column="DESCRIPTION" />
+		<result property="publisher" column="PUBLISHER" />
+		<result property="category" column="CATEGORY" />
+		<result property="unitsInStock" column="UNITS_IN_STOCK" />
+		<result property="totalPages" column="TOTAL_PAGES" />
+		<result property="releaseDate" column="RELEASE_DATE" />
+		<result property="condition" column="CONDITION" />
+		<collection property="attachVOList" resultMap="attachMap" />
+	</resultMap>
+	<resultMap id="attachMap" type="attachVO">
+		<result property="seq" column="SEQ" />
+		<result property="bookId" column="BOOK_ID" />
+		<result property="filename" column="FILENAME" />
+	</resultMap>
+
+	<!-- 도서 목록 -->
+	<select id="listBook" resultType="bookInfoVO">
+		<![CDATA[
+		SELECT a.book_id, a.name, a.unit_price, a.author,
+		       SUBSTR(a.description,1, 20) || '...' DESCRIPTION,
+			   a.publisher, a.category, a.units_in_stock, a.total_pages,
+			   a.total_pages, a.release_date, a.condition, b.seq, b.filename
+		FROM BOOK_INFO a LEFT OUTER JOIN ATTACH b ON a.book_id = b.book_id
+		ORDER BY a.book_id desc
+		]]>
+	</select>
+</mapper>
+
+
+
+

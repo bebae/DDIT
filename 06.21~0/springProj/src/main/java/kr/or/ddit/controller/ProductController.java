@@ -4,9 +4,11 @@ import kr.or.ddit.service.ProductService;
 import kr.or.ddit.vo.ProductVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,10 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 // 스프링에서 인식할 수 있게 자바빈으로 등록하도록 처리하는 @Controlle
 @Slf4j
@@ -240,6 +239,76 @@ public class ProductController {
         }
 
         mav.setViewName("redirect:/shopping/cart");
+        return mav;
+    }
+
+    // deleteCart : 장바구니 상품 전체 삭제하기
+    @RequestMapping(value = "/shopping/deleteCart", method = RequestMethod.GET)
+    public ModelAndView deleteCart(ModelAndView mav, HttpServletRequest request, @RequestParam String cartId) {
+
+        if (cartId != null && !cartId.trim().isEmpty()) {
+            HttpSession session = request.getSession();
+//            session.setAttribute("cartlist", null);
+            session.removeAttribute("cartlist");
+        }
+        mav.setViewName("redirect:/shopping/cart");
+        return mav;
+    }
+
+    // /shopping/shippingInfo : 장바구니에서 주문하기 하면 입력하는 회원배송정보
+    @RequestMapping(value = "/shopping/shippingInfo", method = RequestMethod.GET)
+    public ModelAndView shippingInfo(ModelAndView mav, @RequestParam String cartId) {
+        log.info("cartId : " + cartId);
+
+        // shippingInfo.jsp에  cartId를 사용하기 위한 설정
+        mav.addObject("cartId", cartId);
+
+        mav.setViewName("shopping/shippingInfo");
+        return mav;
+    }
+
+    // /shopping/processShippingInfo : 주문 처리 기능
+    @RequestMapping(value = "/shopping/processShippingInfo", method = RequestMethod.POST)
+    public ModelAndView processShippingInfo(ModelAndView mav, @RequestParam Map<String, Object> params) {
+
+        mav.addObject("map", params);
+
+        mav.setViewName("shopping/orderConfirmation");
+        return mav;
+    }
+
+    // /shopping/thankCustomer : 주문 요청 완료
+    @ResponseBody       // 비동기(ajax)를 사용할 때 사용해야 함
+    @RequestMapping(value = "/shopping/thankCustomer", method = RequestMethod.POST)
+    public String thankCustomer(HttpSession session, @RequestParam Map<String, Object> params) {
+        log.info("params : " + params);
+
+        // 넘겨줘야 하는 값(shippingDate, cartId)
+        Map<String, String> shippingMap = new HashMap<String, String>();
+        shippingMap.put("shippingDate", params.get("shippingDate").toString());
+        shippingMap.put("cartId", params.get("cartId").toString());
+
+        session.setAttribute("shippingMap", shippingMap);
+
+        session.removeAttribute("cartlist");
+        // ajax를 이용한 비동기에선 mav를 사용하지 않음
+//        mav.setViewName("shopping/thankCustomer");
+
+        return "success";
+    }
+    // orderConfirmation.jsp에  비동기 방식으로 처리하고 난 뒤에 location.href = "/shopping/thankCustomer"; 를 통해 오는 방식이라 GET
+    @RequestMapping(value = "/shopping/thankCustomer", method = RequestMethod.GET)
+    public ModelAndView thanksCustomer(ModelAndView mav) {
+        mav.setViewName("shopping/thankCustomer");
+        return mav;
+    }
+
+    // /shopping/checkOutCancelled :  가로 이  로주문 영수증의 취소 버튼
+    @RequestMapping(value = "/shopping/checkOutCancelled", method = RequestMethod.GET)
+    public ModelAndView checkOutCancelled(ModelAndView mav, HttpSession session) {
+        session.removeAttribute("cratlist");
+
+        mav.setViewName("shopping/checkOutCancelled");
         return mav;
     }
 
