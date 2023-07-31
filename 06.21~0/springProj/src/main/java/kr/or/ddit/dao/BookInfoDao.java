@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Repository
@@ -35,8 +36,11 @@ public class BookInfoDao {
 
     // 도서목록
     // <resultMap> 이 포함되어 있음 하나의 도서에 여러개의 첨부파일이 있을 경우 사용함
-    public List<BookInfoVO> listBook() {
-        return this.sqlSessionTemplate.selectList("bookInfo.listBook");
+    public List<BookInfoVO> listBook(Map<String, Object> map) {
+        return this.sqlSessionTemplate.selectList("bookInfo.listBook", map);
     }
 
+    public int getBookInfoTotal() {
+        return this.sqlSessionTemplate.selectOne("bookInfo.getBookInfoTotal");
+    }
 }

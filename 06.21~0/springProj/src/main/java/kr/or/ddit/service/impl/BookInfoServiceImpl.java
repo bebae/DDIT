@@ -13,6 +13,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Slf4j
@@ -83,7 +84,12 @@ public class BookInfoServiceImpl implements BookInfoService {
 
     // 도서 목록
     @Override
-    public List<BookInfoVO> listBook(){
-        return this.bookInfoDao.listBook();
+    public List<BookInfoVO> listBook(Map<String, Object> map){
+        return this.bookInfoDao.listBook(map);
+    }
+
+    @Override
+    public int getBookInfoTotal() {
+        return this.bookInfoDao.getBookInfoTotal();
     }
 }

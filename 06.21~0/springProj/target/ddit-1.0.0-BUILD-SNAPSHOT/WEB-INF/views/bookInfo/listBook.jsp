@@ -12,7 +12,7 @@
   <div class="card-body">
     <div class="table-responsive">
       <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-        <div class="row">
+        <div class="row m-0">
           <div class="col-sm-12 col-md-6">
             <div class="dataTables_length" id="dataTable_length"><label>Show <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
               <option value="10">10</option>
@@ -27,7 +27,7 @@ class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row m-0">
           <div class="col-sm-12">
             <table class="table table-bordered dataTable text-center" id="dataTable" width="100%" cellspacing="0" role="grid"
                    aria-describedby="dataTable_info" style="width: 100%;">
@@ -59,9 +59,9 @@ class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></
               </thead>
               <tbody class="vertical">
               <!-- stat.index : 0부터 시작 / stat.count : 1부터 시작 -->
-              <c:forEach var="bookInfoVO" items="${data}" varStatus="stat">
+              <c:forEach var="bookInfoVO" items="${data.content}" varStatus="stat">
                 <tr class="odd">
-                  <td class="sorting_1" style="vertical-align: middle">${stat.count}</td>
+                  <td class="sorting_1" style="vertical-align: middle">${bookInfoVO.rnum}</td>
                   <td style="vertical-align: middle">${bookInfoVO.category}</td>
                   <td style="vertical-align: middle">${bookInfoVO.name}</td>
                   <td style="vertical-align: middle"><fmt:formatNumber type="number" value="${bookInfoVO.unitPrice}" pattern="#,###" /></td>
@@ -75,7 +75,7 @@ class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></
             </table>
           </div>
         </div>
-        <div class="row">
+        <div class="row m-0">
           <div class="col-sm-12 col-md-5">
             <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Showing 1 to 10 of 57
               entries
@@ -84,15 +84,22 @@ class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></
           <div class="col-sm-12 col-md-7">
             <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
               <ul class="pagination">
-                <li class="paginate_button page-item previous disabled" id="dataTable_previous"><a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                <li class="paginate_button page-item previous
+                 <c:if test='${data.startPage < 6 }'> disabled</c:if>
+                " id="dataTable_previous">
+                  <a href="/bookInfo/listBook?currentPage=${data.startPage-5}&size=${data.size}" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
                 </li>
-                <li class="paginate_button page-item active"><a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
-                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
-                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
-                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
-                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
-                <li class="paginate_button page-item next" id="dataTable_next"><a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>
+                <c:forEach var="pNo" begin="${data.startPage}" end="${data.endPage}" >
+                  <li class='paginate_button page-item <c:if test="${param.currentPage==pNo}">active</c:if>'>
+                    <a href="/bookInfo/listBook?currentPage=${pNo}&size=${data.size}" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">${pNo}</a>
+                  </li>
+                </c:forEach>
+                <!-- eq : equal(==) / ne : not equal(!=) / ge : greater equal(>=) / le : less equal(<=) -->
+                <li class="paginate_button page-item next
+                        <c:if test='${data.endPage ge data.totalPage}'>disabled</c:if>
+                " id="dataTable_next">
+                  <a href="/bookInfo/listBook?currentPage=${data.startPage+5}&size=${data.size}" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next</a>
+                </li>
               </ul>
             </div>
           </div>

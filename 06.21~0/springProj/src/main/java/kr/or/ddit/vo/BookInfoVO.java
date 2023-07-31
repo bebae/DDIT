@@ -21,6 +21,7 @@ import java.util.List;
  */
 
 public class BookInfoVO {
+    private int rnum;
 	private String bookId;
     private String name;
     private int unitPrice;
@@ -38,6 +39,14 @@ public class BookInfoVO {
     private List<AttachVO> attachVOList;
 
     public BookInfoVO() {
+    }
+
+    public int getRnum() {
+        return rnum;
+    }
+
+    public void setRnum(int rnum) {
+        this.rnum = rnum;
     }
 
     public String getBookId() {
@@ -146,7 +155,8 @@ public class BookInfoVO {
 
     @Override
     public String toString() {
-        return "BookInfoVO{" + "book_id='" + bookId + '\'' +
+        return "BookInfoVO{" + "rnum= '" + rnum + '\'' +
+                ", book_id='" + bookId + '\'' +
                 ", name='" + name + '\'' +
                 ", unit_price=" + unitPrice +
                 ", author='" + author + '\'' +

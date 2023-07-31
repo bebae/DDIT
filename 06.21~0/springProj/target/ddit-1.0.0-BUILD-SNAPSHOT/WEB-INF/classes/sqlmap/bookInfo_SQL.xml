@@ -29,7 +29,7 @@
 	</select>
 
 	<resultMap id="bookInfoMap" type="bookInfoVO">
-		<result property="bookId" column="BOOK_ID" />
+		<result property="rnum" column="RNUM" />
 		<result property="bookId" column="BOOK_ID" />
 		<result property="name" column="NAME" />
 		<result property="unitPrice" column="UNIT_PRICE" />
@@ -50,16 +50,32 @@
 	</resultMap>
 
 	<!-- 도서 목록 -->
-	<select id="listBook" resultType="bookInfoVO">
+	<select id="listBook" parameterType="hashMap" resultMap="bookInfoMap">
 		<![CDATA[
-		SELECT a.book_id, a.name, a.unit_price, a.author,
-		       SUBSTR(a.description,1, 20) || '...' DESCRIPTION,
-			   a.publisher, a.category, a.units_in_stock, a.total_pages,
-			   a.total_pages, a.release_date, a.condition, b.seq, b.filename
-		FROM BOOK_INFO a LEFT OUTER JOIN ATTACH b ON a.book_id = b.book_id
-		ORDER BY a.book_id desc
+		WITH U AS (
+			SELECT ROW_NUMBER() OVER (ORDER BY T.book_id DESC) RNUM,
+					T.*
+			FROM (
+				SELECT a.book_id, a.name, a.unit_price, a.author,
+					   SUBSTR(a.description,1, 20) || '...' DESCRIPTION,
+					   a.publisher, a.category, a.units_in_stock,
+					   a.total_pages, a.release_date, a.condition,
+					   b.seq, b.filename
+				FROM BOOK_INFO a LEFT OUTER JOIN ATTACH b ON a.book_id = b.book_id
+				ORDER BY a.book_id desc
+			) T
+		)
+		SELECT U.*
+		FROM U
+		WHERE U.RNUM BETWEEN (#{currentPage} * #{size}) - (#{size}-1)
+		    AND (#{currentPage} * #{size})
 		]]>
 	</select>
+
+	<select id="getBookInfoTotal" resultType="int">
+		SELECT COUNT(*) FROM BOOK_INFO
+	</select>
+
 </mapper>
 
 
