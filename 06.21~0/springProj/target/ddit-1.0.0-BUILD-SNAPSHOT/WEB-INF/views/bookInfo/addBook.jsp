@@ -4,7 +4,6 @@
 
 <script type="text/javascript" src="/resources/js/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="/resources/ckeditor/ckeditor.js"></script>
-<%--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">--%>
 
 
 <!-- Nested Row within Card Body -->
@@ -45,7 +44,7 @@
             <input type="text" class="form-control form-control-user" id="publisher" name="publisher" placeholder="출판사">
           </div>
           <div class="col-sm-6">
-            <input type="text" class="form-control form-control-user" id="releaseDate" name="releaseDate" placeholder="출간일">
+            <input type="date" class="form-control form-control-user" id="releaseDate" name="releaseDate" placeholder="출간일">
           </div>
         </div>
         <div class="form-group row">
@@ -58,7 +57,7 @@
             <button class="btn btn-primary dropdown-toggle px-lg-5" type="button" id="category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">분류</button>
             <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton" style="">
               <a class="dropdown-item clsCategory" href="#">Hello Coding</a>
-              <a class="dropdown-item clsCategory" href="#">IT 모바일</a>
+              <a class="dropdown-item clsCategory" href="#">IT</a>
               <a class="dropdown-item clsCategory" href="#">소설</a>
               <a class="dropdown-item clsCategory" href="#">자기계발</a>
             </div>
@@ -91,6 +90,7 @@
 
         <button type="button" class="btn btn-info btn-user btn-block btn" id="autoData">자동 입력</button>
         <button type="submit" class="btn btn-primary btn-user btn-block">도서 등록</button>
+        <button type="button" id="btnHeaders" class="btn btn-primary btn-user btn-block">headers매핑</button>
       </form>
 
     </div>
@@ -185,6 +185,31 @@
                 }
             });
         }
+
+        // btnHeaders
+        $("#btnHeaders").on("click", function() {
+            let bookId = $("#bookId").val();
+            let name = $("#name").val();
+            let unitPrice = $("#unitPrice").val();
+            let author = $("#author").val();
+            let totalPages = $("#totalPages").val();
+
+            let data = {"bookId" : bookId, "name" : name,
+                "unitPrice" : unitPrice, "author" : author,
+                "totalPages" : totalPages};
+
+            console.log(data);
+
+            $.ajax({
+                url : "/bookInfo/detail/"+bookId,
+                contentType : "application/json; charset=UTF-8",
+                data : JSON.stringify(data),
+                type : "post",
+                success : function(response) {
+                    console.log(response);
+                }
+            });
+        });
 
     });
 </script>

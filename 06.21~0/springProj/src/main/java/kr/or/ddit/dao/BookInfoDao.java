@@ -40,7 +40,23 @@ public class BookInfoDao {
         return this.sqlSessionTemplate.selectList("bookInfo.listBook", map);
     }
 
-    public int getBookInfoTotal() {
-        return this.sqlSessionTemplate.selectOne("bookInfo.getBookInfoTotal");
+    public int getBookInfoTotal(Map<String, Object> map) {
+        return this.sqlSessionTemplate.selectOne("bookInfo.getBookInfoTotal", map);
+    }
+
+    public BookInfoVO detailBook(String bookId) {
+        return this.sqlSessionTemplate.selectOne("bookInfo.detailBook", bookId);
+    }
+
+    public int updateBookPost(BookInfoVO bookInfoVO) {
+        return this.sqlSessionTemplate.update("bookInfo.updateBookPost", bookInfoVO);
+    }
+
+    public int updateAttach(AttachVO attachVO) {
+        return this.sqlSessionTemplate.update("bookInfo.updateAttach", attachVO);
+    }
+
+    public int deleteBookPost(BookInfoVO bookInfoVO) {
+        return this.sqlSessionTemplate.delete("bookInfo.deleteBookPost", bookInfoVO);
     }
 }

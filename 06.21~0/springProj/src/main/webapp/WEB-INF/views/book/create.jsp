@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript" src="/resources/js/jquery-3.6.0.js"></script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,14 +21,15 @@
 		-->
 	<form action="/create" method="post">
 		<!-- 폼데이터 -->
-		<p>제목 : <input type="text" name="title" required /></p>
-		<p>카테고리 : <input type="text" name="category" required /></p>
-		<p>가격 : <input type="number" name="price" maxLength="10"
-					required /></p>
-		<p>설명 : <textarea rows="5" cols="30" name="content"></textarea>
+		<p>제목 : <input type="text" name="title" id="title" required /></p>
+		<p>카테고리 : <input type="text" name="category" id="category" required /></p>
+		<p>가격 : <input type="number" name="price" maxLength="10" id="price"
+									 required /></p>
+		<p>설명 : <textarea rows="5" cols="30" name="content" id="content" ></textarea>
 		<p>
 			<input type="submit" value="저장" />
 			<input type="button" id="list" value="목록" />
+			<button type="button" id="headers">headers 매핑</button>
 		</p>
 	</form>
 
@@ -37,6 +40,26 @@
 				window.location.href = "/list";
 			});
 		}
+		$(function () {
+			$("#headers").on("click", function(){
+				let data = {
+					"title" : $("#title").val(),
+					"category" : $("#category").val,
+					"price" : $("#price").val(),
+					"content" : $("#content").val()
+				};
+				console.log("data : " + data);
+				$.ajax({
+					url : "/board/book",
+					contentType : "application/json; charset=UTF",
+					data : JSON.stringify(data),
+					type : "POST",
+					success : function(response){
+						console.log(response);
+					}
+				});
+			})
+		})
 	</script>
 </body>
 </html>

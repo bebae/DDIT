@@ -5,6 +5,20 @@
  -->
 <mapper namespace="bookInfo">
 
+	<!-- 검색 구현할 때 작성 <include refid="" /> 로 불러와서 사용가능 함 -->
+	<sql id="where">
+		<!-- 전체검색 -->
+		<if test="keyword!=null and keyword!=''">
+			AND (
+				category 	LIKE '%' || #{keyword} || '%' OR
+				name 		LIKE '%' || #{keyword} || '%' OR
+				description LIKE '%' || #{keyword} || '%' OR
+				author 		LIKE '%' || #{keyword} || '%' OR
+				publisher 	LIKE '%' || #{keyword} || '%'
+			)
+		</if>
+	</sql>
+
 	<!-- 도서 등록 -->
 	<insert id="addBookPost" parameterType="bookInfoVO">
 		INSERT INTO book_info (book_id, name, unit_price, author, description, publisher, category, units_in_stock, total_pages, release_date, condition)
@@ -41,6 +55,7 @@
 		<result property="totalPages" column="TOTAL_PAGES" />
 		<result property="releaseDate" column="RELEASE_DATE" />
 		<result property="condition" column="CONDITION" />
+		<!-- VO 안에 List가 들어가 있어서 java에서 받는 값이 List가 아니라 VO로 처리할 수 있음 -->
 		<collection property="attachVOList" resultMap="attachMap" />
 	</resultMap>
 	<resultMap id="attachMap" type="attachVO">
@@ -50,31 +65,81 @@
 	</resultMap>
 
 	<!-- 도서 목록 -->
+	<!--
+	 map : {currentPage=3, size=10, keyword=
+	 map : {currentPage=3, size=10, keyword=검색단어}
+	 -->
 	<select id="listBook" parameterType="hashMap" resultMap="bookInfoMap">
-		<![CDATA[
 		WITH U AS (
 			SELECT ROW_NUMBER() OVER (ORDER BY T.book_id DESC) RNUM,
 					T.*
 			FROM (
 				SELECT a.book_id, a.name, a.unit_price, a.author,
-					   SUBSTR(a.description,1, 20) || '...' DESCRIPTION,
+					   SUBSTR(a.description,1, 20) || <![CDATA[ '...' ]]> DESCRIPTION,
 					   a.publisher, a.category, a.units_in_stock,
 					   a.total_pages, a.release_date, a.condition,
 					   b.seq, b.filename
 				FROM BOOK_INFO a LEFT OUTER JOIN ATTACH b ON a.book_id = b.book_id
-				ORDER BY a.book_id desc
-			) T
+				WHERE 1 = 1
+				<include refid="where" />
+			 ) T
 		)
 		SELECT U.*
 		FROM U
 		WHERE U.RNUM BETWEEN (#{currentPage} * #{size}) - (#{size}-1)
 		    AND (#{currentPage} * #{size})
-		]]>
+		ORDER BY U.book_id DESC
 	</select>
 
-	<select id="getBookInfoTotal" resultType="int">
+	<select id="getBookInfoTotal" parameterType="hashMap" resultType="int">
 		SELECT COUNT(*) FROM BOOK_INFO
+		WHERE 1 = 1
+		<include refid="where" />
 	</select>
+
+	<!-- return this.sqlSessionTemplate.selectOne("bookInfo.detailBook", bookId); -->
+	<select id="detailBook" parameterType="String" resultMap="bookInfoMap">
+		SELECT a.book_id, a.name, a.unit_price, a.author, a.description,
+			   a.publisher, a.category, a.units_in_stock, a.total_pages,
+			   a.total_pages, a.release_date, a.condition,
+			   b.seq, b.book_id, b.filename
+		FROM BOOK_INFO a LEFT OUTER JOIN ATTACH b ON (a.book_id = b.book_id)
+		WHERE a.book_id = #{bookId}
+		ORDER BY b.seq DESC
+	</select>
+
+	<!-- 도서 수정 (updateBookPost) -->
+	<update id="updateBookPost" parameterType="bookInfoVO">
+		UPDATE book_info
+		SET NAME=#{name}, unit_price=#{unitPrice}, author=#{author}, publisher=#{publisher},
+		    release_date=#{releaseDate}, units_in_stock=#{unitsInStock}, category=#{category},
+		    description=#{description}, condition=#{condition}, total_pages=#{totalPages}
+		WHERE BOOK_ID = #{bookId}
+	</update>
+
+	<!-- 도서 첨부 파일 수정 -->
+	<!-- 한 권의 도서에 첨부파일이 여러개일 경우 첫번째 첨부파일만 변경 -->
+	<update id="updateAttach" parameterType="attachVO">
+		MERGE INTO ATTACH A
+			USING DUAL ON (A.BOOK_ID = #{bookId})
+			WHEN MATCHED THEN
+				UPDATE
+					SET a.filename = #{filename}
+			WHERE a.seq = (
+				SELECT MIN(b.seq)
+				FROM ATTACH b
+				WHERE b.book_id = a.book_id
+			)
+		WHEN NOT MATCHED THEN
+			INSERT (SEQ, BOOK_ID, FILENAME)
+			VALUES ((SELECT NVL(MAX(seq),0) + 1 FROM ATTACH), #{bookId}, #{filename})
+	</update>
+
+	<!-- 도서 삭제 -->
+	<delete id="deleteBookPost" parameterType="bookInfoVO">
+		DELETE FROM book_info
+		WHERE BOOK_ID = #{bookId}
+	</delete>
 
 </mapper>
 

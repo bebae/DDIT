@@ -3,7 +3,8 @@
 xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
-id="WebApp_ID" version="3.1">
+id="WebApp_ID" version="3.1"
+metadata-complete="true">
 <!-- 
 web.xml : tomcat서버의 설정
 웹 프로젝트의 배포 설명자/배치 기술서(deployment description)이며, 웹 프로젝트가 배포되는 데 이용되는 XML 형식의

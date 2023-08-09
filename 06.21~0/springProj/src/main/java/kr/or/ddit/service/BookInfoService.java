@@ -16,5 +16,11 @@ public interface BookInfoService {
 	// 도서 목록
 	public List<BookInfoVO> listBook(Map<String, Object> map);
 
-	public int getBookInfoTotal();
+	public int getBookInfoTotal(Map<String, Object> map);
+
+	BookInfoVO detailBook(String bookId);
+
+	int updateBookPost(BookInfoVO bookInfoVO);
+
+    int deleteBookPost(BookInfoVO bookInfoVO);
 }
